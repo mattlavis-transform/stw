@@ -25,7 +25,8 @@ class application
         $this->commodity_object = null;
     }
 
-    public function get_json() {
+    public function get_json()
+    {
         $root = "https://www.trade-tariff.service.gov.uk/api/v2/commodities/";
         $url = $root . $this->commodity_code;
         $curl = curl_init();
@@ -72,7 +73,13 @@ class application
         $this->country = $_SESSION["country"];
 
         $this->trade_direction = $_SESSION["trade_direction"];
-        $this->commodity_code = $_SESSION["commodity_code"];
+
+        $var = get_querystring("commodity_code");
+        if ($var != "") {
+            $this->commodity_code = $var;
+        } else {
+            $this->commodity_code = $_SESSION["commodity_code"];
+        }
 
         $this->get_json();
     }
