@@ -2,6 +2,7 @@
     document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
 </script>
 <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+<!--
 <header class="govuk-header " role="banner" data-module="govuk-header">
     <div class="govuk-header__container govuk-width-container">
         <div class="govuk-header__logo">
@@ -25,3 +26,4 @@
         </div>
     </div>
 </header>
+//-->

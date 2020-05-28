@@ -1,3 +1,4 @@
+<!--
 <footer class="govuk-footer " role="contentinfo">
         <div class="govuk-width-container ">
 
@@ -38,7 +39,7 @@
             </div>
         </div>
     </footer>
-
+//-->
 
 
 
