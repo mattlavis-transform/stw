@@ -1,10 +1,10 @@
 <?php
-
+/*
 use Psr\Http\Message\RequestInterface;
 use \PFlorek\BasicAuth\BasicAuth;
 
 var_dump($credentials);
-
+*/
 
 
 require("includes/commodity.php");
