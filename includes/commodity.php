@@ -44,6 +44,7 @@ class commodity
             foreach ($included as $included_item) {
                 if ($included_item["id"] == $import_measure["id"]) {
                     $measure = new measure($included_item, $included);
+                    //pre ($measure->id);
                     array_push($this->import_measures, $measure);
                     break;
                 }
@@ -61,7 +62,8 @@ class commodity
             foreach ($import_measure->measure_conditions as $measure_condition) {
                 //pre ($measure_condition);
                 $document_code = $measure_condition->document_code;
-                if (($import_measure->measure_type_id > 400) && (!in_array($import_measure->measure_type_id, $app->trade_remedies_measure_types ))) {
+                //h1 ($document_code . " : " . $import_measure->measure_type_id);
+                if (!in_array($import_measure->measure_type_id, $app->excluded_measure_types )) {
                     if ($import_measure->applies_to_country($app->country)) {
                         if ($document_code != "") {
                             if (!in_array($document_code, $this->unique_document_codes)) {
@@ -74,7 +76,6 @@ class commodity
                 }
             }
         }
-
-        //pre($this->unique_conditions);
+        //pre($this->unique_document_codes);
     }
 }

@@ -10,8 +10,6 @@ class measure_condition
     public $action;
     public $duty_expression;
     public $measures = [];
-    //public $measure_type_id = "";
-    //public $measure_type_description = "";
 
     public function __construct($json, $included)
     {
@@ -27,7 +25,6 @@ class measure_condition
     {
         foreach ($this->included as $included_item) {
             if (($included_item["id"] == $this->id) && ($included_item["type"] == "measure_condition")) {
-
                 $this->condition_code = $included_item["attributes"]["condition_code"];
                 $this->condition = $included_item["attributes"]["condition"];
                 $this->document_code = $included_item["attributes"]["document_code"];

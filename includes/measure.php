@@ -17,7 +17,6 @@ class measure
 
     public function __construct($json, $included)
     {
-        //pre ($json);
         $this->json = $json;
         $this->included = $included;
         $this->id = $this->json["id"];

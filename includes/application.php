@@ -15,8 +15,8 @@ class application
         $this->trade_direction = "";
         $this->commodity_code = "";
         $this->country = "";
-        $this->trade_remedies_measure_types = array(551, 552, 553, 554, 555, 556, 557, 558, 559, 560, 561, 562, 563);
-        //$this->trade_remedies_measure_types = [];
+        $this->excluded_measure_types = array(103, 105, 122, 123, 130, 131, 132, 133, 142, 143, 145, 146, 551, 552, 553, 554, 555, 556, 557, 558, 559, 560, 561, 562, 563);
+        //$this->excluded_measure_types = [];
 
         if (session_id() == "") {
             session_start();
