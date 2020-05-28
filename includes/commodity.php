@@ -65,9 +65,7 @@ class commodity
 
         foreach ($this->measures as $measure) {
             foreach ($measure->measure_conditions as $measure_condition) {
-                //pre ($measure_condition);
                 $document_code = $measure_condition->document_code;
-                //h1 ($document_code . " : " . $measure->measure_type_id);
                 if (!in_array($measure->measure_type_id, $app->excluded_measure_types )) {
                     if ($measure->applies_to_country($app->country)) {
                         if ($document_code != "") {
@@ -81,6 +79,5 @@ class commodity
                 }
             }
         }
-        //pre($this->unique_document_codes);
     }
 }

@@ -113,6 +113,10 @@ class measure
 
     public function applies_to_country($country)
     {
+        $the_eu = array("FR", "DE", "NL", "BE");
+        if (in_array($country, $the_eu)) {
+            $country = "EU";
+        }
         if (strlen($this->geographical_area_id) == 4) {
             // This is a country group
             $applies = false;

@@ -82,7 +82,12 @@ class application
         $_SESSION["country"] = $var;
         $this->country = $_SESSION["country"];
 
-        $this->trade_direction = $_SESSION["trade_direction"];
+        $var = get_querystring("trade_direction");
+        if ($var != "") {
+            $this->trade_direction = $var;
+        } else {
+            $this->trade_direction = $_SESSION["trade_direction"];
+        }
 
         $var = get_querystring("commodity_code");
         if ($var != "") {
