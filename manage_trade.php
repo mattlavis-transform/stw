@@ -96,48 +96,11 @@ $app->set_country();
                                                 </div>
                                             </details>
                                         </span>
-                                        <p class="app-task-list__task-completed" id="xyz-licence-completed">Not started</p>
+                                        <p class="app-task-list__task-completed" id="xyz-licence-completed"><!--Not started//-->&nbsp;</p>
                                     </li>
                                 <?php
                                 }
                                 ?>
-                                <!--
-                                <li class="app-task-list__item">
-                                    <span class="app-task-list__task-name app-task-list__task-name-break">
-                                        <p>
-                                            <strong><a href="xyz-service-start" aria-describedby="xyz-licence-completed">
-                                                    Get an XYZ licence
-                                                </a></strong>
-                                        </p>
-                                        <p class="govuk-hint">Department for International Trade</p>
-                                    </span>
-                                    <p class="app-task-list__task-completed" id="xyz-licence-completed">Not started</p>
-                                </li>
-
-                                <li class="app-task-list__item">
-                                    <span class="app-task-list__task-name app-task-list__task-name-break">
-                                        <p>
-                                            <strong><a href="abc-service-start" aria-describedby="abc-declaration-completed">
-                                                    Complete an ABC declaration
-                                                </a></strong>
-                                        </p>
-                                        <p class="govuk-hint">HM Revenue and Customs</p>
-                                    </span>
-                                    <p class="app-task-list__task-completed" id="abc-declaration-completed">Not started</p>
-                                </li>
-
-                                <li class="app-task-list__item">
-                                    <span class="app-task-list__task-name app-task-list__task-name-break">
-                                        <p>
-                                            <strong><a href="123-service" aria-describedby="123-certificate-completed">
-                                                    Get a 123 certificate
-                                                </a></strong>
-                                        </p>
-                                        <p class="govuk-hint">Environment Agency</p>
-                                    </span>
-                                    <p class="app-task-list__task-completed" id="123-certificate-completed">Not started</p>
-                                </li>
-                                //-->
                             </ul>
                         </div>
                     </div>
