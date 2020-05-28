@@ -72,6 +72,6 @@ class commodity
             }
         }
 
-        pre($this->unique_conditions);
+        //pre($this->unique_conditions);
     }
 }

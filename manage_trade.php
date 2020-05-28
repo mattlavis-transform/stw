@@ -2,7 +2,7 @@
 require("includes/application.php");
 global $app;
 $app->set_country();
-pre($_SESSION);
+//pre($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="en" class="govuk-template ">

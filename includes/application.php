@@ -35,7 +35,7 @@ class application
 
         $this->commodity_object = new commodity($this->commodity_code, $json);
 
-        pre ($url);
+        //pre ($url);
     }
 
     public function set_trade_direction()

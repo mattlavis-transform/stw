@@ -36,7 +36,7 @@ $app->set_trade_direction();
     <div class="govuk-width-container ">
         <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
             <div class="govuk-width-container">
-                <a href="sign-in" class="govuk-back-link">Back</a>
+                <a href="/" class="govuk-back-link">Back</a>
                 <main class="govuk-main-wrapper">
 
                     <div class="govuk-grid-row">
