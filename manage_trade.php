@@ -37,7 +37,7 @@ $app->set_country();
     <div class="govuk-width-container ">
         <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
             <div class="govuk-width-container">
-                <a href="sign-in" class="govuk-back-link">Back</a>
+                <a href="choose_country" class="govuk-back-link">Back</a>
                 <main class="govuk-main-wrapper">
 
                     <div class="govuk-grid-row">
