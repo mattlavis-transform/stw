@@ -2,7 +2,7 @@
 require("includes/application.php");
 global $app;
 $app->set_country();
-//pre($_SESSION);
+$app->get_trade_direction_message();
 ?>
 <!DOCTYPE html>
 <html lang="en" class="govuk-template ">
@@ -46,8 +46,7 @@ $app->set_country();
                             <h1 class="govuk-heading-xl">
                                 Manage this trade
                             </h1>
-                            <p class="govuk-body-l">You need to complete these requirements to import commodity code
-                                <?= $app->commodity_object->commodity_code ?> (<?= $app->commodity_object->description ?>) into the United Kingdom from <?= $app->country ?>.</p>
+                            <p class="govuk-body-l"><?= $app->manage_message ?></p>
                             <ul class="app-task-list app-task-list__shortened">
                                 <?php
                                 foreach ($app->commodity_object->unique_conditions as $measure_condition) {
@@ -96,7 +95,8 @@ $app->set_country();
                                                 </div>
                                             </details>
                                         </span>
-                                        <p class="app-task-list__task-completed" id="xyz-licence-completed"><!--Not started//-->&nbsp;</p>
+                                        <p class="app-task-list__task-completed" id="xyz-licence-completed">
+                                            <!--Not started//-->&nbsp;</p>
                                     </li>
                                 <?php
                                 }

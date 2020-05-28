@@ -91,17 +91,44 @@ class application
             $this->commodity_code = $_SESSION["commodity_code"];
         }
 
+        $this->get_geographical_areas();
         $this->get_json();
     }
 
-    public function get_trade_direction_message() {
+    public function get_geographical_areas()
+    {
+        $url = __DIR__ . "/../data/geographical_areas.json";
+        $output = file_get_contents($url);
+        $json = json_decode($output, true);
+        $this->geographical_areas = $json["data"];
+    }
+
+    public function get_geographical_area()
+    {
+        $index = array_search($this->country, array_column($this->geographical_areas, "id"));
+        if ($index !== false) {
+            $description = $this->geographical_areas[$index]["attributes"]["description"];
+            return ($description);
+        } else {
+            return ("");
+        }
+    }
+
+    public function get_trade_direction_message()
+    {
         if ($this->trade_direction == "importing") {
             $this->trade_direction_message = "Which country are the imported goods from?";
             $this->commodity_message = "What is the commodity code for the goods you wish to import?";
+            $this->manage_message = "You need to complete these requirements to import commodity code {{comm_code}} ({{comm_code_description}}) into the United Kingdom from {{country}}.";
         } else {
             $this->trade_direction_message = "To which country will the goods be exported?";
             $this->commodity_message = "What is the commodity code for the goods you wish to export?";
+            $this->manage_message = "You need to complete these requirements to export commodity code {{comm_code}} ({{comm_code_description}}) from the United Kingdom into {{country}}.";
         }
+
+        $this->manage_message = str_replace("{{comm_code}}", $this->commodity_object->commodity_code, $this->manage_message);
+        $this->manage_message = str_replace("{{comm_code_description}}", $this->commodity_object->description, $this->manage_message);
+        $this->manage_message = str_replace("{{country}}", $this->get_geographical_area(), $this->manage_message);
     }
 }
 
