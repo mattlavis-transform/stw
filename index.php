@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <title>
-    Single Trade Window - choose trade direction
+    STW - Data demo - choose trade direction
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#0b0c0c" />
@@ -45,14 +45,14 @@
                                         </legend>
                                         <div class="govuk-radios">
                                             <div class="govuk-radios__item">
-                                                <input class="govuk-radios__input" id="type-of-trade-2" name="type-of-trade" type="radio" value="importing">
-                                                <label class="govuk-label govuk-radios__label" for="type-of-trade-2">
+                                                <input class="govuk-radios__input" id="trade_direction-2" name="trade_direction" type="radio" value="importing">
+                                                <label class="govuk-label govuk-radios__label" for="trade_direction-2">
                                                     Import goods into the UK
                                                 </label>
                                             </div>
                                             <div class="govuk-radios__item">
-                                                <input class="govuk-radios__input" id="type-of-trade" name="type-of-trade" type="radio" value="exporting">
-                                                <label class="govuk-label govuk-radios__label" for="type-of-trade">
+                                                <input class="govuk-radios__input" id="trade_direction" name="trade_direction" type="radio" value="exporting">
+                                                <label class="govuk-label govuk-radios__label" for="trade_direction">
                                                     Export goods from the UK
                                                 </label>
                                             </div>

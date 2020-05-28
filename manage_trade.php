@@ -10,7 +10,7 @@ $app->set_country();
 <head>
     <meta charset="utf-8" />
     <title>
-        Single Trade Window - manage trade
+        STW - Data demo - manage trade
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#0b0c0c" />
@@ -37,11 +37,12 @@ $app->set_country();
     <div class="govuk-width-container ">
         <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
             <div class="govuk-width-container">
-                <a href="choose_country" class="govuk-back-link">Back</a>
+                <a href="choose_country.html" class="govuk-back-link">Back</a>
                 <main class="govuk-main-wrapper">
 
                     <div class="govuk-grid-row">
-                        <div class="govuk-grid-column-two-thirds">
+                        <!--<div class="govuk-grid-column-two-thirds">//-->
+                        <div class="govuk-grid-column-full">
                             <h1 class="govuk-heading-xl">
                                 Manage this trade
                             </h1>
@@ -55,11 +56,45 @@ $app->set_country();
                                         <span class="app-task-list__task-name app-task-list__task-name-break">
                                             <p>
                                                 <strong><a href="#" aria-describedby="xyz-licence-completed">
-                                                        <?=$measure_condition->document_code?>
+                                                        <?= $measure_condition->document_code ?>
                                                     </a></strong>
                                             </p>
-                                            <p class="govuk-hint"><?=$measure_condition->requirement?></p>
+                                            <p class="govuk-hint"><?= $measure_condition->requirement ?></p>
                                             <p class="govuk-hint">Name of department goes here</p>
+                                            <details class="govuk-details" data-module="govuk-details" style="width:100% !important">
+                                                <summary class="govuk-details__summary">
+                                                    <span class="govuk-details__summary-text">
+                                                        More details on this document code
+                                                    </span>
+                                                </summary>
+                                                <div class="govuk-details__text" style="width:100% !important">
+                                                    This document code is used in the following measures:
+                                                    <table class="govuk-table" style="width:100% !important">
+                                                        <caption class="govuk-table__caption" style="display:none">Measures</caption>
+                                                        <thead class="govuk-table__head">
+                                                            <tr class="govuk-table__row">
+                                                                <th scope="col" class="govuk-table__header">ID</th>
+                                                                <th scope="col" class="govuk-table__header">Measure type</th>
+                                                                <th scope="col" class="govuk-table__header">Geography</th>
+                                                                <th scope="col" class="govuk-table__header">Exclusions</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <?php
+                                                        foreach ($measure_condition->measures as $measure) {
+                                                        ?>
+                                                            <tr class="govuk-table__row">
+                                                                <td class="govuk-table__cell"><?= $measure->id ?></td>
+                                                                <td class="govuk-table__cell"><strong><?= $measure->measure_type_id ?></strong> <?= $measure->measure_type_description ?></td>
+                                                                <td class="govuk-table__cell"><strong><?= $measure->geographical_area_id ?></strong> <?= $measure->geographical_area_description ?></td>
+                                                                <td nowrap class="govuk-table__cell"><?= $measure->exclusions ?></td>
+                                                            </tr>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </details>
                                         </span>
                                         <p class="app-task-list__task-completed" id="xyz-licence-completed">Not started</p>
                                     </li>

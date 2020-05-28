@@ -11,7 +11,9 @@ class measure
     public $effective_start_date;
     public $effective_end_date;
     public $excluded_countries = [];
+    public $exclusions = "";
     public $measure_conditions = [];
+    public $members = [];
 
     public function __construct($json, $included)
     {
@@ -39,11 +41,42 @@ class measure
     function get_geographical_area()
     {
         $this->geographical_area_id = $this->json["relationships"]["geographical_area"]["data"]["id"];
+        if (strlen($this->geographical_area_id) == 4) {
+            $this->get_geographical_area_members();
+        }
         $this->get_geographical_area_description();
     }
 
-    function get_excluded_countries () {
-        $this->excluded_countries = $this->json["relationships"]["excluded_countries"]["data"];
+    function get_geographical_area_members()
+    {
+        foreach ($this->included as $included_item) {
+            if ($included_item["id"] == $this->geographical_area_id) {
+                if ($included_item["type"] == "geographical_area") {
+                    $members = $included_item["relationships"]["children_geographical_areas"]["data"];
+                    foreach ($members as $member) {
+                        array_push($this->members, $member["id"]);
+                    }
+                    //pre ($this->members);
+                    break;
+                }
+            }
+        }
+    }
+
+    function get_excluded_countries()
+    {
+        $excluded_countries = $this->json["relationships"]["excluded_countries"]["data"];
+        foreach ($excluded_countries as $exclusion) {
+            array_push($this->excluded_countries, $exclusion["id"]);
+        }
+
+        $this->exclusions = "";
+        foreach ($this->excluded_countries as $exclusion) {
+            //pre ($exclusion);
+            $this->exclusions .= $exclusion . ", ";
+        }
+        $this->exclusions = rtrim($this->exclusions);
+        $this->exclusions = rtrim($this->exclusions, ",");
     }
 
     function get_measure_type_description()
@@ -68,20 +101,28 @@ class measure
         }
     }
 
-    function get_measure_conditions() {
+    function get_measure_conditions()
+    {
         $measure_conditions = $this->json["relationships"]["measure_conditions"]["data"];
         if (count($measure_conditions) > 0) {
             foreach ($measure_conditions as $measure_condition) {
                 $measure_condition = new measure_condition($measure_condition, $this->included);
-                array_push ($this->measure_conditions, $measure_condition);
+                array_push($this->measure_conditions, $measure_condition);
             }
         }
     }
 
-    public function applies_to_country($country) {
+    public function applies_to_country($country)
+    {
         if (strlen($this->geographical_area_id) == 4) {
             // This is a country group
-            return (true);
+            $applies = false;
+            if (in_array($country, $this->members)) {
+                if (!in_array($country, $this->excluded_countries)) {
+                    $applies = true;
+                }
+            }
+            return ($applies);
         } else {
             // This is a country
             if ($this->geographical_area_id == $country) {

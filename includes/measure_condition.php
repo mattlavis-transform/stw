@@ -9,6 +9,9 @@ class measure_condition
     public $requirement;
     public $action;
     public $duty_expression;
+    public $measures = [];
+    //public $measure_type_id = "";
+    //public $measure_type_description = "";
 
     public function __construct($json, $included)
     {

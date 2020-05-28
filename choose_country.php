@@ -9,7 +9,7 @@ $app->set_commodity_code();
 <head>
     <meta charset="utf-8" />
     <title>
-        Single Trade Window - choose country
+        STW - Data demo - choose country
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#0b0c0c" />
@@ -332,6 +332,8 @@ $app->set_commodity_code();
                                     <button class="govuk-button">Continue</button>
 
                                 </fieldset>
+                                <input type="hidden" value="<?=$app->trade_direction?>" name="trade_direction" />
+                                <input type="hidden" value="<?=$app->commodity_code?>" name="commodity_code" />
                             </form>
                         </div>
                     </div>

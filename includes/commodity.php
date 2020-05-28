@@ -61,11 +61,14 @@ class commodity
             foreach ($import_measure->measure_conditions as $measure_condition) {
                 //pre ($measure_condition);
                 $document_code = $measure_condition->document_code;
-                if ($import_measure->applies_to_country($app->country)) {
-                    if ($document_code != "") {
-                        if (!in_array($document_code, $this->unique_document_codes)) {
-                            array_push($this->unique_document_codes, $document_code);
-                            array_push($this->unique_conditions, $measure_condition);
+                if (($import_measure->measure_type_id > 400) && (!in_array($import_measure->measure_type_id, $app->trade_remedies_measure_types ))) {
+                    if ($import_measure->applies_to_country($app->country)) {
+                        if ($document_code != "") {
+                            if (!in_array($document_code, $this->unique_document_codes)) {
+                                array_push($this->unique_document_codes, $document_code);
+                                array_push($this->unique_conditions, $measure_condition);
+                                array_push($measure_condition->measures, $import_measure);
+                            }
                         }
                     }
                 }

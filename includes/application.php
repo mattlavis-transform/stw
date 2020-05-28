@@ -15,6 +15,8 @@ class application
         $this->trade_direction = "";
         $this->commodity_code = "";
         $this->country = "";
+        $this->trade_remedies_measure_types = array(551, 552, 553, 554, 555, 556, 557, 558, 559, 560, 561, 562, 563);
+        //$this->trade_remedies_measure_types = [];
 
         if (session_id() == "") {
             session_start();
@@ -40,7 +42,7 @@ class application
 
     public function set_trade_direction()
     {
-        $var = get_querystring("type-of-trade");
+        $var = get_querystring("trade_direction");
         $_SESSION["trade_direction"] = $var;
         $this->trade_direction = $var;
 
