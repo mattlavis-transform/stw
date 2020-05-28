@@ -61,7 +61,7 @@ $app->set_country();
                                             </p>
                                             <p class="govuk-hint"><?= $measure_condition->requirement ?></p>
                                             <p class="govuk-hint">Name of department goes here</p>
-                                            <details class="govuk-details" data-module="govuk-details" style="width:100% !important">
+                                            <details class="govuk-details" data-module="govuk-details" style="width:100% !important" open>
                                                 <summary class="govuk-details__summary">
                                                     <span class="govuk-details__summary-text">
                                                         More details on this document code
