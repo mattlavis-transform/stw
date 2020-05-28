@@ -55,7 +55,7 @@
                     }
                 ]
             },
-            "import_measures": {
+            "measures": {
                 "data": [
                     {
                         "id": "-541122",

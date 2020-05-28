@@ -2,6 +2,7 @@
 require("includes/application.php");
 global $app;
 $app->set_commodity_code();
+$app->get_trade_direction_message();
 ?>
 <!DOCTYPE html>
 <html lang="en" class="govuk-template ">
@@ -38,17 +39,15 @@ $app->set_commodity_code();
             <div class="govuk-width-container">
                 <a href="/choose_commodity.html" class="govuk-back-link">Back</a>
                 <main class="govuk-main-wrapper">
-
                     <div class="govuk-grid-row">
                         <div class="govuk-grid-column-two-thirds">
                             <form action="manage_trade.html" method="get">
                                 <fieldset class="govuk-fieldset">
                                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
                                         <h1 class="govuk-fieldset__heading">
-                                            Which country are the imported goods from?
+                                            <?= $app->trade_direction_message ?>
                                         </h1>
                                     </legend>
-
                                     <div class="govuk-form-group ">
                                         <select id="location-autocomplete" class="autocomplete__input autocomplete__input--default" name="country">
                                             <option value="" disabled="" selected="">Pick an option</option>
@@ -325,8 +324,8 @@ $app->set_commodity_code();
                                     <button class="govuk-button">Continue</button>
 
                                 </fieldset>
-                                <input type="hidden" value="<?=$app->trade_direction?>" name="trade_direction" />
-                                <input type="hidden" value="<?=$app->commodity_code?>" name="commodity_code" />
+                                <input type="hidden" value="<?= $app->trade_direction ?>" name="trade_direction" />
+                                <input type="hidden" value="<?= $app->commodity_code ?>" name="commodity_code" />
                             </form>
                         </div>
                     </div>

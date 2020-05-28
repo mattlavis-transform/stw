@@ -2,6 +2,7 @@
 require("includes/application.php");
 global $app;
 $app->set_trade_direction();
+$app->get_trade_direction_message();
 ?>
 <!DOCTYPE html>
 <html lang="en" class="govuk-template ">
@@ -45,7 +46,7 @@ $app->set_trade_direction();
                                 <fieldset class="govuk-fieldset">
                                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
                                         <h1 class="govuk-fieldset__heading">
-                                            What is the commodity code for the goods you wish to import?
+                                            <?= $app->commodity_message ?>
                                         </h1>
                                     </legend>
                                     <div class="govuk-form-group ">
@@ -63,7 +64,7 @@ $app->set_trade_direction();
                                     </div>
                                     <button class="govuk-button">Continue</button>
                                 </fieldset>
-                                <input type="hidden" value="<?=$app->trade_direction?>" name="trade_direction" />
+                                <input type="hidden" value="<?= $app->trade_direction ?>" name="trade_direction" />
                             </form>
                         </div>
                     </div>

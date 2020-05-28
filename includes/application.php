@@ -64,6 +64,8 @@ class application
 
     public function set_commodity_code()
     {
+        $this->trade_direction = $_SESSION["trade_direction"];
+
         $var = get_querystring("commodity_code");
         $_SESSION["commodity_code"] = $var;
         $this->commodity_code = $var;
@@ -90,6 +92,16 @@ class application
         }
 
         $this->get_json();
+    }
+
+    public function get_trade_direction_message() {
+        if ($this->trade_direction == "importing") {
+            $this->trade_direction_message = "Which country are the imported goods from?";
+            $this->commodity_message = "What is the commodity code for the goods you wish to import?";
+        } else {
+            $this->trade_direction_message = "To which country will the goods be exported?";
+            $this->commodity_message = "What is the commodity code for the goods you wish to export?";
+        }
     }
 }
 

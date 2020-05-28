@@ -8,8 +8,7 @@ class commodity
     public $number_indents;
     public $productline_suffix;
     public $declarable;
-    public $import_measures = [];
-    public $export_measures = [];
+    public $measures = [];
     public $unique_document_codes = [];
     public $unique_conditions = [];
 
@@ -23,29 +22,35 @@ class commodity
         $this->declarable = $this->json["data"]["attributes"]["declarable"];
 
         $this->get_ancestors();
-        $this->get_import_measures();
+        $this->get_measures();
     }
 
     public function get_ancestors()
     {
     }
 
-    public function get_import_measures()
+    public function get_measures()
     {
+        global $app;
         try {
-            $import_measures = $this->json["data"]["relationships"]["import_measures"]["data"];
+            if ($app->trade_direction == "importing") {
+                $measures = $this->json["data"]["relationships"]["import_measures"]["data"];
+            } else {
+                $measures = $this->json["data"]["relationships"]["export_measures"]["data"];
+            }
+            
         } catch (exception $e) {
-            $import_measures = [];
+            $measures = [];
         }
 
         $included = $this->json["included"];
 
-        foreach ($import_measures as $import_measure) {
+        foreach ($measures as $measure) {
             foreach ($included as $included_item) {
-                if ($included_item["id"] == $import_measure["id"]) {
+                if ($included_item["id"] == $measure["id"]) {
                     $measure = new measure($included_item, $included);
                     //pre ($measure->id);
-                    array_push($this->import_measures, $measure);
+                    array_push($this->measures, $measure);
                     break;
                 }
             }
@@ -58,18 +63,18 @@ class commodity
     {
         global $app;
 
-        foreach ($this->import_measures as $import_measure) {
-            foreach ($import_measure->measure_conditions as $measure_condition) {
+        foreach ($this->measures as $measure) {
+            foreach ($measure->measure_conditions as $measure_condition) {
                 //pre ($measure_condition);
                 $document_code = $measure_condition->document_code;
-                //h1 ($document_code . " : " . $import_measure->measure_type_id);
-                if (!in_array($import_measure->measure_type_id, $app->excluded_measure_types )) {
-                    if ($import_measure->applies_to_country($app->country)) {
+                //h1 ($document_code . " : " . $measure->measure_type_id);
+                if (!in_array($measure->measure_type_id, $app->excluded_measure_types )) {
+                    if ($measure->applies_to_country($app->country)) {
                         if ($document_code != "") {
                             if (!in_array($document_code, $this->unique_document_codes)) {
                                 array_push($this->unique_document_codes, $document_code);
                                 array_push($this->unique_conditions, $measure_condition);
-                                array_push($measure_condition->measures, $import_measure);
+                                array_push($measure_condition->measures, $measure);
                             }
                         }
                     }
