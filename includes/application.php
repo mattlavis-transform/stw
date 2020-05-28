@@ -34,6 +34,8 @@ class application
         curl_close($curl);
 
         $this->commodity_object = new commodity($this->commodity_code, $json);
+
+        pre ($json);
     }
 
     public function set_trade_direction()
