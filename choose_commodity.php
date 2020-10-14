@@ -35,6 +35,9 @@ $app->get_trade_direction_message();
     require("includes/header.php");
     ?>
     <div class="govuk-width-container ">
+    <?php
+        require("includes/banner.php");
+        ?>
         <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
             <div class="govuk-width-container">
                 <a href="/" class="govuk-back-link">Back</a>

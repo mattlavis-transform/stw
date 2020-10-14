@@ -14,6 +14,7 @@ $app = new application();
 class application
 {
     // Class properties and methods go here
+    public $phase;
     public $commodity_code;
     public $trade_direction;
     public $country;
@@ -23,6 +24,7 @@ class application
     public function __construct()
     {
         //$this->commodity_object = new commodity("", null);
+        $this->phase = "experimental";
         $this->trade_direction = "";
         $this->commodity_code = "";
         $this->country = "";

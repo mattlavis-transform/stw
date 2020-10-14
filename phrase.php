@@ -12,7 +12,7 @@ $app->get_folders();
 <head>
     <meta charset="utf-8">
     <title>
-    Check what steps to take to move goods into or out of the UK
+        Check what steps to take to move goods into or out of the UK
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#0b0c0c">
@@ -50,22 +50,9 @@ $app->get_folders();
 
 
     <div class="govuk-width-container ">
-
-        <div class="govuk-width-container">
-
-            <div class="govuk-phase-banner">
-                <p class="govuk-phase-banner__content">
-                    <strong class="govuk-tag govuk-phase-banner__content__tag">
-                        alpha
-                    </strong>
-                    <span class="govuk-phase-banner__text">
-                        This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
-                    </span>
-                </p>
-            </div>
-
-        </div>
-
+        <?php
+        require("includes/banner.php");
+        ?>
         <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
 
 
@@ -195,9 +182,9 @@ $app->get_folders();
                                             </h2>
                                         </div>
                                         <div id="before-you-import-content" class="govuk-accordion__section-content" aria-labelledby="before-you-import-heading">
-<?php
-    $app->commodity_object->get_certificates("certificates", "AB");
-?>
+                                            <?php
+                                            $app->commodity_object->get_certificates("certificates", "AB");
+                                            ?>
                                         </div>
                                     </div>
                                     <div class="govuk-accordion__section govuk-accordion__section--expanded">
@@ -209,9 +196,9 @@ $app->get_folders();
                                             </h2>
                                         </div>
                                         <div id="before-you-import-content" class="govuk-accordion__section-content" aria-labelledby="before-you-import-heading">
-<?php
-    $app->commodity_object->get_certificates("quotas", "C", "122,123,143,146");
-?>
+                                            <?php
+                                            $app->commodity_object->get_certificates("quotas", "C", "122,123,143,146");
+                                            ?>
                                         </div>
                                     </div>
                                     <div class="govuk-accordion__section ">

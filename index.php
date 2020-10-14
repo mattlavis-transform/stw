@@ -1,3 +1,7 @@
+<?php
+require("includes/application.php");
+global $app;
+?>
 <!DOCTYPE html>
 <html lang="en" class="govuk-template ">
 
@@ -29,6 +33,9 @@
     require("includes/header.php");
     ?>
     <div class="govuk-width-container ">
+    <?php
+        require("includes/banner.php");
+        ?>
         <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
             <div class="govuk-width-container">
                 <!--<a href="sign-in" class="govuk-back-link">Back</a>//-->
