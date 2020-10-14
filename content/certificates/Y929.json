@@ -1,6 +1,8 @@
 {
-    "step_description": "Your trade may be exempt from this requirement if your good is not considered to be organic, in which case you must remove all reference to organic from the packaging and enter the value Y929 in box 44 of your declaration form. ",
-    "step_howto_description": "See for more information on exemptions.",
-    "step_url": "https://www.google.com"
+    "step_original": "",
+    "step_description": "Your trade may be exempt from this requirement if your good is not considered to be organic, in which case you must remove all reference to organic from the packaging.",
+    "xstep_howto_description": "See for more information on exemptions.",
+    "step_howto_description": "",
+    "step_url": ""
 }
 

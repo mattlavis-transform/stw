@@ -12,7 +12,7 @@ $app->get_folders();
 <head>
     <meta charset="utf-8">
     <title>
-        Check what steps you need to take to move goods in or out of the UK
+    Check what steps to take to move goods into or out of the UK
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#0b0c0c">

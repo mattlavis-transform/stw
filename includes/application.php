@@ -17,6 +17,7 @@ class application
     public $commodity_code;
     public $trade_direction;
     public $country;
+    public $country_description;
     public $measure_action_codes;
 
     public function __construct()
@@ -126,6 +127,14 @@ class application
         $output = file_get_contents($url);
         $json = json_decode($output, true);
         $this->geographical_areas = $json["data"];
+        $this->get_country_description();
+    }
+
+    public function get_country_description() {
+        foreach ($this->geographical_areas as $ga) {
+            
+        }
+
     }
 
     public function get_geographical_area()

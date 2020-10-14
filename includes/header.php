@@ -21,7 +21,7 @@
         </div>
         <div class="govuk-header__content">
             <a href="/" class="govuk-header__link govuk-header__link--service-name">
-                Check what steps you need to take to move goods in or out of the UK
+            Check what steps to take to move goods into or out of the UK
             </a>
         </div>
     </div>
