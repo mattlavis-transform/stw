@@ -1,0 +1,14 @@
+[
+	{
+		"unit" : "KILOGRAM",
+		"verb" : "weigh"
+	},
+	{
+		"unit" : "Kilogram",
+		"verb" : "weigh"
+	},
+	{
+		"unit" : "Litre",
+		"verb" : "have a volume of"
+	}
+]

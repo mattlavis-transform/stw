@@ -1,0 +1,127 @@
+[
+	{
+		"action_code" : "01",
+		"description" : "Apply the amount of the action (see components)",
+		"positive" : true
+	},
+	{
+		"action_code" : "02",
+		"description" : "Apply the difference between the amount of the action (see components) and the price at import",
+		"positive" : true
+	},
+	{
+		"action_code" : "03",
+		"description" : "Apply the difference between the amount of the action (see components) and CIF price",
+		"positive" : true
+	},
+	{
+		"action_code" : "04",
+		"description" : "The entry into free circulation is not allowed",
+		"positive" : false
+	},
+	{
+		"action_code" : "05",
+		"description" : "Export is not allowed",
+		"positive" : false
+	},
+	{
+		"action_code" : "06",
+		"description" : "Import is not allowed",
+		"positive" : false
+	},
+	{
+		"action_code" : "07",
+		"description" : "Measure not applicable",
+		"positive" : false
+	},
+	{
+		"action_code" : "08",
+		"description" : "Declared subheading not allowed",
+		"positive" : false
+	},
+	{
+		"action_code" : "09",
+		"description" : "Import\/export not allowed after control",
+		"positive" : false
+	},
+	{
+		"action_code" : "10",
+		"description" : "Declaration to be corrected  - box 33, 37, 38, 41 or 46 incorrect",
+		"positive" : false
+	},
+	{
+		"action_code" : "11",
+		"description" : "Apply the difference between the amount of the action (see components) and the free at frontier price before duty",
+		"positive" : true
+	},
+	{
+		"action_code" : "12",
+		"description" : "Apply the difference between the amount of the action (see components) and the CIF price before duty",
+		"positive" : true
+	},
+	{
+		"action_code" : "13",
+		"description" : "Apply the difference between the amount of the action (see components) and the CIF price augmented with the duty to be paid per tonne",
+		"positive" : true
+	},
+	{
+		"action_code" : "14",
+		"description" : "The exemption\/reduction of the anti-dumping duty is not applicable",
+		"positive" : false
+	},
+	{
+		"action_code" : "15",
+		"description" : "Apply the difference between the amount of the action (see components) and the price augmented with the countervailing duty (3,8%)",
+		"positive" : true
+	},
+	{
+		"action_code" : "16",
+		"description" : "Export refund not applicable",
+		"positive" : false
+	},
+	{
+		"action_code" : "24",
+		"description" : "Entry into free circulation allowed",
+		"positive" : true
+	},
+	{
+		"action_code" : "25",
+		"description" : "Export allowed",
+		"positive" : true
+	},
+	{
+		"action_code" : "26",
+		"description" : "Import allowed",
+		"positive" : true
+	},
+	{
+		"action_code" : "27",
+		"description" : "Apply the mentioned duty",
+		"positive" : true
+	},
+	{
+		"action_code" : "28",
+		"description" : "Declared subheading allowed",
+		"positive" : true
+	},
+	{
+		"action_code" : "29",
+		"description" : "Import\/export allowed after control",
+		"positive" : true
+	},
+	{
+		"action_code" : "30",
+		"description" : "Suspicious case",
+		"positive" : true
+	},
+	{
+		"action_code" : "34",
+		"description" : "Apply exemption\/reduction of the anti-dumping duty",
+		"positive" : true
+	},
+	{
+		"action_code" : "36",
+		"description" : "Apply export refund",
+		"positive" : true
+	}
+]

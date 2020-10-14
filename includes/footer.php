@@ -1,4 +1,3 @@
-<!--
 <footer class="govuk-footer " role="contentinfo">
         <div class="govuk-width-container ">
 
@@ -15,11 +14,13 @@
                             </a>
                         </li>
 
+                        <!--
                         <li class="govuk-footer__inline-list-item">
                             <a class="govuk-footer__link" href="/prototype-admin/clear-data">
                                 Clear data
                             </a>
                         </li>
+                        //-->
 
                     </ul>
 
@@ -39,10 +40,6 @@
             </div>
         </div>
     </footer>
-//-->
-
-
-
 
     <!-- Javascript -->
     <script src="/public/javascripts/jquery-1.11.3.js"></script>
@@ -52,7 +49,12 @@
 
 
     <script src="/public/javascripts/application.js"></script>
+    <script src="/public/javascripts/feedback.js"></script>
 
+    <script>
+        var feedback = new GOVUK.Modules.Feedback()
+        feedback.start($('.gem-c-feedback'))
+    </script>
 
     <script src="/public/javascripts/auto-store-data.js"></script>
     <script type="text/javascript" src="/public/location-autocomplete.min.js"></script>

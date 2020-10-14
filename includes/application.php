@@ -17,9 +17,11 @@ class application
     public $commodity_code;
     public $trade_direction;
     public $country;
+    public $measure_action_codes;
 
     public function __construct()
     {
+        //$this->commodity_object = new commodity("", null);
         $this->trade_direction = "";
         $this->commodity_code = "";
         $this->country = "";
@@ -31,6 +33,24 @@ class application
         }
 
         $this->commodity_object = null;
+        $this->get_measure_action_codes();
+        $this->get_threshold_units();
+    }
+
+    public function get_measure_action_codes()
+    {
+        $url = __DIR__ . "/../data/measure_action_codes.json";
+        $output = file_get_contents($url);
+        $json = json_decode($output, true);
+        $this->measure_action_codes = $json; //["data"];
+    }
+
+    public function get_threshold_units()
+    {
+        $url = __DIR__ . "/../data/threshold_units.json";
+        $output = file_get_contents($url);
+        $json = json_decode($output, true);
+        $this->threshold_units = $json; //["data"];
     }
 
     public function get_json()
@@ -119,7 +139,7 @@ class application
         }
     }
 
-    public function get_trade_direction_message()
+    public function get_trade_direction_message($type = 0)
     {
         if ($this->trade_direction == "importing") {
             $this->trade_direction_message = "Which country are the imported goods from?";
@@ -131,9 +151,41 @@ class application
             $this->manage_message = "You need to complete these requirements to export commodity code {{comm_code}} ({{comm_code_description}}) from the United Kingdom into {{country}}.";
         }
 
-        $this->manage_message = str_replace("{{comm_code}}", $this->commodity_object->commodity_code, $this->manage_message);
-        $this->manage_message = str_replace("{{comm_code_description}}", $this->commodity_object->description, $this->manage_message);
-        $this->manage_message = str_replace("{{country}}", $this->get_geographical_area(), $this->manage_message);
+        if ($type == 1) {
+            $this->manage_message = str_replace("{{comm_code}}", $this->commodity_object->commodity_code, $this->manage_message);
+            $this->manage_message = str_replace("{{comm_code_description}}", $this->commodity_object->description, $this->manage_message);
+            $this->manage_message = str_replace("{{country}}", $this->get_geographical_area(), $this->manage_message);
+        }
+    }
+
+    public function get_folders()
+    {
+        $this->content_folder = $_SERVER['DOCUMENT_ROOT'] . "/content/";
+        $this->certificate_content_folder = $this->content_folder . "certificates/";
+        $this->measure_type_content_folder = $this->content_folder . "measure_types/";
+    }
+
+    public function get_templates()
+    {
+        $this->template_folder = $_SERVER['DOCUMENT_ROOT'] . "/templates/";
+        $this->template_measure = $this->get_file($this->template_folder, "measure");
+        $this->template_condition = $this->get_file($this->template_folder, "condition");
+        $this->template_certificates_intro = $this->get_file($this->template_folder, "certificates_intro");
+    }
+
+    public static function get_file($folder, $file, $extension = ".html")
+    {
+        error_reporting(0);
+        $filename = $folder . $file . $extension;
+        try {
+            $myfile = fopen($filename, "r");
+            $content = fread($myfile, filesize($filename));
+            fclose($myfile);
+        } catch (exception $e) {
+            $content = "";
+        }
+        error_reporting(E_ALL);
+        return ($content);
     }
 }
 
@@ -238,3 +290,23 @@ function h1($s)
 {
     echo ("<h1>" . $s . "</h1>");
 }
+function conjunto($dados)
+{
+    return array_map("unserialize", array_unique(array_map("serialize", $dados)));
+}
+
+function set($array)
+{
+    $out = array();
+    foreach ($array as $item) {
+        if (!in_array($item, $out)) {
+            array_push($out, $item);
+        }
+    }
+    return ($out);
+}
+
+function document_code_sorter($object1, $object2) { 
+    return $object1->instance_count > $object2->instance_count; 
+}
+

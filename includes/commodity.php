@@ -32,6 +32,7 @@ class commodity
     public function get_measures()
     {
         global $app;
+
         try {
             if ($app->trade_direction == "importing") {
                 $measures = $this->json["data"]["relationships"]["import_measures"]["data"];
@@ -56,7 +57,7 @@ class commodity
             }
         }
 
-        $this->rationalise_document_codes();
+        //$this->rationalise_document_codes();
     }
 
     function rationalise_document_codes()
@@ -76,6 +77,24 @@ class commodity
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+
+    function get_certificates() {
+        global $app;
+
+        $output = $app->template_certificates_intro;
+        $output = str_replace("{{ commodity }}", $app->commodity_code, $output);
+        $output = str_replace("{{ country }}", $app->country, $output);
+
+        echo ($output);
+
+        foreach ($this->measures as $measure) {
+            if ($measure->relevant) {
+                if ($measure->valid_measure_type()) {
+                    $measure->get_phrase();
                 }
             }
         }
