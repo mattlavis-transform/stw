@@ -9,6 +9,7 @@ class measure
     public $measure_type_description;
     public $measure_type_overlay = "";
     public $measure_type_sub_text = "";
+    public $order_number = null;
     public $measure_type_series_id;
     public $geographical_area_id;
     public $geographical_area_description;
@@ -32,6 +33,7 @@ class measure
 
         $this->get_measure_type();
         $this->get_geographical_area();
+        $this->get_order_number();
         $this->get_excluded_countries();
         $this->relevant = $this->applies_to_country($app->country);
 
@@ -55,6 +57,13 @@ class measure
             $this->get_geographical_area_members();
         }
         $this->get_geographical_area_description();
+    }
+
+    function get_order_number()
+    {
+        error_reporting(0);
+        $this->order_number = $this->json["relationships"]["order_number"]["data"]["id"];
+        error_reporting(E_ALL);
     }
 
     function get_geographical_area_members()
@@ -121,13 +130,22 @@ class measure
         }
     }
 
-    public function valid_measure_type()
+    public function valid_measure_type($include, $measure_types)
     {
-        $valid_array = array("A", "B");
-        if (in_array($this->measure_type_series_id, $valid_array)) {
-            return (true);
+        if ($measure_types == "") {
+            $measure_type_series_ids = str_split($include, 1);
+            if (in_array($this->measure_type_series_id, $measure_type_series_ids)) {
+                return (true);
+            } else {
+                return (false);
+            }
         } else {
-            return (false);
+            $measure_types = explode(",", $measure_types);
+            if (in_array($this->measure_type_id, $measure_types)) {
+                return (true);
+            } else {
+                return (false);
+            }
         }
     }
 
@@ -156,18 +174,31 @@ class measure
         return ($applies);
     }
 
+    public function order_number_formatted()
+    {
+        if ($this->order_number == null) {
+            return "";
+        } else {
+            return substr($this->order_number, 0, 2) . "." . substr($this->order_number, 2, 4);
+        }
+    }
+
     public function get_phrase()
     {
         global $app;
+        if (count($this->measure_conditions) == 0) {
+            return;
+        }
 
         //pre($this->measure_sid . ", " . $this->measure_type_description . ", " . $this->measure_type_series_id);
-        
+
         # Base the output on the measure template
         $output = $app->template_measure;
         # check to see if there is any copy to overlay the title of the measure type
         # if so, then use it, otherwu=ise use the measure type description itslg
         $this->get_measure_type_overlay();
         $output = str_replace("{{ measure_type }}", $this->measure_type_overlay, $output);
+        $output = str_replace("{{ order_number }}", $this->order_number_formatted(), $output);
         if ($this->measure_type_sub_text == "") {
             $pattern = "~{% block measure_type_sub_text %}.+{% endblock %}~simu";
             #$pattern = "/\{% block measure_type_sub_text %\}./simu";
@@ -184,7 +215,7 @@ class measure
         # For this measure (and all mesaures), loop through each of the measure conditions
         foreach ($this->measure_conditions as $mc) {
             if ($mc->positive) {
-                
+
                 # If the measure condition is positive, then continue ...
                 array_push($this->condition_code_groups, $mc->condition_code);
                 $dc = new document_code();
@@ -281,13 +312,12 @@ class measure
                 foreach ($p->codes as $dc) {
                     $index += 1;
                     $conditions_text .= $dc->get_certificate_json(true);
-                    if ($index < $count -1) {
+                    if ($index < $count - 1) {
                         $conditions_text .= "<em>and</em><br><br>";
                     }
                 }
                 $conditions_text .= "</li>";
             }
-
         } else {
             $explainer_text = "";
         }

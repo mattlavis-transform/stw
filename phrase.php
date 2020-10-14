@@ -196,7 +196,21 @@ $app->get_folders();
                                         </div>
                                         <div id="before-you-import-content" class="govuk-accordion__section-content" aria-labelledby="before-you-import-heading">
 <?php
-    $app->commodity_object->get_certificates();
+    $app->commodity_object->get_certificates("certificates", "AB");
+?>
+                                        </div>
+                                    </div>
+                                    <div class="govuk-accordion__section govuk-accordion__section--expanded">
+                                        <div class="govuk-accordion__section-header">
+                                            <h2 class="govuk-accordion__section-heading">
+                                                <span class="govuk-accordion__section-button" id="before-you-import-heading" aria-expanded="true">
+                                                    If you want to take advantage of quotas
+                                                </span>
+                                            </h2>
+                                        </div>
+                                        <div id="before-you-import-content" class="govuk-accordion__section-content" aria-labelledby="before-you-import-heading">
+<?php
+    $app->commodity_object->get_certificates("quotas", "C", "122,123,143,146");
 ?>
                                         </div>
                                     </div>

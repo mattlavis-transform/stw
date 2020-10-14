@@ -39,7 +39,6 @@ class commodity
             } else {
                 $measures = $this->json["data"]["relationships"]["export_measures"]["data"];
             }
-            
         } catch (exception $e) {
             $measures = [];
         }
@@ -67,7 +66,7 @@ class commodity
         foreach ($this->measures as $measure) {
             foreach ($measure->measure_conditions as $measure_condition) {
                 $document_code = $measure_condition->document_code;
-                if (!in_array($measure->measure_type_id, $app->excluded_measure_types )) {
+                if (!in_array($measure->measure_type_id, $app->excluded_measure_types)) {
                     if ($measure->applies_to_country($app->country)) {
                         if ($document_code != "") {
                             if (!in_array($document_code, $this->unique_document_codes)) {
@@ -82,10 +81,18 @@ class commodity
         }
     }
 
-    function get_certificates() {
+    function get_certificates($template, $include = "AB", $measure_types = "")
+    {
         global $app;
 
-        $output = $app->template_certificates_intro;
+        switch ($template) {
+            case "quotas":
+                $output = $app->template_quotas_intro;
+                break;
+            case "certificates":
+                $output = $app->template_certificates_intro;
+            break;
+        }
         $output = str_replace("{{ commodity }}", $app->commodity_code, $output);
         $output = str_replace("{{ country_description }}", $app->country_description, $output);
 
@@ -93,7 +100,7 @@ class commodity
 
         foreach ($this->measures as $measure) {
             if ($measure->relevant) {
-                if ($measure->valid_measure_type()) {
+                if ($measure->valid_measure_type($include, $measure_types)) {
                     $measure->get_phrase();
                 }
             }

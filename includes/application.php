@@ -183,6 +183,7 @@ class application
         $this->template_measure = $this->get_file($this->template_folder, "measure");
         $this->template_condition = $this->get_file($this->template_folder, "condition");
         $this->template_certificates_intro = $this->get_file($this->template_folder, "certificates_intro");
+        $this->template_quotas_intro = $this->get_file($this->template_folder, "quotas_intro");
     }
 
     public static function get_file($folder, $file, $extension = ".html")
