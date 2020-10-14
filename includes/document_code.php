@@ -42,7 +42,7 @@ class document_code
                 }
                 $s .= "</p>";
                 $s .= "<p class='govuk-body govuk-hint'>" . $step_howto_description;
-                $s .= " <br>Enter <strong>" . $this->code . "</strong> on your import declaration.";
+                $s .= " Enter <strong>" . $this->code . "</strong> on your import declaration.";
                 $s .= "</p>";
             } else {
                 $s = strtoupper($this->code) . " text would go here.";

@@ -7,7 +7,8 @@ class measure
     public $measure_sid;
     public $measure_type_id;
     public $measure_type_description;
-    public $measure_type_overlay;
+    public $measure_type_overlay = "";
+    public $measure_type_sub_text = "";
     public $measure_type_series_id;
     public $geographical_area_id;
     public $geographical_area_description;
@@ -94,7 +95,6 @@ class measure
             if ($included_item["id"] == $this->measure_type_id) {
                 $this->measure_type_description = $included_item["attributes"]["description"];
                 $this->measure_type_series_id = $included_item["attributes"]["measure_type_series_id"];
-                //h1("found measure type " . $this->measure_type_description);
                 break;
             }
         }
@@ -105,7 +105,6 @@ class measure
         foreach ($this->included as $included_item) {
             if ($included_item["id"] == $this->geographical_area_id) {
                 $this->geographical_area_description = $included_item["attributes"]["description"];
-                //h1("found geo desc " . $this->geographical_area_description);
                 break;
             }
         }
@@ -161,7 +160,6 @@ class measure
     {
         global $app;
 
-        // Start of dummy code
         //pre($this->measure_sid . ", " . $this->measure_type_description . ", " . $this->measure_type_series_id);
         
         # Base the output on the measure template
@@ -170,6 +168,15 @@ class measure
         # if so, then use it, otherwu=ise use the measure type description itslg
         $this->get_measure_type_overlay();
         $output = str_replace("{{ measure_type }}", $this->measure_type_overlay, $output);
+        if ($this->measure_type_sub_text == "") {
+            $pattern = "~{% block measure_type_sub_text %}.+{% endblock %}~simu";
+            #$pattern = "/\{% block measure_type_sub_text %\}./simu";
+            $output = preg_replace($pattern, "", $output);
+        } else {
+            $output = str_replace("{{ measure_type_sub_text }}", $this->measure_type_sub_text, $output);
+            $output = str_replace("{% block measure_type_sub_text %}", "", $output);
+            $output = str_replace("{% endblock %}", "", $output);
+        }
 
         $this->condition_code_groups = array();
         $this->document_codes = array();
@@ -234,8 +241,6 @@ class measure
         #############################################
         # Get explainer text
         #############################################
-        $explainer_text = "You must fulfil one of the following conditions:";
-        $output = str_replace("{{ explainer }}", $explainer_text, $output);
 
         #############################################
         # Get conditions
@@ -252,6 +257,7 @@ class measure
         }
 
         if ($this->condition_code_group_count > 1) {
+            $explainer_text = "You must fulfil one of the following conditions:";
             # need a matrix of all non-shared conditions against each other
             $dcs = array();
 
@@ -273,36 +279,43 @@ class measure
                 }
             }
 
-
-            /*
-            # Your goods weigh no more than 2.00 kg and are exempted from the regulation by being
-            # intended for personal use and are a part of your personal luggage.
-            # Enter Y058 on your import declaration
-            */
-
             foreach ($pairs as $p) {
                 foreach ($p->codes as $dc) {
                     $conditions_text .= $dc->get_certificate_json();
                 }
             }
 
-            $output = str_replace("{{ conditions }}", $conditions_text, $output);
+        } else {
+            $explainer_text = "";
         }
+        /*
+        if ($x) {
 
-        if ($this->measure_sid == 3717676) {
-            echo ($output);
+        } else {
+
         }
+        */
+        $output = str_replace("{{ explainer }}", $explainer_text, $output);
+        $output = str_replace("{{ conditions }}", $conditions_text, $output);
+
+        // if ($this->measure_sid == 3717676) {
+        //     echo ($output);
+        // }
+        echo ($output);
         //pre ($this->measure_conditions);
     }
 
     public function get_measure_type_overlay()
     {
         global $app;
-        $overlay = $app::get_file($app->measure_type_content_folder, $this->measure_type_id);
+        $overlay = $app::get_file($app->measure_type_content_folder, $this->measure_type_id, ".json");
         if ($overlay == "") {
             $this->measure_type_overlay = $this->measure_type_description;
+            $this->measure_type_sub_text = "";
         } else {
-            $this->measure_type_overlay = $overlay;
+            $json_obj = json_decode($overlay, true);
+            $this->measure_type_overlay = $json_obj["measure_type"];
+            $this->measure_type_sub_text = $json_obj["sub_text"];
         }
     }
 }
