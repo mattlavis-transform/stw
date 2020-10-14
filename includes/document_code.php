@@ -19,7 +19,7 @@ class document_code
         $this->condition_codes = array();
     }
 
-    public function get_certificate_json()
+    public function get_certificate_json($is_pair = false)
     {
         global $app;
 
@@ -68,6 +68,10 @@ class document_code
             $s = str_replace("{{unit}}", $this->threshold_unit, $s);
         }
         $s .= "</li>";
+        if ($is_pair) {
+            $s = str_replace("<li>", "", $s);
+            $s = str_replace("</li>", "", $s);
+        }
         return ($s);
     }
 }

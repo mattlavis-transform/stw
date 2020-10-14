@@ -275,9 +275,17 @@ class measure
             }
 
             foreach ($pairs as $p) {
+                $conditions_text .= "<li>";
+                $count = count($p->codes);
+                $index = -1;
                 foreach ($p->codes as $dc) {
-                    $conditions_text .= $dc->get_certificate_json();
+                    $index += 1;
+                    $conditions_text .= $dc->get_certificate_json(true);
+                    if ($index < $count -1) {
+                        $conditions_text .= "<em>and</em><br><br>";
+                    }
                 }
+                $conditions_text .= "</li>";
             }
 
         } else {
