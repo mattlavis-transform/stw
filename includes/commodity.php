@@ -87,7 +87,7 @@ class commodity
 
         $output = $app->template_certificates_intro;
         $output = str_replace("{{ commodity }}", $app->commodity_code, $output);
-        $output = str_replace("{{ country }}", $app->country, $output);
+        $output = str_replace("{{ country_description }}", $app->country_description, $output);
 
         echo ($output);
 

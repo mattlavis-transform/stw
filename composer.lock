@@ -4,8 +4,58 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1ba48ab80836bf0eba0603c280a9b298",
+    "content-hash": "1ff8988133aeb0442a7fe2635b49ab2c",
     "packages": [
+        {
+            "name": "mmucklo/inflect",
+            "version": "v0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mmucklo/inflect.git",
+                "reference": "b665bcd3d4c23b6aa1990b6405ff96dd437689e9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mmucklo/inflect/zipball/b665bcd3d4c23b6aa1990b6405ff96dd437689e9",
+                "reference": "b665bcd3d4c23b6aa1990b6405ff96dd437689e9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.17"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Inflect": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sho Kuwamoto",
+                    "email": "sho@kuwamoto.org"
+                },
+                {
+                    "name": "Matthew J. Mucklo",
+                    "email": "mmucklo@gmail.com"
+                }
+            ],
+            "description": "inflect - a memoizing inflector for php",
+            "keywords": [
+                "inflect",
+                "inflector",
+                "pluralize",
+                "singularize",
+                "urlify"
+            ],
+            "time": "2015-05-16T04:16:08+00:00"
+        },
         {
             "name": "pflorek/php-basic-auth",
             "version": "1.0.1",
@@ -120,16 +170,16 @@
     "packages-dev": [
         {
             "name": "heroku/heroku-buildpack-php",
-            "version": "v176",
+            "version": "v182",
             "source": {
                 "type": "git",
                 "url": "https://github.com/heroku/heroku-buildpack-php.git",
-                "reference": "6c6cc209a95c65f01d4715540459d5d673be19dc"
+                "reference": "78b5f5c03ace2fbc6e49a2a1a1b1188643d0ddb6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/6c6cc209a95c65f01d4715540459d5d673be19dc",
-                "reference": "6c6cc209a95c65f01d4715540459d5d673be19dc",
+                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/78b5f5c03ace2fbc6e49a2a1a1b1188643d0ddb6",
+                "reference": "78b5f5c03ace2fbc6e49a2a1a1b1188643d0ddb6",
                 "shasum": ""
             },
             "bin": [
@@ -160,7 +210,7 @@
                 "nginx",
                 "php"
             ],
-            "time": "2020-05-26T15:47:09+00:00"
+            "time": "2020-10-12T17:22:24+00:00"
         }
     ],
     "aliases": [],

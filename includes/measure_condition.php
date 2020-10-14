@@ -80,15 +80,22 @@ class measure_condition
         if ($this->requirement == "") {
             pre($this);
         }
+        $this->requirement = str_replace("\u003c", "<", $this->requirement);
+        $this->requirement = str_replace("\u003e", ">", $this->requirement);
+        pre ("A" . $this->requirement. "B");
+
+        // <span title='2.0 '>2.00</span> <abbr title='Kilogram'>kg</abbr>
+
         $pattern = "~span title='(.+) '>.+</span> <abbr title='(.+)'>.+</abbr>~";
         preg_match($pattern, $this->requirement, $matches);
+        pre ($matches);
 
         if (count($matches) > 1) {
-            $this->threshold_quantity = $matches[0];
+            $this->threshold_quantity = $matches[1];
         }
         if (count($matches) > 2) {
-            $this->threshold_unit = $matches[1];
+            $this->threshold_unit = $matches[2];
         }
-        //pre($this->requirement . " : " . $this->threshold_quantity . " : " . $this->threshold_unit);
+        pre("Debug get_threshold : " . $this->requirement . " : " . $this->threshold_quantity . " : " . $this->threshold_unit);
     }
 }

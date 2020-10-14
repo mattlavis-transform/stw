@@ -1,4 +1,6 @@
 <?php
+use Inflect\Inflect;
+
 class document_code
 {
     public $code;
@@ -30,7 +32,7 @@ class document_code
                 $step_description = $json_obj["step_description"];
                 $step_howto_description = $json_obj["step_howto_description"];
                 $step_url = $json_obj["step_url"];
-                $s .= "<p class='govuk-body' style='margin-bottom:0.5em'>";
+                $s .= "<p class='govuk-body' style='margin-bottom:0.25em'>";
                 if ($step_url != "") {
                     $s .= '<a target="_blank" href="' . $step_url . '">';
                 }
@@ -53,17 +55,17 @@ class document_code
             
         } else {
             //pre($app->threshold_units);
-            /*
+            
             $template = "Your goods {{verb}} no more than {{qty}} {{unit}}";
-            index = units_to_verb[$this->threshold_unit]
-            s = template.replace("{{verb}}", index)
-            s = s.replace("{{qty}}", $this->threshold_quantity)
+            $find = array_search($this->threshold_unit, array_column($app->threshold_units, 'unit'));
+            $verb = $app->threshold_units[$find]["verb"];
 
-            p = inflect.engine()
+            $s .= str_replace("{{verb}}", $verb, $template);
+            $s = str_replace("{{qty}}", $this->threshold_quantity, $s);
 
-            s = s.replace("{{unit}}", p.plural($this->threshold_unit))
-            return s
-            */
+            //echo (Inflect::singularize('tests'));
+            
+            $s = str_replace("{{unit}}", $this->threshold_unit, $s);
         }
         $s .= "</li>";
         return ($s);

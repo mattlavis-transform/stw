@@ -132,7 +132,10 @@ class application
 
     public function get_country_description() {
         foreach ($this->geographical_areas as $ga) {
-            
+            if ($ga["id"] == $this->country) {
+                $this->country_description = $ga["attributes"]["description"];
+                break;
+            }
         }
 
     }

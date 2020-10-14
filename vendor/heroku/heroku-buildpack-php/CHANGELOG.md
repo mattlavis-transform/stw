@@ -1,5 +1,87 @@
 # heroku-buildpack-php CHANGELOG
 
+## v182 (2020-10-12)
+
+### ADD
+
+- Support for heroku-20 stack [David Zuelke]
+
+## v181 (2020-10-01)
+
+### ADD
+
+- PHP/7.2.34 [David Zuelke]
+- PHP/7.3.23 [David Zuelke]
+- PHP/7.4.11 [David Zuelke]
+- ext-oauth/2.0.7 [David Zuelke]
+- ext-pq/2.1.8 [David Zuelke]
+- ext-newrelic/9.13.0.270 [David Zuelke]
+
+## v180 (2020-09-15)
+
+### ADD
+
+- PHP/7.3.22 [David Zuelke]
+- PHP/7.4.10 [David Zuelke]
+- ext-blackfire/1.39.1 [David Zuelke]
+- ext-event/2.5.7 [David Zuelke]
+- ext-oauth/2.0.6 [David Zuelke]
+
+### CHG
+
+- Composer/1.10.13 [David Zuelke]
+
+## v179 (2020-08-13)
+
+### ADD
+
+- PHP/7.2.33 [David Zuelke]
+- PHP/7.3.21 [David Zuelke]
+- PHP/7.4.9 [David Zuelke]
+- ext-blackfire/1.36.0 [David Zuelke]
+- ext-mongodb/1.8.0 [David Zuelke]
+- ext-newrelic/9.12.0.268 [David Zuelke]
+- Apache/2.4.46 [David Zuelke]
+
+### CHG
+
+- librdkafka/1.5.0 [David Zuelke]
+- Composer/1.10.10 [David Zuelke]
+- libcassandra/2.15.3 [David Zuelke]
+
+### FIX
+
+- Detection of `composer test` or common testing frameworks on Heroku CI occasionally fails on PHP 7.4 (#388) [David Zuelke]
+
+## v178 (2020-07-09)
+
+### ADD
+
+- PHP/7.4.8 [David Zuelke]
+- PHP/7.3.20 [David Zuelke]
+- PHP/7.2.32 [David Zuelke]
+- ext-redis/5.3.1 [David Zuelke]
+- ext-mongodb/1.7.5 [David Zuelke]
+
+### CHG
+
+- librdkafka/1.4.4 [David Zuelke]
+- Composer/1.10.8 [David Zuelke]
+
+## v177 (2020-06-18)
+
+### ADD
+
+- PHP/7.3.19 [David Zuelke]
+- PHP/7.4.7 [David Zuelke]
+- ext-blackfire/1.34.3 [David Zuelke]
+- ext-newrelic/9.6.0.267 [David Zuelke]
+- ext-pcov/1.0.6 (#415) [David Zuelke]
+
+### CHG
+
+- Composer/1.10.7 [David Zuelke]
+
 ## v176 (2020-05-26)
 
 ### FIX

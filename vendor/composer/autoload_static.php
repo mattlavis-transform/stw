@@ -29,11 +29,22 @@ class ComposerStaticInit3b60790adb77e7c848e4489062baede1
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'I' => 
+        array (
+            'Inflect' => 
+            array (
+                0 => __DIR__ . '/..' . '/mmucklo/inflect/src',
+            ),
+        ),
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit3b60790adb77e7c848e4489062baede1::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit3b60790adb77e7c848e4489062baede1::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit3b60790adb77e7c848e4489062baede1::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }

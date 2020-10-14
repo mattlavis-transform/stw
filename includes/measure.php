@@ -237,11 +237,6 @@ class measure
         }
         //pre ($this->condition_code_groups);
 
-
-        #############################################
-        # Get explainer text
-        #############################################
-
         #############################################
         # Get conditions
         #############################################
@@ -315,6 +310,7 @@ class measure
         } else {
             $json_obj = json_decode($overlay, true);
             $this->measure_type_overlay = $json_obj["measure_type"];
+            # $this->measure_type_overlay = $json_obj["measure_type"] . " : " . $this->measure_type_id . " : " . $this->measure_type_description;
             $this->measure_type_sub_text = $json_obj["sub_text"];
         }
     }
