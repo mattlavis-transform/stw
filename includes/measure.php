@@ -132,6 +132,10 @@ class measure
 
     public function valid_measure_type($include, $measure_types)
     {
+        $excluded = array("481", "482", "483", "485");
+        if (in_array($this->measure_type_id, $excluded)) {
+            return (false);
+        }
         if ($measure_types == "") {
             $measure_type_series_ids = str_split($include, 1);
             if (in_array($this->measure_type_series_id, $measure_type_series_ids)) {
@@ -198,6 +202,7 @@ class measure
         # if so, then use it, otherwu=ise use the measure type description itslg
         $this->get_measure_type_overlay();
         $output = str_replace("{{ measure_type }}", $this->measure_type_overlay, $output);
+        $output = str_replace("{{ measure_type_id }}", $this->measure_type_id, $output);
         $output = str_replace("{{ order_number }}", $this->order_number_formatted(), $output);
         if ($this->measure_type_sub_text == "") {
             $pattern = "~{% block measure_type_sub_text %}.+{% endblock %}~simu";
