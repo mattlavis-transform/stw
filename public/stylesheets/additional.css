@@ -12,3 +12,6 @@
 .info::after {
     clear:both;
 }
+.govuk-inset-text {
+    margin-top: -10px !important;
+}

@@ -31,7 +31,7 @@ $app->get_folders();
 
             <div class="govuk-width-container">
 
-                <a href="choose_country.html?commodity_code=<?=$app->commodity_code?>&trade_direction=importing" class="govuk-back-link">Back</a>
+                <a href="choose_country.html?commodity_code=<?= $app->commodity_code ?>&trade_direction=importing" class="govuk-back-link">Back</a>
 
                 <main class="govuk-main-wrapper">
                     <div class="govuk-grid-row">
@@ -387,6 +387,40 @@ $app->get_folders();
                                             </ul>
                                         </div>
                                     </div>
+
+
+
+                                    <div class="govuk-accordion__section ">
+                                        <div class="govuk-accordion__section-header">
+                                            <h2 class="govuk-accordion__section-heading">
+                                                <span class="govuk-accordion__section-button" id="before-you-import-heading">
+                                                    Getting your goods into <?= $app->country_description ?>
+                                                </span>
+                                            </h2>
+                                        </div>
+                                        <div id="before-you-import-content" class="govuk-accordion__section-content" aria-labelledby="before-you-import-heading">
+                                            <div class="govuk-inset-text">
+                                                This is to show how we could deep-link into CHEG (to the 6-digit code)
+                                            </div>
+                                            <ul class="govuk-list">
+                                                <li>
+                                                    <p class="govuk-body-m">Because international trade hierarchies are not always the same, etc ...
+                                                    </p>
+                                                    <p class="govuk-body-m">
+                                                        <a target="_blank" href="https://www.check-duties-customs-exporting-goods.service.gov.uk/summary?d=<?= $app->country ?>&pc=<?= substr($app->commodity_code, 0, 6) ?>">
+                                                            Exporting <?= $app->commodity_code ?> to <?= $app->country ?>
+                                                        </a>(Deep link - rarely works)
+                                                    </p>
+                                                    <p class="govuk-body-m">
+                                                        <a target="_blank" href="https://www.check-duties-customs-exporting-goods.service.gov.uk/commdrilld?d=<?= $app->country ?>&pc=<?= substr($app->commodity_code, 0, 6) ?>">
+                                                            Exporting <?= $app->commodity_code ?> to <?= $app->country ?>
+                                                        </a>(Shallow link to hierarchy - seems to be better)
+                                                    </p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
 
