@@ -318,7 +318,7 @@ class measure
                     $index += 1;
                     $conditions_text .= $dc->get_certificate_json(true);
                     if ($index < $count - 1) {
-                        $conditions_text .= "<br><em>and</em><br><br>";
+                        $conditions_text .= "<br><br><em>and</em><br><br>";
                     }
                 }
                 $conditions_text .= "</li>";
