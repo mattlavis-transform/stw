@@ -3,9 +3,10 @@ RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)\.html$ /$1.php [NC,L]
 
-# <If "%{HTTP_HOST} == 'sheltered-beyond-23780.herokuapp.com'">
-#     AuthUserFile /app/www/.htpasswd
-#     AuthType Basic
-#     AuthName "Restricted Access"
-#     Require valid-user
-# </If>
+<If "%{HTTP_HOST} == 'sheltered-beyond-23780.herokuapp.com'">
+     AuthUserFile /app/www/.htpasswd
+     AuthType Basic
+     AuthName "Restricted Access"
+     Require valid-user
+</If>
+
