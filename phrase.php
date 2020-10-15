@@ -31,7 +31,7 @@ $app->get_folders();
 
             <div class="govuk-width-container">
 
-                <a href="country-of-origin" class="govuk-back-link">Back</a>
+                <a href="choose_country.html?commodity_code=<?=$app->commodity_code?>&trade_direction=importing" class="govuk-back-link">Back</a>
 
                 <main class="govuk-main-wrapper">
                     <div class="govuk-grid-row">
