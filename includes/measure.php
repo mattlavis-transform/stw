@@ -283,7 +283,7 @@ class measure
         }
 
         if ($this->condition_code_group_count > 1) {
-            $explainer_text = "You must fulfil one of the following conditions:";
+            $explainer_text = "You must fulfil one of the following conditions:<span class='info'>Fixed text</span>";
             # need a matrix of all non-shared conditions against each other
             $dcs = array();
 

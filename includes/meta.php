@@ -12,6 +12,7 @@
 <!--[if lte IE 8]><link href="/public/stylesheets/application-ie8.css" rel="stylesheet" type="text/css" /><![endif]-->
 <!--[if gt IE 8]><!-->
 <link href="/public/stylesheets/application.css" media="all" rel="stylesheet" type="text/css" />
+<link href="/public/stylesheets/additional.css" media="all" rel="stylesheet" type="text/css" />
 <!--<![endif]-->
 <link rel="stylesheet" href="/public/location-autocomplete.min.css" />
 <!--<link rel="stylesheet" href="/public/accessible-autocomplete.min.css" />-->

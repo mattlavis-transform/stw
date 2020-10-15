@@ -1,0 +1,13 @@
+.info {
+    float: right;
+    display: block;
+    border: 1px dotted #600;
+    padding: 2px 4px;
+    margin: 2px 0px 2px 1em;
+    font-size:10px;
+    color: #600;
+    background-color: #fee;
+}
+.info::after {
+    clear:both;
+}

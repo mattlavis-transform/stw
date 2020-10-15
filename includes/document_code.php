@@ -40,12 +40,14 @@ class document_code
                 $s .= $step_description;
 
                 if ($step_url != "") {
-                    $s .= '</a>';
+                    $s .= "</a><span class='info'>Step / URL " . $this->code . "</span>";
+                } else {
+                    $s .= "<span class='info'>Step " . $this->code . "</span>";
                 }
                 $s .= "</p>";
                 $s .= "<p class='govuk-body govuk-hint'>" . $step_howto_description;
                 $s .= " Enter <strong>" . $this->code . "</strong> on your import declaration.";
-                $s .= "</p>";
+                $s .= "<span class='info'>Hint text " . $this->code . "</span></p>";
             } else {
                 $s = strtoupper($this->code) . " text would go here.";
             }
@@ -56,7 +58,7 @@ class document_code
         } else {
             //pre($app->threshold_units);
             
-            $template = "Your goods {{verb}} no more than {{qty}} {{unit}}";
+            $template = "Your goods {{verb}} no more than {{qty}} {{unit}}<span class='info'>" . $this->code . "</span>";
             $find = array_search($this->threshold_unit, array_column($app->threshold_units, 'unit'));
             $verb = $app->threshold_units[$find]["verb"];
 

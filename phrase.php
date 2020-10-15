@@ -43,6 +43,9 @@ $app->get_folders();
                             <p class="govuk-body-l">
                                 You need to complete these requirements to import commodity <strong><?= $app->commodity_code_formatted() ?></strong> into the <strong>United Kingdom</strong> from <strong><?= $app->country_description ?></strong>.
                             </p>
+                            <div class="govuk-inset-text">
+                                Hit the 's' key to toggle hint text.
+                            </div>
                             <br />
 
                             <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-with-summary-sections">
@@ -406,6 +409,22 @@ $app->get_folders();
     <?php
     require("includes/footer.php");
     ?>
+    <script>
+        var info_hidden = false;
+        $("body").keydown(function(event) {
+            if ((event.which == 83) || (event.which == 115)) {
+                console.log("s pressed");
+                event.preventDefault();
+                if (info_hidden == true) {
+                    info_hidden = false;
+                    $(".info").show();
+                } else {
+                    info_hidden = true;
+                    $(".info").hide();
+                }
+            }
+        });
+    </script>
 
 </body>
 
