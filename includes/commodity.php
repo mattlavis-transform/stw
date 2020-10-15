@@ -84,6 +84,7 @@ class commodity
     function get_certificates($template, $include = "AB", $measure_types = "")
     {
         global $app;
+        $app->certificate_count = 0;
 
         switch ($template) {
             case "quotas":
@@ -91,17 +92,36 @@ class commodity
                 break;
             case "certificates":
                 $output = $app->template_certificates_intro;
-            break;
+                break;
+            case "prohibitions":
+                $output = $app->template_prohibitions_intro;
+                break;
         }
-        $output = str_replace("{{ commodity }}", $app->commodity_code, $output);
+        $output = str_replace("{{ commodity }}", $app->commodity_code_formatted(), $output);
         $output = str_replace("{{ country_description }}", $app->country_description, $output);
 
         echo ($output);
 
-        foreach ($this->measures as $measure) {
-            if ($measure->relevant) {
-                if ($measure->valid_measure_type($include, $measure_types)) {
-                    $measure->get_phrase();
+        if ($template == "prohibitions") {
+            foreach ($this->measures as $measure) {
+                if ($measure->relevant) {
+                    if ($measure->valid_measure_type($include, $measure_types)) {
+                        if (count($measure->measure_conditions) == 0) {
+                            $app->certificate_count += 1;
+                        }
+                    }
+                }
+            }
+            if ($app->certificate_count > 1) {
+                require("content/static/prohibitions.html");
+            }
+        } else {
+            foreach ($this->measures as $measure) {
+                if ($measure->relevant) {
+                    if ($measure->valid_measure_type($include, $measure_types)) {
+                        $app->certificate_count++;
+                        $measure->get_phrase();
+                    }
                 }
             }
         }

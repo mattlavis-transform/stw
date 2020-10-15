@@ -1,6 +1,7 @@
 <?php
 require("includes/application.php");
 global $app;
+$app->page_title = "Manage trade";
 $app->set_country();
 $app->get_trade_direction_message(1);
 $app->get_templates();
@@ -10,45 +11,15 @@ $app->get_folders();
 <html lang="en" class="govuk-template ">
 
 <head>
-    <meta charset="utf-8">
-    <title>
-        Check what steps to take to move goods into or out of the UK
-    </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="theme-color" content="#0b0c0c">
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-
-    <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/assets/images/favicon.ico" type="image/x-icon">
-    <link rel="mask-icon" href="/govuk/assets/images/govuk-mask-icon.svg" color="#0b0c0c">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/govuk-apple-touch-icon-180x180.png">
-    <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/govuk-apple-touch-icon-167x167.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/govuk-apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" href="/govuk/assets/images/govuk-apple-touch-icon.png">
-
-
-
-    <!--[if lte IE 8]><link href="/public/stylesheets/application-ie8.css" rel="stylesheet" type="text/css" /><![endif]-->
-    <!--[if gt IE 8]><!-->
-    <link href="/public/stylesheets/application.css" media="all" rel="stylesheet" type="text/css" />
-    <!--<![endif]-->
-    <link rel="stylesheet" href="/public/location-autocomplete.min.css" />
-    <!--<link rel="stylesheet" href="/public/accessible-autocomplete.min.css" />-->
-
-
-
-
-
-    <meta property="og:image" content="/govuk/assets/images/govuk-opengraph-image.png">
+    <?php
+    require("includes/meta.php");
+    ?>
 </head>
 
 <body class="govuk-template__body ">
     <?php
     require("includes/header.php");
     ?>
-
-
     <div class="govuk-width-container ">
         <?php
         require("includes/banner.php");
@@ -69,19 +40,52 @@ $app->get_folders();
                                 Check what steps to take to move goods into or out of the UK<span class='govuk-visually-hidden'>.</span>
                             </h1>
 
-
-
-
-
-
-
                             <p class="govuk-body-l">
-                                You need to complete these requirements to import <strong>1006.10.10.00</strong> into the <strong>United Kingdom</strong> from <strong>China</strong>.
+                                You need to complete these requirements to import commodity <strong><?= $app->commodity_code_formatted() ?></strong> into the <strong>United Kingdom</strong> from <strong><?= $app->country_description ?></strong>.
                             </p>
                             <br />
 
                             <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-with-summary-sections">
                                 <div class="accordion-group">
+                                    <!-- Begin prohibitions //-->
+                                    <div id="section_prohibitions" class="govuk-accordion__section govuk-accordion__section--expanded">
+                                        <div class="govuk-accordion__section-header">
+                                            <h2 class="govuk-accordion__section-heading">
+                                                <span class="govuk-accordion__section-button" id="before-you-import-heading" aria-expanded="true">
+                                                    Trade in this commodity is prohibited
+                                                </span>
+                                            </h2>
+                                        </div>
+                                        <div id="before-you-import-content" class="govuk-accordion__section-content" aria-labelledby="before-you-import-heading">
+                                            <?php
+                                            $app->commodity_object->get_certificates("prohibitions", "AB");
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <?php
+                                    //$app->certificate_count = 0;
+                                    $app->prohibitions = $app->certificate_count;
+                                    if ($app->certificate_count == 0) {
+                                    ?>
+                                        <script>
+                                            $(document).ready(function() {
+                                                $("#section_prohibitions").hide();
+                                            });
+                                        </script>
+                                    <?php
+                                    } else {
+                                        $app->prohibitions = true;
+                                    ?>
+                                        <script>
+                                            $(document).ready(function() {
+                                                $(".govuk-accordion__section").hide();
+                                                $("#section_prohibitions").show();
+                                            });
+                                        </script>
+                                    <?php
+                                    }
+                                    ?>
+                                    <!-- End prohibitions //-->
                                     <div class="govuk-accordion__section ">
                                         <div class="govuk-accordion__section-header" style="border-top: none">
                                             <h2 class="govuk-accordion__section-heading">
@@ -91,6 +95,9 @@ $app->get_folders();
                                             </h2>
                                         </div>
                                         <div id="before-you-import-content" class="govuk-accordion__section-content" aria-labelledby="before-you-import-heading">
+                                            <?php
+                                            require("includes/dummy.php");
+                                            ?>
                                             <ul class="govuk-list">
                                                 <li>
                                                     <p class="govuk-body-m">
@@ -119,6 +126,9 @@ $app->get_folders();
                                             </h2>
                                         </div>
                                         <div id="goods-are-organic-content" class="govuk-accordion__section-content" aria-labelledby="goods-are-organic-heading">
+                                            <?php
+                                            require("includes/dummy.php");
+                                            ?>
                                             <ul class="govuk-list">
                                                 <li>
                                                     <p class="govuk-body-m">
@@ -139,6 +149,9 @@ $app->get_folders();
                                             </h2>
                                         </div>
                                         <div id="before-you-import-content" class="govuk-accordion__section-content" aria-labelledby="before-you-import-heading">
+                                            <?php
+                                            require("includes/dummy.php");
+                                            ?>
                                             <ul class="govuk-list">
                                                 <li>
                                                     <p class="govuk-body-m">
@@ -159,6 +172,9 @@ $app->get_folders();
                                             </h2>
                                         </div>
                                         <div id="before-you-import-content" class="govuk-accordion__section-content" aria-labelledby="before-you-import-heading">
+                                            <?php
+                                            require("includes/dummy.php");
+                                            ?>
                                             <ul class="govuk-list">
                                                 <li>
                                                     <h3 class="govuk-heading-s">You do not need a licence to import these goods</h3>
@@ -173,6 +189,7 @@ $app->get_folders();
                                             </ul>
                                         </div>
                                     </div>
+                                    <!-- Begin certificates //-->
                                     <div class="govuk-accordion__section govuk-accordion__section--expanded">
                                         <div class="govuk-accordion__section-header">
                                             <h2 class="govuk-accordion__section-heading">
@@ -187,7 +204,9 @@ $app->get_folders();
                                             ?>
                                         </div>
                                     </div>
-                                    <div class="govuk-accordion__section govuk-accordion__section--expanded">
+                                    <!-- End certificates //-->
+                                    <!-- Begin quotas //-->
+                                    <div id="section_quotas" class="govuk-accordion__section govuk-accordion__section--expanded">
                                         <div class="govuk-accordion__section-header">
                                             <h2 class="govuk-accordion__section-heading">
                                                 <span class="govuk-accordion__section-button" id="before-you-import-heading" aria-expanded="true">
@@ -201,6 +220,18 @@ $app->get_folders();
                                             ?>
                                         </div>
                                     </div>
+                                    <?php
+                                    if (($app->certificate_count == 0) || ($app->prohibitions == true)) {
+                                    ?>
+                                        <script>
+                                            $(document).ready(function() {
+                                                $("#section_quotas").hide();
+                                            });
+                                        </script>
+                                    <?php
+                                    }
+                                    ?>
+                                    <!-- End quotas //-->
                                     <div class="govuk-accordion__section ">
                                         <div class="govuk-accordion__section-header">
                                             <h2 class="govuk-accordion__section-heading">
@@ -210,6 +241,9 @@ $app->get_folders();
                                             </h2>
                                         </div>
                                         <div id="before-you-import-content" class="govuk-accordion__section-content" aria-labelledby="before-you-import-heading">
+                                            <?php
+                                            require("includes/dummy.php");
+                                            ?>
                                             <ul class="govuk-list">
                                                 <li>
                                                     <p class="govuk-body-m">Whether you’re importing or exporting, you need to know what paperwork is required. Even if you use a freight forwarder or an agent, it’s still up to you to make sure the right documentation is available.
@@ -233,6 +267,9 @@ $app->get_folders();
                                             </h2>
                                         </div>
                                         <div id="before-you-import-content" class="govuk-accordion__section-content" aria-labelledby="before-you-import-heading">
+                                            <?php
+                                            require("includes/dummy.php");
+                                            ?>
                                             <ul class="govuk-list">
                                                 <li>
                                                     <h3 class="govuk-heading-s">You need to submit these declarations every time the goods enter the UK:</h3>
@@ -260,6 +297,9 @@ $app->get_folders();
                                             </h2>
                                         </div>
                                         <div id="before-you-import-content" class="govuk-accordion__section-content" aria-labelledby="before-you-import-heading">
+                                            <?php
+                                            require("includes/dummy.php");
+                                            ?>
                                             <ul class="govuk-list">
                                                 <li>
                                                     <h3 class="govuk-heading-s">You need to submit these notifications every time the goods leave the UK:</h3>
@@ -283,6 +323,9 @@ $app->get_folders();
                                             </h2>
                                         </div>
                                         <div id="before-you-import-content" class="govuk-accordion__section-content" aria-labelledby="before-you-import-heading">
+                                            <?php
+                                            require("includes/dummy.php");
+                                            ?>
                                             <ul class="govuk-list">
                                                 <li>
                                                     <p class="govuk-body-m">
@@ -305,6 +348,9 @@ $app->get_folders();
                                             </h2>
                                         </div>
                                         <div id="before-you-import-content" class="govuk-accordion__section-content" aria-labelledby="before-you-import-heading">
+                                            <?php
+                                            require("includes/dummy.php");
+                                            ?>
                                             <ul class="govuk-list">
                                                 <li>
                                                     <p class="govuk-body-m">
@@ -327,6 +373,9 @@ $app->get_folders();
                                             </h2>
                                         </div>
                                         <div id="before-you-import-content" class="govuk-accordion__section-content" aria-labelledby="before-you-import-heading">
+                                            <?php
+                                            require("includes/dummy.php");
+                                            ?>
                                             <ul class="govuk-list">
                                                 <li>
                                                     <p class="govuk-body-m">You must keep records of commercial invoices and any customs paperwork, including your C79.</p>

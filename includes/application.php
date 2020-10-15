@@ -132,14 +132,14 @@ class application
         $this->get_country_description();
     }
 
-    public function get_country_description() {
+    public function get_country_description()
+    {
         foreach ($this->geographical_areas as $ga) {
             if ($ga["id"] == $this->country) {
                 $this->country_description = $ga["attributes"]["description"];
                 break;
             }
         }
-
     }
 
     public function get_geographical_area()
@@ -185,6 +185,7 @@ class application
         $this->template_measure = $this->get_file($this->template_folder, "measure");
         $this->template_condition = $this->get_file($this->template_folder, "condition");
         $this->template_certificates_intro = $this->get_file($this->template_folder, "certificates_intro");
+        $this->template_prohibitions_intro = $this->get_file($this->template_folder, "prohibitions_intro");
         $this->template_quotas_intro = $this->get_file($this->template_folder, "quotas_intro");
     }
 
@@ -201,6 +202,19 @@ class application
         }
         error_reporting(E_ALL);
         return ($content);
+    }
+
+    public function commodity_code_formatted()
+    {
+        //return ($this->commodity_code);
+        $to = sprintf(
+            "%s.%s.%s.%s",
+            substr($this->commodity_code, 0, 4),
+            substr($this->commodity_code, 4, 2),
+            substr($this->commodity_code, 6, 2),
+            substr($this->commodity_code, 8, 2)
+        );
+        return ($to);
     }
 }
 
@@ -321,7 +335,7 @@ function set($array)
     return ($out);
 }
 
-function document_code_sorter($object1, $object2) { 
-    return $object1->instance_count > $object2->instance_count; 
+function document_code_sorter($object1, $object2)
+{
+    return $object1->instance_count > $object2->instance_count;
 }
-
