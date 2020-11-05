@@ -16,12 +16,11 @@
                         GOV.UK
                     </span>
                 </span>
-
             </a>
         </div>
         <div class="govuk-header__content">
             <a href="/" class="govuk-header__link govuk-header__link--service-name">
-            Check what steps to take to move goods into or out of the UK
+                <?= $app->furniture["application_title"][$app->language] ?>
             </a>
         </div>
     </div>

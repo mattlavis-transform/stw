@@ -1,4 +1,5 @@
 <?php
+
 use Inflect\Inflect;
 
 class document_code
@@ -26,13 +27,13 @@ class document_code
         # Get the step text associated with the document code
         $s = "<li>";
         if (!$this->is_threshold) {
-            $overlay = $app::get_file($app->certificate_content_folder, $this->code, ".json");
+            $overlay = $app->get_file($app->certificate_content_folder, $this->code, "json");
             if ($overlay != "") {
                 $json_obj = json_decode($overlay, true);
                 $step_description = $json_obj["step_description"];
                 $step_howto_description = $json_obj["step_howto_description"];
                 $step_url = $json_obj["step_url"];
-                $s .= "<p class='govuk-body' style='margin-bottom:0.25em'>";
+                $s .= "<p class='govuk-body step_description'>";
                 if ($step_url != "") {
                     $s .= '<a target="_blank" href="' . $step_url . '">';
                 }
@@ -45,28 +46,24 @@ class document_code
                     $s .= "<span class='info'>Step " . $this->code . "</span>";
                 }
                 $s .= "</p>";
-                $s .= "<p class='govuk-body govuk-hint'>" . $step_howto_description;
+                $s .= "<div class='govuk-inset-text'>" . $step_howto_description;
                 $s .= " Enter <strong>" . $this->code . "</strong> on your import declaration.";
-                $s .= "<span class='info'>Hint text " . $this->code . "</span></p>";
+                $s .= "<span class='info'>Hint text " . $this->code . "</span></div>";
             } else {
                 $s = strtoupper($this->code) . " text would go here.";
             }
 
             $s = str_replace("  ", " ", $s);
             $s = rtrim($s);
-            
         } else {
-            //pre($app->threshold_units);
-            
-            $template = "Your goods {{verb}} no more than {{qty}} {{unit}}<span class='info'>" . $this->code . "</span>";
+            $template = "If your goods {{verb}} no more than {{qty}} {{unit}}<span class='info'>" . $this->code . "</span>";
+            //$template = "Your goods {{verb}} no more than {{qty}} {{unit}}<span class='info'>" . $this->code . "</span>";
             $find = array_search($this->threshold_unit, array_column($app->threshold_units, 'unit'));
             $verb = $app->threshold_units[$find]["verb"];
 
             $s .= str_replace("{{verb}}", $verb, $template);
             $s = str_replace("{{qty}}", $this->threshold_quantity, $s);
 
-            //echo (Inflect::singularize('tests'));
-            
             $s = str_replace("{{unit}}", $this->threshold_unit, $s);
         }
         $s .= "</li>";

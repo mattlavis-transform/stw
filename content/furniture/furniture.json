@@ -1,0 +1,63 @@
+{
+    "application_title": {
+        "en": "Check what steps to take to move goods into or out of the UK",
+        "cy": "Gwiriwch pa gamau i'w cymryd i symud nwyddau i'r DU neu allan ohoni"
+    },
+    "select_commodity": {
+        "en": "Select commodity",
+        "cy": "Dewiswch gynnyrch"
+    },
+    "select_country": {
+        "en": "Select country",
+        "cy": "Dewis gwlad"
+    },
+    "manage_trade": {
+        "en": "Manage trade",
+        "cy": "Rheoli masnach"
+    },
+    "phase": {
+        "en": "Experimental",
+        "cy": "Arbrofol"
+    },
+    "feedback1": {
+        "en": "This is an experimental service – your",
+        "cy": "Gwasanaeth arbrofol yw hwn - bydd eich"
+    },
+    "feedback2": {
+        "en": "feedback",
+        "cy": "adborth"
+    },
+    "feedback3": {
+        "en": "will help us to improve it",
+        "cy": "yn ein helpu i'w wella"
+    },
+    "back": {
+        "en": "Back",
+        "cy": "Yn ôl"
+    },
+    "phrase_subtext1": {
+        "en": "You need to complete these requirements to import commodity",
+        "cy": "Mae angen i chi gwblhau'r gofynion hyn i fewnforio nwyddau"
+    },
+    "phrase_subtext2": {
+        "en": "into the United Kingdom from",
+        "cy": "i'r Deyrnas Unedig o'r"
+    },
+    "header_register": {
+        "en": "Register your business for importing",
+        "cy": "Cofrestrwch eich busnes i'w fewnforio"
+    },
+    "header_certificates": {
+        "en": "Check if you need certificates or licenses",
+        "cy": "Gwiriwch a oes angen tystysgrifau neu drwyddedau arnoch"
+    },
+    "certificates_section_intro": {
+        "en": "To import your goods, you must follow all of these conditions:",
+        "cy": "TBC"
+    },
+    "and": {
+        "en": "and",
+        "cy": "a"
+    }
+    
+}

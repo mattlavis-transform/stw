@@ -8,6 +8,7 @@ class measure
     public $measure_type_id;
     public $measure_type_description;
     public $measure_type_overlay = "";
+    public $measure_type_desc = "";
     public $measure_type_sub_text = "";
     public $order_number = null;
     public $measure_type_series_id;
@@ -187,7 +188,7 @@ class measure
         }
     }
 
-    public function get_phrase()
+    public function get_measure_phrase()
     {
         global $app;
         if (count($this->measure_conditions) == 0) {
@@ -202,6 +203,7 @@ class measure
         # if so, then use it, otherwu=ise use the measure type description itslg
         $this->get_measure_type_overlay();
         $output = str_replace("{{ measure_type }}", $this->measure_type_overlay, $output);
+        $output = str_replace("{{ measure_type_desc }}", $this->measure_type_desc, $output);
         $output = str_replace("{{ measure_type_id }}", $this->measure_type_id, $output);
         $output = str_replace("{{ order_number }}", $this->order_number_formatted(), $output);
         if ($this->measure_type_sub_text == "") {
@@ -217,7 +219,7 @@ class measure
         $this->condition_code_groups = array();
         $this->document_codes = array();
 
-        # For this measure (and all mesaures), loop through each of the measure conditions
+        # For this measure (and all measures), loop through each of the measure conditions
         foreach ($this->measure_conditions as $mc) {
             if ($mc->positive) {
 
@@ -288,7 +290,8 @@ class measure
         }
 
         if ($this->condition_code_group_count > 1) {
-            $explainer_text = "You must fulfil one of the following conditions:<span class='info'>Fixed text</span>";
+            //$explainer_text = "You must fulfil one of the following conditions:<span class='info'>Fixed text</span>";
+            $explainer_text = "";
             # need a matrix of all non-shared conditions against each other
             $dcs = array();
 
@@ -310,6 +313,8 @@ class measure
                 }
             }
 
+            //$next = array();
+            $next = "";
             foreach ($pairs as $p) {
                 $conditions_text .= "<li>";
                 $count = count($p->codes);
@@ -318,7 +323,7 @@ class measure
                     $index += 1;
                     $conditions_text .= $dc->get_certificate_json(true);
                     if ($index < $count - 1) {
-                        $conditions_text .= "<br><br><em>and</em><br><br>";
+                        $conditions_text .= "<br><br><strong>{{ and }}</strong><br><br>";
                     }
                 }
                 $conditions_text .= "</li>";
@@ -326,35 +331,36 @@ class measure
         } else {
             $explainer_text = "";
         }
-        /*
-        if ($x) {
 
-        } else {
-
-        }
-        */
+        $next = "";
         $output = str_replace("{{ explainer }}", $explainer_text, $output);
         $output = str_replace("{{ conditions }}", $conditions_text, $output);
+        $output = $this->get_and_text($output, $next);
 
-        // if ($this->measure_sid == 3717676) {
-        //     echo ($output);
-        // }
         echo ($output);
-        //pre ($this->measure_conditions);
+    }
+
+    public function get_and_text($s, $next) {
+        global $app;
+        if ($app->language == "cy") {
+            $s = str_replace("{{ and }}", "a/ac - it is a before a consonant and ac before a vowel (y and w are vowels)", $s);
+        } else {
+            $s = str_replace("{{ and }}", "and", $s);
+        }
+        return ($s);
     }
 
     public function get_measure_type_overlay()
     {
         global $app;
-        $overlay = $app::get_file($app->measure_type_content_folder, $this->measure_type_id, ".json");
+        $overlay = $app->get_file($app->measure_type_content_folder, $this->measure_type_id, "json");
         if ($overlay == "") {
             $this->measure_type_overlay = $this->measure_type_description;
             $this->measure_type_sub_text = "";
         } else {
             $json_obj = json_decode($overlay, true);
-            $this->measure_type_overlay = $json_obj["measure_type"];
-            # $this->measure_type_overlay = $json_obj["measure_type"] . " : " . $this->measure_type_id . " : " . $this->measure_type_description;
-            $this->measure_type_sub_text = $json_obj["sub_text"];
+            $this->measure_type_overlay = $json_obj["measure_type"][$app->language];
+            $this->measure_type_sub_text = $json_obj["sub_text"][$app->language];
         }
     }
 }

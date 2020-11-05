@@ -21,7 +21,7 @@ $app->get_trade_direction_message(1);
     <div class="govuk-width-container ">
         <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
             <div class="govuk-width-container">
-                <a href="choose_country.html" class="govuk-back-link">Back</a>
+                <a href="choose_country.html" class="govuk-back-link"><?= $app->get_phrase("back") ?></a>
                 <main class="govuk-main-wrapper">
 
                     <div class="govuk-grid-row">

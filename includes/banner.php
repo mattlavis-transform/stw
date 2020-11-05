@@ -5,7 +5,7 @@
                 <?= $app->phase ?>
             </strong>
             <span class="govuk-phase-banner__text">
-                This is an experimental service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+                <?= $app->get_phrase("feedback1") ?> <a class="govuk-link" href="#"><?= $app->get_phrase("feedback2") ?></a> <?= $app->get_phrase("feedback3") ?>.
             </span>
         </p>
     </div>

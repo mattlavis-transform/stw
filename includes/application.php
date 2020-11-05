@@ -15,6 +15,7 @@ class application
 {
     // Class properties and methods go here
     public $phase;
+    public $language;
     public $commodity_code;
     public $trade_direction;
     public $country;
@@ -23,13 +24,11 @@ class application
 
     public function __construct()
     {
-        //$this->commodity_object = new commodity("", null);
-        $this->phase = "experimental";
+        $this->get_language();
         $this->trade_direction = "";
         $this->commodity_code = "";
         $this->country = "";
         $this->excluded_measure_types = array(103, 105, 115, 117, 119, 122, 123, 130, 131, 132, 133, 142, 143, 145, 146, 551, 552, 553, 554, 555, 556, 557, 558, 559, 560, 561, 562, 563);
-        //$this->excluded_measure_types = [];
 
         if (session_id() == "") {
             session_start();
@@ -38,6 +37,35 @@ class application
         $this->commodity_object = null;
         $this->get_measure_action_codes();
         $this->get_threshold_units();
+        $this->get_furniture_json();
+        $this->phase = $this->get_phrase("phase");
+    }
+
+    public function get_phrase($s)
+    {
+        return ($this->furniture[$s][$this->language]);
+    }
+
+    public function get_language()
+    {
+        $var = get_querystring("lang");
+        if ($var != "") {
+            $this->language = $var;
+            $_SESSION["lang"] = $var;
+        } else {
+            $this->language = $_SESSION["lang"];
+        }
+        if ($this->language == "") {
+            $this->language = "en";
+        }
+    }
+
+    public function get_furniture_json()
+    {
+        $url = __DIR__ . "/../content/furniture/furniture.json";
+        $output = file_get_contents($url);
+        $json = json_decode($output, true);
+        $this->furniture = $json;
     }
 
     public function get_measure_action_codes()
@@ -45,7 +73,7 @@ class application
         $url = __DIR__ . "/../data/measure_action_codes.json";
         $output = file_get_contents($url);
         $json = json_decode($output, true);
-        $this->measure_action_codes = $json; //["data"];
+        $this->measure_action_codes = $json;
     }
 
     public function get_threshold_units()
@@ -53,7 +81,7 @@ class application
         $url = __DIR__ . "/../data/threshold_units.json";
         $output = file_get_contents($url);
         $json = json_decode($output, true);
-        $this->threshold_units = $json; //["data"];
+        $this->threshold_units = $json;
     }
 
     public function get_json()
@@ -184,15 +212,19 @@ class application
         $this->template_folder = $_SERVER['DOCUMENT_ROOT'] . "/templates/";
         $this->template_measure = $this->get_file($this->template_folder, "measure");
         $this->template_condition = $this->get_file($this->template_folder, "condition");
-        $this->template_certificates_intro = $this->get_file($this->template_folder, "certificates_intro");
-        $this->template_prohibitions_intro = $this->get_file($this->template_folder, "prohibitions_intro");
-        $this->template_quotas_intro = $this->get_file($this->template_folder, "quotas_intro");
+        $this->template_certificates_intro = $this->get_file($this->template_folder, "certificates_intro", "html", true);
+        $this->template_prohibitions_intro = $this->get_file($this->template_folder, "prohibitions_intro", "html", true);
+        $this->template_quotas_intro = $this->get_file($this->template_folder, "quotas_intro", "html", true);
     }
 
-    public static function get_file($folder, $file, $extension = ".html")
+    public function get_file($folder, $file, $extension = "html", $language_specific = false)
     {
         error_reporting(0);
-        $filename = $folder . $file . $extension;
+        if ($language_specific) {
+            $filename = $folder . $file . "_" . $this->language . "." . $extension;
+        } else {
+            $filename = $folder . $file . "." . $extension;
+        }
         try {
             $myfile = fopen($filename, "r");
             $content = fread($myfile, filesize($filename));

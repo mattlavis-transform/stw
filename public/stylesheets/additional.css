@@ -1,22 +1,43 @@
 .info {
     float: right;
-    display: block;
+    display: none;
     border: 1px dotted #600;
     padding: 2px 4px;
     margin: 2px 0px 2px 1em;
-    font-size:10px;
+    font-size: 10px;
     color: #600;
     background-color: #fee;
     font-weight: normal !important;
 }
+
 .info::after {
-    clear:both;
+    clear: both;
 }
+
 .govuk-inset-text {
     margin-top: -10px !important;
 }
 
 .greybox {
-    padding:0.5em !important;
-    background-color: #f0f0f0;
+    padding: 1em 1em 21px 1em !important;
+    background-color: #f8f8f8;
+    background-image: url('/assets/images/measure_panel_bottom_border.png');
+    background-repeat: repeat-x;
+    background-position-y: bottom;
+}
+
+.greybox:last-child {
+    padding: 1em !important;
+    background-color: #f8f8f8;
+    background-image: none;
+}
+
+.step_description {
+    margin-bottom:1.25em;
+    font-weight: bold;
+}
+
+.step_description br {
+    display: block;
+    margin-bottom:0.5em;
 }

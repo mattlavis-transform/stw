@@ -1,4 +1,11 @@
 {
-    "measure_type": "Home Office pre-cursor chemical authorisation ss",
-    "sub_text": "Phytosanitary certificates are issued by the Forestry Commission to the equivalent national plant protection organisation (NPPO) in the importing country. They certify that the material has been inspected, is considered free from quarantine (and other) pests and that it conforms to the plant health regulations of the importing country."
+    "description": "Home Office pre-cursor chemical authorisation",
+    "measure_type": {
+        "en": "Home Office pre-cursor chemical authorisation",
+        "cy": "TBC"
+    },
+    "sub_text": {
+        "en": "Phytosanitary certificates are issued by the Forestry Commission to the equivalent national plant protection organisation (NPPO) in the importing country. They certify that the material has been inspected, is considered free from quarantine (and other) pests and that it conforms to the plant health regulations of the importing country.",
+        "cy": "TBC"
+    }
 }

@@ -1,11 +1,11 @@
 <?php
 require("includes/application.php");
 global $app;
-$app->page_title = "Manage trade";
 $app->set_country();
 $app->get_trade_direction_message(1);
 $app->get_templates();
 $app->get_folders();
+$app->page_title = $app->get_phrase("manage_trade") . " - " . $app->get_phrase("application_title");
 ?>
 <!DOCTYPE html>
 <html lang="en" class="govuk-template ">
@@ -31,17 +31,17 @@ $app->get_folders();
 
             <div class="govuk-width-container">
 
-                <a href="choose_country.html?commodity_code=<?= $app->commodity_code ?>&trade_direction=importing" class="govuk-back-link">Back</a>
+                <a href="choose_country.html?commodity_code=<?= $app->commodity_code ?>&trade_direction=importing" class="govuk-back-link"><?= $app->get_phrase("back") ?></a>
 
                 <main class="govuk-main-wrapper">
                     <div class="govuk-grid-row">
                         <div class="govuk-grid-column-two-thirds">
                             <h1 class="govuk-heading-xl">
-                                Check what steps to take to move goods into or out of the UK<span class='govuk-visually-hidden'>.</span>
+                                <?= $app->get_phrase("application_title") ?><span class='govuk-visually-hidden'>.</span>
                             </h1>
 
                             <p class="govuk-body-l">
-                                You need to complete these requirements to import commodity <strong><?= $app->commodity_code_formatted() ?></strong> into the <strong>United Kingdom</strong> from <strong><?= $app->country_description ?></strong>.
+                                <?= $app->get_phrase("phrase_subtext1") ?> <strong><?= $app->commodity_code_formatted() ?></strong> <?= $app->get_phrase("phrase_subtext2") ?> <strong><?= $app->country_description ?></strong>.
                             </p>
                             <div class="govuk-inset-text">
                                 Hit the 's' key to toggle hint text.
@@ -93,7 +93,7 @@ $app->get_folders();
                                         <div class="govuk-accordion__section-header" style="border-top: none">
                                             <h2 class="govuk-accordion__section-heading">
                                                 <span class="govuk-accordion__section-button" id="before-you-import-heading">
-                                                    Register your business for importing
+                                                    <?= $app->get_phrase("header_register") ?>
                                                 </span>
                                             </h2>
                                         </div>
@@ -166,38 +166,13 @@ $app->get_folders();
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="govuk-accordion__section ">
-                                        <div class="govuk-accordion__section-header">
-                                            <h2 class="govuk-accordion__section-heading">
-                                                <span class="govuk-accordion__section-button" id="before-you-import-heading">
-                                                    Check if you need an import licence
-                                                </span>
-                                            </h2>
-                                        </div>
-                                        <div id="before-you-import-content" class="govuk-accordion__section-content" aria-labelledby="before-you-import-heading">
-                                            <?php
-                                            require("includes/dummy.php");
-                                            ?>
-                                            <ul class="govuk-list">
-                                                <li>
-                                                    <h3 class="govuk-heading-s">You do not need a licence to import these goods</h3>
-                                                    <p class="govuk-body-m">
-                                                        Licences are documents necessary for some goods to cross the border.
-                                                        <br /><br />
-                                                        A licence will cover multiple trades, as long as it hasn’t expired or been revoked.
-                                                        <br /><br />
-                                                        <a href="https://www.gov.uk/guidance/import-controls" target="_blank">Learn more about licences</a>
-                                                    </p>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+
                                     <!-- Begin certificates //-->
                                     <div class="govuk-accordion__section govuk-accordion__section--expanded">
                                         <div class="govuk-accordion__section-header">
                                             <h2 class="govuk-accordion__section-heading">
                                                 <span class="govuk-accordion__section-button" id="before-you-import-heading" aria-expanded="true">
-                                                    Check if you need certificates
+                                                    <?= $app->get_phrase("header_certificates") ?>
                                                 </span>
                                             </h2>
                                         </div>
@@ -208,6 +183,7 @@ $app->get_folders();
                                         </div>
                                     </div>
                                     <!-- End certificates //-->
+
                                     <!-- Begin quotas //-->
                                     <div id="section_quotas" class="govuk-accordion__section govuk-accordion__section--expanded">
                                         <div class="govuk-accordion__section-header">
@@ -235,6 +211,7 @@ $app->get_folders();
                                     }
                                     ?>
                                     <!-- End quotas //-->
+
                                     <div class="govuk-accordion__section ">
                                         <div class="govuk-accordion__section-header">
                                             <h2 class="govuk-accordion__section-heading">
@@ -444,7 +421,7 @@ $app->get_folders();
     require("includes/footer.php");
     ?>
     <script>
-        var info_hidden = false;
+        var info_hidden = true;
         $("body").keydown(function(event) {
             if ((event.which == 83) || (event.which == 115)) {
                 console.log("s pressed");

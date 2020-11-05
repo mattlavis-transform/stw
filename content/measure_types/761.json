@@ -1,4 +1,11 @@
 {
-    "measure_type": "Import control concerning the Registration, Evaluation, Authorisation and Restriction of Chemicals (REACH)",
-    "sub_text": "This Regulation should ensure a high level of protection of human health and the environment as well as the free movement of substances, on their own, in preparations and in articles, while enhancing competitiveness and innovation. This Regulation should also promote the development of alternative methods for the assessment of hazards of substances."
+    "description": "Import control on REACH",
+    "measure_type": {
+        "en": "Import control concerning the Registration, Evaluation, Authorisation and Restriction of Chemicals (REACH)",
+        "cy": "TBC"
+    },
+    "sub_text": {
+        "en": "This Regulation should ensure a high level of protection of human health and the environment as well as the free movement of substances, on their own, in preparations and in articles, while enhancing competitiveness and innovation. This Regulation should also promote the development of alternative methods for the assessment of hazards of substances.",
+        "cy": "TBC"
+    }
 }

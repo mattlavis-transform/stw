@@ -120,7 +120,7 @@ class commodity
                 if ($measure->relevant) {
                     if ($measure->valid_measure_type($include, $measure_types)) {
                         $app->certificate_count++;
-                        $measure->get_phrase();
+                        $measure->get_measure_phrase();
                     }
                 }
             }

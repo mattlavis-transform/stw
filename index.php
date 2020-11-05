@@ -21,7 +21,7 @@ global $app;
         ?>
         <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
             <div class="govuk-width-container">
-                <!--<a href="sign-in" class="govuk-back-link">Back</a>//-->
+                <!--<a href="sign-in" class="govuk-back-link"><?= $app->get_phrase("back") ?></a>//-->
                 <main class="govuk-main-wrapper">
                     <div class="govuk-grid-row">
                         <div class="govuk-grid-column-two-thirds">

@@ -1,6 +1,7 @@
 {
-    "step_original": "",
-    "step_description": "Your trade may be exempt from this requirement if your good is not considered to be organic, in which case you must remove all reference to organic from the packaging.",
+    "step_original": "Particular provisions: Goods not concerned by Regulation (EC) No 834/2007 (organic products)",
+    "step_description": "If your goods are not organic",
+    "xstep_description": "Your trade may be exempt from this requirement if your good is not considered to be organic, in which case you must remove all reference to organic from the packaging.",
     "xstep_howto_description": "See for more information on exemptions.",
     "step_howto_description": "",
     "step_url": ""

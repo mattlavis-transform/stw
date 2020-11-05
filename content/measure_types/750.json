@@ -1,4 +1,11 @@
 {
-    "measure_type": "If your goods are organic, you need:",
-    "sub_text": ""
+    "description": "Import control of organic products",
+    "measure_type": {
+        "en": "Rules for organic goods",
+        "cy": "Rheolau ar gyfer nwyddau organig"
+    },
+    "sub_text": {
+        "en": "You may need to take extra steps if your goods are organic:",
+        "cy": "Efallai y bydd angen i chi gymryd camau ychwanegol os yw'ch nwyddau'n organig:"
+    }
 }

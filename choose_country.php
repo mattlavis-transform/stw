@@ -24,7 +24,7 @@ $app->get_trade_direction_message();
         ?>
         <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
             <div class="govuk-width-container">
-                <a href="/choose_commodity.html" class="govuk-back-link">Back</a>
+                <a href="/choose_commodity.html" class="govuk-back-link"><?= $app->get_phrase("back") ?></a>
                 <main class="govuk-main-wrapper">
                     <div class="govuk-grid-row">
                         <div class="govuk-grid-column-two-thirds">
