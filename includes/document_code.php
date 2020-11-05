@@ -33,22 +33,19 @@ class document_code
                 $step_description = $json_obj["step_description"];
                 $step_howto_description = $json_obj["step_howto_description"];
                 $step_url = $json_obj["step_url"];
+                $step_get_text = $json_obj["step_get_text"];
                 $s .= "<p class='govuk-body step_description'>";
-                if ($step_url != "") {
-                    $s .= '<a target="_blank" href="' . $step_url . '">';
-                }
 
                 $s .= $step_description;
 
-                if ($step_url != "") {
-                    $s .= "</a><span class='info'>Step / URL " . $this->code . "</span>";
-                } else {
-                    $s .= "<span class='info'>Step " . $this->code . "</span>";
-                }
                 $s .= "</p>";
                 $s .= "<div class='govuk-inset-text'>" . $step_howto_description;
-                $s .= " Enter <strong>" . $this->code . "</strong> on your import declaration.";
-                $s .= "<span class='info'>Hint text " . $this->code . "</span></div>";
+                $s .= "<br>Enter <strong>" . $this->code . "</strong> in Box 44 of your import declaration.";
+                $s .= "<span class='info'>Hint text " . $this->code . "</span>";
+                if ($step_url != "") {
+                    $s .= '<div class="step_url"><a target="_blank" href="' . $step_url . '">' . $step_get_text . '</a></div>';
+                }
+                $s .= "</div>";
             } else {
                 $s = strtoupper($this->code) . " text would go here.";
             }

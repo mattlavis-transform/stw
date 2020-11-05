@@ -35,7 +35,8 @@ $app->page_title = $app->get_phrase("manage_trade") . " - " . $app->get_phrase("
 
                 <main class="govuk-main-wrapper">
                     <div class="govuk-grid-row">
-                        <div class="govuk-grid-column-two-thirds">
+                        <!-- <div class="govuk-grid-column-two-thirds"> -->
+                        <div class="govuk-grid-column-three-quarters">
                             <h1 class="govuk-heading-xl">
                                 <?= $app->get_phrase("application_title") ?><span class='govuk-visually-hidden'>.</span>
                             </h1>

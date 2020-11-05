@@ -1,7 +1,8 @@
 {
     "step_original": "Certificate of Inspection for Organic Products",
     "step_description": "If your goods are organic<br><strong>then</strong>",
-    "step_howto_description": "Present a certificate of inspection for organic products.",
+    "step_howto_description": "Present a Certificate of Inspection for Organic products.",
     "step_howto_descriptionx": "If goods bear a reference to organic production in the labelling, advertising or accompanying documents, the declarant has to present the certificate of inspection C644 as referred to in the Article 33(1)(d) of the Regulation (EC) No 834/2007 (equivalent products).",
-    "step_url": ""
+    "step_get_text": "Apply for a certificate of inspection",
+    "step_url": "https://www.google.com"
 }
