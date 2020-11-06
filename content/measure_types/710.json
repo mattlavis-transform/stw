@@ -1,11 +1,11 @@
 {
     "description": "Import control - CITES",
     "measure_type": {
-        "en": "Import or export endangered species check",
+        "en": "Check if your product contains materials made from endangered species",
         "cy": "TBC"
     },
     "sub_text": {
-        "en": "There are criminal offences associated with moving or trading CITES-controlled species if you don’t have a valid permit or certificate. You could be liable to a prison sentence of up to 7 years, an unlimited fine, or both. If your goods are covered by the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you need:",
+        "en": "There are criminal offences associated with moving or trading CITES-controlled species if you don’t have a valid permit or certificate. You could be liable to a prison sentence of up to 7 years, an unlimited fine, or both. If your goods are covered by the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you need. Use <a href='https://www.speciesplus.net/'>Species+</a> to find out if your specimen is on the CITES list.",
         "cy": "TBC"
     }
 }

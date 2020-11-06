@@ -1,0 +1,11 @@
+{
+    "description": "Import control on cat and dog fur",
+    "measure_type": {
+        "en": "If your product contains materials comprising cat or dog fur",
+        "cy": "Os yw'ch cynnyrch yn cynnwys deunyddiau sy'n cynnwys ffwr cath neu gi"
+    },
+    "sub_text": {
+        "en": "Cats and dogs are considered to be pet animals and therefore it is not acceptable to use their fur or products containing such fur. It is prohibited to trade in goods comprising cat or dog fur.",
+        "cy": "Ystyrir bod cathod a chŵn yn anifeiliaid anwes ac felly nid yw'n dderbyniol defnyddio eu ffwr neu gynhyrchion sy'n cynnwys ffwr o'r fath. Gwaherddir masnachu mewn nwyddau sy'n cynnwys ffwr cath neu gi."
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "description": "Import control on seal products",
+    "measure_type": {
+        "en": "If your good contains items made from seal products",
+        "cy": "TBC"
+    },
+    "sub_text": {
+        "en": "Seal products may only be placed on the market when they are accompanied by an attesting document or a written notification of import and a document giving evidence where the products were acquired",
+        "cy": "TBC"
+    }
+}

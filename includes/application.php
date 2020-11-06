@@ -60,6 +60,19 @@ class application
         }
     }
 
+    public function get_fallback($json_obj, $node)
+    {
+        error_reporting(0);
+        $node = $json_obj[$node];
+        if (is_array($node)) {
+            $s = $node[$this->language];
+        } else {
+            $s = $node;
+        }
+        return ($s . "");
+        error_reporting(E_ALL);
+    }
+
     public function get_furniture_json()
     {
         $url = __DIR__ . "/../content/furniture/furniture.json";

@@ -1,7 +1,19 @@
 {
     "step_original": "Particular provisions: Other than cats and dogs fur as mentioned by Regulation (EC) No 1523/2007 (OJ L 343)",
-    "step_description": "Particular provisions: Other than cats and dogs fur as mentioned by Regulation (EC) No 1523/2007 (OJ L 343)",
-    "step_howto_description": "",
-    "step_get_text": "",
-    "step_url": ""
+    "step_description": {
+        "en": "Trade in items containing cat and dog fur is only permitted in exceptional circumstances",
+        "cy": "Dim ond mewn amgylchiadau eithriadol y caniateir masnachu mewn eitemau sy'n cynnwys ffwr cath a chŵn"
+    },
+    "step_howto_description": {
+        "en": "You will need to do the following for your goods to circulate freely:",
+        "cy": "Dim ond os ydych chi'n mewnforio cynhyrchion sy'n cynnwys ffwr o'r fath at ddibenion addysgol neu dacsidermi y caniateir masnach."
+    },
+    "step_get_text": {
+        "en": "",
+        "cy": ""
+    },
+    "step_url": {
+        "en": "",
+        "cy": ""
+    }
 }

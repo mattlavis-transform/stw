@@ -1,7 +1,7 @@
 {
     "step_original": "Goods not consigned from Iran",
-    "step_description": "Goods not consigned from Iran",
-    "step_howto_description": "",
+    "step_description": "If your goods are not consigned from Iran",
+    "step_howto_description": "Import authorisation is not required.",
     "step_get_text": "",
     "step_url": ""
 }
