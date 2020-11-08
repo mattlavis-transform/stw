@@ -1,7 +1,7 @@
 {
     "step_original": "Goods other than those described in the footnotes linked to the measure",
-    "step_description": "Goods other than those described in the footnotes linked to the measure",
-    "step_howto_description": "",
+    "step_description": "Import of the following goods is prohibited:",
+    "step_howto_description": "<ul><li>Goods 1C010 from the dual use list</li><li>Goods 2B350c from the dual use list.</li><li>Goods 8A002a from the dual use list.</li><li>Goods 8C001 from the dual use list.</li><li>Goods 1A001a from the dual use list.</li><li>Goods 1A001c from the dual use list.</li><li>Goods 2B350a from the dual use list.</li><li>Goods 9C110 from the dual use list.</li><li>Goods 1A006b from the dual use list.</li></ul><br>If you are importing goods other than those noted above:<br>",
     "step_get_text": "",
     "step_url": ""
 }

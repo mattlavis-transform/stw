@@ -80,17 +80,17 @@ $app->page_title = $app->get_phrase("manage_trade") . " - " . $app->get_phrase("
                                     } else {
                                         $app->prohibitions = true;
                                     ?>
-                                        <script>
+                                        <!-- <script>
                                             $(document).ready(function() {
                                                 $(".govuk-accordion__section").hide();
                                                 $("#section_prohibitions").show();
                                             });
-                                        </script>
+                                        </script> -->
                                     <?php
                                     }
                                     ?>
                                     <!-- End prohibitions //-->
-                                    <div class="govuk-accordion__section ">
+                                    <div class="govuk-accordion__section toggle_hide">
                                         <div class="govuk-accordion__section-header" style="border-top: none">
                                             <h2 class="govuk-accordion__section-heading">
                                                 <span class="govuk-accordion__section-button" id="before-you-import-heading">
@@ -121,7 +121,7 @@ $app->page_title = $app->get_phrase("manage_trade") . " - " . $app->get_phrase("
                                         </div>
                                     </div>
 
-                                    <div class="govuk-accordion__section ">
+                                    <div class="govuk-accordion__section toggle_hide">
                                         <div class="govuk-accordion__section-header">
                                             <h2 class="govuk-accordion__section-heading">
                                                 <span class="govuk-accordion__section-button" id="goods-are-organic-heading">
@@ -144,7 +144,7 @@ $app->page_title = $app->get_phrase("manage_trade") . " - " . $app->get_phrase("
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="govuk-accordion__section ">
+                                    <div class="govuk-accordion__section toggle_hide">
                                         <div class="govuk-accordion__section-header">
                                             <h2 class="govuk-accordion__section-heading">
                                                 <span class="govuk-accordion__section-button" id="before-you-import-heading">
@@ -215,7 +215,7 @@ $app->page_title = $app->get_phrase("manage_trade") . " - " . $app->get_phrase("
                                     //-->
                                     <!-- End quotas //-->
 
-                                    <div class="govuk-accordion__section ">
+                                    <div class="govuk-accordion__section toggle_hide">
                                         <div class="govuk-accordion__section-header">
                                             <h2 class="govuk-accordion__section-heading">
                                                 <span class="govuk-accordion__section-button" id="before-you-import-heading">
@@ -241,7 +241,7 @@ $app->page_title = $app->get_phrase("manage_trade") . " - " . $app->get_phrase("
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="govuk-accordion__section ">
+                                    <div class="govuk-accordion__section toggle_hide">
                                         <div class="govuk-accordion__section-header">
                                             <h2 class="govuk-accordion__section-heading">
                                                 <span class="govuk-accordion__section-button" id="before-you-import-heading">
@@ -271,7 +271,7 @@ $app->page_title = $app->get_phrase("manage_trade") . " - " . $app->get_phrase("
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="govuk-accordion__section ">
+                                    <div class="govuk-accordion__section toggle_hide">
                                         <div class="govuk-accordion__section-header">
                                             <h2 class="govuk-accordion__section-heading">
                                                 <span class="govuk-accordion__section-button" id="before-you-import-heading">
@@ -297,7 +297,7 @@ $app->page_title = $app->get_phrase("manage_trade") . " - " . $app->get_phrase("
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="govuk-accordion__section ">
+                                    <div class="govuk-accordion__section toggle_hide">
                                         <div class="govuk-accordion__section-header">
                                             <h2 class="govuk-accordion__section-heading">
                                                 <span class="govuk-accordion__section-button" id="before-you-import-heading">
@@ -322,7 +322,7 @@ $app->page_title = $app->get_phrase("manage_trade") . " - " . $app->get_phrase("
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="govuk-accordion__section ">
+                                    <div class="govuk-accordion__section toggle_hide">
                                         <div class="govuk-accordion__section-header">
                                             <h2 class="govuk-accordion__section-heading">
                                                 <span class="govuk-accordion__section-button" id="before-you-import-heading">
@@ -347,7 +347,7 @@ $app->page_title = $app->get_phrase("manage_trade") . " - " . $app->get_phrase("
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="govuk-accordion__section ">
+                                    <div class="govuk-accordion__section toggle_hide">
                                         <div class="govuk-accordion__section-header">
                                             <h2 class="govuk-accordion__section-heading">
                                                 <span class="govuk-accordion__section-button" id="before-you-import-heading">
@@ -370,7 +370,7 @@ $app->page_title = $app->get_phrase("manage_trade") . " - " . $app->get_phrase("
 
 
 
-                                    <div class="govuk-accordion__section ">
+                                    <div class="govuk-accordion__section toggle_hide">
                                         <div class="govuk-accordion__section-header">
                                             <h2 class="govuk-accordion__section-heading">
                                                 <span class="govuk-accordion__section-button" id="before-you-import-heading">

@@ -338,32 +338,41 @@ class measure
 
         // For all conditions / document codes that are in all of the blocks (if there is more than a single condition code block)
         // Follow this code, with all the insertions of conjunctions, as required.
+        $document_code_count = count($this->document_codes);
         foreach ($this->document_codes as $dc) {
             if ($dc->instance_count == $this->condition_code_group_count) {
-                switch ($dc->classification) {
-                    case "01. Certificate":
-                        if ($app->has_shown_you_need == False) {
-                            if ($app->has_shown_threshold) {
-                                $app->conjunction = $app->get_phrase("otherwise_you_need") . " "; // "Otherwise, you need ";
+                if ($document_code_count > 1) {
+                    switch ($dc->classification) {
+                        case "01. Certificate":
+                            if ($app->has_shown_you_need == False) {
+                                if ($app->has_shown_threshold) {
+                                    $app->conjunction = $app->get_phrase("otherwise_you_need") . " "; // "Otherwise, you need ";
+                                } else {
+                                    $app->conjunction = $app->get_phrase("you_need") . " "; // "You need ";
+                                }
                             } else {
-                                $app->conjunction = $app->get_phrase("you_need") . " "; // "You need ";
+                                $app->conjunction = "or ";
                             }
-                        } else {
-                            $app->conjunction = "or ";
-                        }
-                        $app->has_shown_you_need = True;
-                        break;
-                    case "02. Exception":
-                        if ($app->has_shown_unless == False) {
-                            $app->conjunction = $app->get_phrase("unless") . " "; // "Unless ";
-                        } else {
-                            $app->conjunction = $app->get_phrase("or") . " "; // "or ";
-                        }
-                        $app->has_shown_unless = True;
-                        break;
-                    case "00. Threshold":
-                        $app->has_shown_threshold = true;
-                        break;
+                            $app->has_shown_you_need = True;
+                            break;
+                        case "02. Exception":
+                            if ($app->has_shown_unless == False) {
+                                $app->conjunction = $app->get_phrase("unless") . " "; // "Unless ";
+                            } else {
+                                $app->conjunction = $app->get_phrase("or") . " "; // "or ";
+                            }
+                            $app->has_shown_unless = True;
+                            break;
+                        case "00. Threshold":
+                            $app->has_shown_threshold = true;
+                            break;
+                    }
+                } else {
+                    if ($dc->classification == "01. Certificate") {
+                        $app->conjunction = "You need ";
+                    } else {
+                        $app->conjunction = "";
+                    }
                 }
 
                 $conditions_text .= $dc->get_certificate_json();
@@ -419,7 +428,7 @@ class measure
         $output = str_replace("{{ conditions }}", $conditions_text, $output);
         $output = $this->get_translation_of_and($output);
 
-        
+
         echo ($output);
     }
 

@@ -1,7 +1,7 @@
 {
     "step_original": "Movement document as mentioned in Regulation (EC) No 1013/2006 (OJ L 190) – Article 4 and Annex IB",
-    "step_description": "Movement document as mentioned in Regulation (EC) No 1013/2006 (OJ L 190) – Article 4 and Annex IB",
-    "step_howto_description": "",
+    "step_description": "a Movement document for transboundary movements / shipments of waste",
+    "step_howto_description": "<span class='authors_note'>Could list the fields needed here ...</span>",
     "step_get_text": "",
     "step_url": ""
 }

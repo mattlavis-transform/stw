@@ -1,7 +1,7 @@
 {
     "step_original": "The declared goods are not concerned by Council Regulation (EC) No. 1005/2008",
-    "step_description": "The declared goods are not concerned by Council Regulation (EC) No. 1005/2008",
-    "step_howto_description": "",
+    "step_description": "The declared goods are exempt from the requirement",
+    "step_howto_description": "The following products are exempt:<br><ul class='govuk-list govuk-list--bullet'><li>Freshwater fishery products</li><li>Aquaculture products obtained from fry or larvae</li><li>Ornamental fish</li><li>Oysters, live</li><li>Scallops including queen scallops, of the genera Pecten, Chlamys or Placopecten, live, fresh or chilled</li><li>Coquilles St Jacques (Pecten maximus), frozen</li><li>Other scallops, fresh or chilled</li><li>Mussels</li><li>Snails, others than those obtained from the sea</li><li>Prepared and preserved molluscs</li></ul>",
     "step_get_text": "",
     "step_url": ""
 }
