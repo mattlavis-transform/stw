@@ -1,0 +1,11 @@
+{
+    "description": "Home Office Controlled Drugs (import) ",
+    "measure_type": {
+        "en": "Home Office licence on the import of controlled drugs",
+        "cy": "TBC"
+    },
+    "sub_text": {
+        "en": "Controlled drugs are prescription drugs named in the misuse of drugs legislation. You can check for the most common ones on the <a href='https://www.gov.uk/government/publications/controlled-drugs-list--2/list-of-most-commonly-encountered-drugs-currently-controlled-under-the-misuse-of-drugs-legislation' target='_blank'>controlled drugs list</a>.<br><br>If you intend to import or export controlled drugs or precursor chemicals, you need to apply for a licence. Find out more about <a target='_blank' href='https://www.gov.uk/guidance/controlled-drugs-import-and-export-licences#apply-for-an-import-or-export-licence'>importing and exporting controlled drugs</a>.",
+        "cy": "TBC"
+    }
+}

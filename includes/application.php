@@ -53,6 +53,9 @@ class application
             $this->language = $var;
             $_SESSION["lang"] = $var;
         } else {
+            if (!isset($_SESSION["lang"])) {
+                $_SESSION["lang"] = "en";
+            }
             $this->language = $_SESSION["lang"];
         }
         if ($this->language == "") {
