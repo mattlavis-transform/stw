@@ -186,6 +186,7 @@ $app->page_title = $app->get_phrase("manage_trade") . " - " . $app->get_phrase("
                                     <!-- End certificates //-->
 
                                     <!-- Begin quotas //-->
+                                    <!--
                                     <div id="section_quotas" class="govuk-accordion__section govuk-accordion__section--expanded">
                                         <div class="govuk-accordion__section-header">
                                             <h2 class="govuk-accordion__section-heading">
@@ -211,6 +212,7 @@ $app->page_title = $app->get_phrase("manage_trade") . " - " . $app->get_phrase("
                                     <?php
                                     }
                                     ?>
+                                    //-->
                                     <!-- End quotas //-->
 
                                     <div class="govuk-accordion__section ">

@@ -6,11 +6,12 @@ class measure_condition
     public $condition_code;
     public $condition;
     public $document_code;
+    public $certificate_type_code = "";
+    public $certificate_code = "";
     public $requirement;
     public $action;
     public $duty_expression;
     public $positive;
-    //public $measures = [];
 
     public function __construct($measure_sid, $json, $included)
     {
@@ -21,6 +22,18 @@ class measure_condition
         $this->get_measure_condition_detail();
         $this->json = null;
         $this->included = null;
+        $this->code_split();
+    }
+
+    public function code_split()
+    {
+        if (strlen($this->document_code) == 4) {
+            $this->certificate_type_code = substr($this->document_code, 0, 1);
+            $this->certificate_code = substr($this->document_code, 1, 3);
+        } else {
+            $this->certificate_type_code = "";
+            $this->certificate_code = "";
+        }
     }
 
     public function get_measure_condition_detail()
@@ -36,7 +49,7 @@ class measure_condition
                 $this->lookup_action_code();
                 $this->get_type();
 
-            break;
+                break;
             }
         }
     }
@@ -95,7 +108,6 @@ class measure_condition
 
         if (count($matches) > 1) {
             $this->threshold_quantity = $matches[1];
-            //h1 ("here");
         }
         if (count($matches) > 2) {
             $this->threshold_unit = $matches[2];

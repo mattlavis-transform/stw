@@ -1,7 +1,7 @@
 {
     "require": {
         "pflorek/php-basic-auth": "^1.0",
-        "mmucklo/inflect": "*"
+        "doctrine/inflector": "^2.0"
     },
     "require-dev": {
         "pflorek/php-basic-auth": "^1.0",

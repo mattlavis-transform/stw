@@ -21,6 +21,7 @@ class application
     public $country;
     public $country_description;
     public $measure_action_codes;
+    public $conjunction = "";
 
     public function __construct()
     {
@@ -39,6 +40,7 @@ class application
         $this->get_threshold_units();
         $this->get_furniture_json();
         $this->phase = $this->get_phrase("phase");
+        $this->codes_that_are_really_exemptions = array("C084");
     }
 
     public function get_phrase($s)
@@ -65,6 +67,9 @@ class application
 
     public function get_fallback($json_obj, $node)
     {
+        // used to look for content in a JSON resource file
+        // if it finds a language version, then use that
+        // if not, then use the single, non-language specific version
         error_reporting(0);
         $node = $json_obj[$node];
         if (is_array($node)) {
@@ -102,8 +107,13 @@ class application
 
     public function get_json()
     {
-        $root = "https://www.trade-tariff.service.gov.uk/api/v2/commodities/";
-        $url = $root . $this->commodity_code;
+        if (substr($this->commodity_code, 4, 6) == "000000") {
+            $root = "https://www.trade-tariff.service.gov.uk/api/v2/headings/";
+            $url = $root . substr($this->commodity_code, 0, 4);
+        } else {
+            $root = "https://www.trade-tariff.service.gov.uk/api/v2/commodities/";
+            $url = $root . $this->commodity_code;
+        }
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
@@ -383,7 +393,31 @@ function set($array)
     return ($out);
 }
 
-function document_code_sorter($object1, $object2)
+function document_code_sorter_multi_block($object1, $object2)
 {
-    return $object1->instance_count > $object2->instance_count;
+    // used in usort, for measures that have multiple condition blocks
+    // Sort by instance and then by classification
+    //return $object1->instance_count > $object2->instance_count;
+    $tmp = strcmp($object1->instance_count, $object2->instance_count);
+
+    if ($tmp == 0) {
+        $tmp = strcmp($object1->classification, $object2->classification);
+    }
+    return ($tmp);
+
+
+}
+
+function document_code_sorter_single_block($object1, $object2)
+{
+    // for comparing single document code blocks
+    // sort first by code, then by classification
+    // used in usort
+
+    $tmp = strcmp($object1->classification, $object2->classification);
+
+    if ($tmp == 0) {
+        $tmp = strcmp($object1->code, $object2->code);
+    }
+    return ($tmp);
 }

@@ -1,0 +1,11 @@
+{
+    "description": "quarantine release certificate",
+    "measure_type": {
+        "en": "Quarantine Release Certificate",
+        "cy": "TBC"
+    },
+    "sub_text": {
+        "en": "HM Revenue & Customs (HMRC) require a Quarantine Release Certificate (QRC), issued following completion of inspection formalities, to secure the release of plant-health controlled consignments into free circulation.<br><br>The QRC can be printed from the PEACH system and faxed to HMRC.",
+        "cy": "TBC"
+    }
+}

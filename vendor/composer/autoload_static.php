@@ -16,6 +16,10 @@ class ComposerStaticInit3b60790adb77e7c848e4489062baede1
             'Psr\\Http\\Message\\' => 17,
             'PFlorek\\BasicAuth\\' => 18,
         ),
+        'D' => 
+        array (
+            'Doctrine\\Inflector\\' => 19,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -27,15 +31,9 @@ class ComposerStaticInit3b60790adb77e7c848e4489062baede1
         array (
             0 => __DIR__ . '/..' . '/pflorek/php-basic-auth/src',
         ),
-    );
-
-    public static $prefixesPsr0 = array (
-        'I' => 
+        'Doctrine\\Inflector\\' => 
         array (
-            'Inflect' => 
-            array (
-                0 => __DIR__ . '/..' . '/mmucklo/inflect/src',
-            ),
+            0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector',
         ),
     );
 
@@ -44,7 +42,6 @@ class ComposerStaticInit3b60790adb77e7c848e4489062baede1
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit3b60790adb77e7c848e4489062baede1::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit3b60790adb77e7c848e4489062baede1::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit3b60790adb77e7c848e4489062baede1::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }

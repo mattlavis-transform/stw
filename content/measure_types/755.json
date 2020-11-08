@@ -1,0 +1,11 @@
+{
+    "description": "Import control - waste",
+    "measure_type": {
+        "en": "If your import contains waste material",
+        "cy": "tbc"
+    },
+    "sub_text": {
+        "en": "The controls that apply to your waste shipment will depend on the:<ul class='govuk-list govuk-list--bullet'><li>treatment planned for the waste when it reaches its destination</li><li>country of destination and the transport route</li><li>waste type</li></ul>Find out more about <a href='https://www.gov.uk/guidance/importing-and-exporting-waste' target='_blank'>importing and exporting waste materials</a>.",
+        "cy": "tbc"
+    }
+}

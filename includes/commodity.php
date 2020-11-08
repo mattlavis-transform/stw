@@ -16,8 +16,8 @@ class commodity
     {
         $this->json = $json;
         $this->commodity_code = $commodity_code;
-        $this->productline_suffix = $this->json["data"]["attributes"]["producline_suffix"];
-        $this->number_indents = $this->json["data"]["attributes"]["number_indents"];
+        //$this->productline_suffix = $this->json["data"]["attributes"]["producline_suffix"];
+        //$this->number_indents = $this->json["data"]["attributes"]["number_indents"];
         $this->description = $this->json["data"]["attributes"]["formatted_description"];
         $this->declarable = $this->json["data"]["attributes"]["declarable"];
 

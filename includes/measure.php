@@ -1,6 +1,10 @@
 <?php
+require 'vendor/autoload.php';
+
 require("includes/measure_condition.php");
 require("includes/document_code.php");
+
+use Doctrine\Inflector\InflectorFactory;
 
 class measure
 {
@@ -188,19 +192,52 @@ class measure
         }
     }
 
+    public function count_exemptions_and_documents()
+    {
+        global $app;
+        $tmp = array();
+        // First, go through and deduplicate
+        foreach ($this->measure_conditions as $mc) {
+            $mc->code_split();
+            if ($mc->document_code . "" != "") {
+                if (!in_array($mc->document_code, $tmp)) {
+                    array_push($tmp, $mc->document_code);
+                }
+            }
+        }
+
+        // Counts the instances where there is a condition with code type Y
+        $this->exemption_count = 0;
+        $this->document_count = 0;
+
+        foreach ($tmp as $dc) {
+            if ((substr($dc, 0, 1) == "Y") || (in_array($dc, $app->codes_that_are_really_exemptions))) {
+                $this->exemption_count += 1;
+            } else {
+                $this->document_count += 1;
+            }
+        }
+        //h1 ("This measure has " . $this->exemption_count . " exemptions and " . $this->document_count . " actual documents");
+    }
+
     public function get_measure_phrase()
     {
+        // $a = "kilogram";
+        // $inflector = InflectorFactory::create()->build();
+        // $b = $inflector->pluralize($a);
+        // h1 ($a . " : " . $b);
         global $app;
         if (count($this->measure_conditions) == 0) {
             return;
         }
+        $this->count_exemptions_and_documents();
 
         //pre($this->measure_sid . ", " . $this->measure_type_description . ", " . $this->measure_type_series_id);
 
         # Base the output on the measure template
         $output = $app->template_measure;
         # check to see if there is any copy to overlay the title of the measure type
-        # if so, then use it, otherwu=ise use the measure type description itslg
+        # if so, then use it, otherwise use the measure type description itslg
         $this->get_measure_type_overlay();
         $output = str_replace("{{ measure_type }}", $this->measure_type_overlay, $output);
         $output = str_replace("{{ measure_type_desc }}", $this->measure_type_desc, $output);
@@ -208,7 +245,6 @@ class measure
         $output = str_replace("{{ order_number }}", $this->order_number_formatted(), $output);
         if ($this->measure_type_sub_text == "") {
             $pattern = "~{% block measure_type_sub_text %}.+{% endblock %}~simu";
-            #$pattern = "/\{% block measure_type_sub_text %\}./simu";
             $output = preg_replace($pattern, "", $output);
         } else {
             $output = str_replace("{{ measure_type_sub_text }}", $this->measure_type_sub_text, $output);
@@ -238,8 +274,11 @@ class measure
                 } else {
                     //h1 ("Standard");
                     $dc->code = $mc->document_code;
+                    $dc->certificate_code = $mc->certificate_code;
+                    $dc->certificate_type_code = $mc->certificate_type_code;
                     $dc->requirement = $mc->requirement;
                 }
+                $dc->classify();
 
                 # We need an atomic list of the individual condition codes
                 # to see if this a complex measure with multiple measure condition groups
@@ -266,14 +305,19 @@ class measure
 
         $this->condition_code_groups = set($this->condition_code_groups);
         $this->condition_code_group_count = count($this->condition_code_groups);
-        //pre ($this->condition_code_groups);
+
+        //pre ($this->document_codes);
 
         # Sort the mesaure condition groups into alphabetical order
         # This does not seem to work at the moment, but the items do tend to be in the right order anyway
         if ($this->condition_code_group_count > 1) {
-            usort($this->document_codes, 'document_code_sorter');
+            //h1 ("Sorting multi-block");
+            usort($this->document_codes, 'document_code_sorter_multi_block');
+        } else {
+            //h1 ("Sorting single block");
+            usort($this->document_codes, 'document_code_sorter_single_block');
         }
-        //pre ($this->condition_code_groups);
+        //pre ($this->document_codes);
 
         #############################################
         # Get conditions
@@ -283,15 +327,51 @@ class measure
         # In this block, display the content associated with document codes
         # that are common to each of the condition group blocks
         # Where there are non-common pairs, these are echoed below
+
+
+        // Options are 00. Threshold; 01. Certificate; 02. Exception
+
+
+        $app->has_shown_unless = False;
+        $app->has_shown_you_need = False;
+        $app->has_shown_threshold = False;
+
+        // For all conditions / document codes that are in all of the blocks (if there is more than a single condition code block)
+        // Follow this code, with all the insertions of conjunctions, as required.
         foreach ($this->document_codes as $dc) {
             if ($dc->instance_count == $this->condition_code_group_count) {
+                switch ($dc->classification) {
+                    case "01. Certificate":
+                        if ($app->has_shown_you_need == False) {
+                            if ($app->has_shown_threshold) {
+                                $app->conjunction = $app->get_phrase("otherwise_you_need") . " "; // "Otherwise, you need ";
+                            } else {
+                                $app->conjunction = $app->get_phrase("you_need") . " "; // "You need ";
+                            }
+                        } else {
+                            $app->conjunction = "or ";
+                        }
+                        $app->has_shown_you_need = True;
+                        break;
+                    case "02. Exception":
+                        if ($app->has_shown_unless == False) {
+                            $app->conjunction = $app->get_phrase("unless") . " "; // "Unless ";
+                        } else {
+                            $app->conjunction = $app->get_phrase("or") . " "; // "or ";
+                        }
+                        $app->has_shown_unless = True;
+                        break;
+                    case "00. Threshold":
+                        $app->has_shown_threshold = true;
+                        break;
+                }
+
                 $conditions_text .= $dc->get_certificate_json();
             }
         }
 
         if ($this->condition_code_group_count > 1) {
-            //$explainer_text = "You must fulfil one of the following conditions:<span class='info'>Fixed text</span>";
-            $explainer_text = "";
+            /* Start of code that deals with multiple condition code blocks */
             # need a matrix of all non-shared conditions against each other
             $dcs = array();
 
@@ -313,37 +393,42 @@ class measure
                 }
             }
 
-            //$next = array();
-            $next = "";
             foreach ($pairs as $p) {
-                $conditions_text .= "<li>";
+                $conditions_text .= "<li class='boolean_block'>";
                 $count = count($p->codes);
                 $index = -1;
                 foreach ($p->codes as $dc) {
                     $index += 1;
+                    if ($index == 0) {
+                        $app->conjunction = $app->get_phrase("or_you_provide") . " "; // "or ";
+                    } else {
+                        $app->conjunction = "";
+                    }
+                    //$conditions_text .= $dc->classification . $dc->get_certificate_json(true);
                     $conditions_text .= $dc->get_certificate_json(true);
                     if ($index < $count - 1) {
-                        $conditions_text .= "<br><br><strong>{{ and }}</strong><br><br>";
+                        $conditions_text .= "<strong><em>{{ and }}</em></strong><br><br>";
                     }
                 }
                 $conditions_text .= "</li>";
             }
-        } else {
-            $explainer_text = "";
+            /* End of code that deals with multiple condition code blocks */
         }
 
-        $next = "";
-        $output = str_replace("{{ explainer }}", $explainer_text, $output);
+        // Common to single and multiple blocks, final amends and write to the screen.
         $output = str_replace("{{ conditions }}", $conditions_text, $output);
-        $output = $this->get_and_text($output, $next);
+        $output = $this->get_translation_of_and($output);
 
+        
         echo ($output);
     }
 
-    public function get_and_text($s, $next) {
+    public function get_translation_of_and($s)
+    {
         global $app;
         if ($app->language == "cy") {
-            $s = str_replace("{{ and }}", "a/ac - it is a before a consonant and ac before a vowel (y and w are vowels)", $s);
+            //$s = str_replace("{{ and }}", "a/ac - it is a before a consonant and ac before a vowel (y and w are vowels)", $s);
+            $s = str_replace("{{ and }}", "a", $s);
         } else {
             $s = str_replace("{{ and }}", "and", $s);
         }

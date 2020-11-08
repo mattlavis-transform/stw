@@ -58,6 +58,26 @@
     "and": {
         "en": "and",
         "cy": "a"
+    },
+    "or": {
+        "en": "or",
+        "cy": "neu"
+    },
+    "or_you_provide": {
+        "en": "or you provide",
+        "cy": "neu"
+    },
+    "unless": {
+        "en": "Unless",
+        "cy": "Oni bai"
+    },
+    "you_need": {
+        "en": "You need",
+        "cy": "Mae angen"
+    },
+    "otherwise_you_need": {
+        "en": "Otherwise, you need",
+        "cy": "Fel arall, mae angen"
     }
     
 }
