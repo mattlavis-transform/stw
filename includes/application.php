@@ -238,6 +238,7 @@ class application
         $this->template_folder = $_SERVER['DOCUMENT_ROOT'] . "/templates/";
         $this->template_measure = $this->get_file($this->template_folder, "measure");
         $this->template_condition = $this->get_file($this->template_folder, "condition");
+        $this->template_additional_code = $this->get_file($this->template_folder, "additional_code", "html", true);
         $this->template_certificates_intro = $this->get_file($this->template_folder, "certificates_intro", "html", true);
         $this->template_prohibitions_intro = $this->get_file($this->template_folder, "prohibitions_intro", "html", true);
         $this->template_quotas_intro = $this->get_file($this->template_folder, "quotas_intro", "html", true);

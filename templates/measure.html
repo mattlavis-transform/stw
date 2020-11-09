@@ -1,6 +1,9 @@
 <ul class="govuk-list greybox">
     <li>
         <h3 class="govuk-heading-m {{ measure_type_id }}" style="margin-bottom:0.25em">{{ measure_type }} {{ order_number }}<span class='info'>Measure type {{ measure_type_id }}</span></h3>
+        {% block additional_code_text %}
+        <p>{{ additional_code_text }}</p>
+        {% endblock additional_code_text %}
         {% block measure_type_sub_text %}
         <p>{{ measure_type_sub_text }}<span class='info'>Measure type subtext</span></p>
         {% endblock %}

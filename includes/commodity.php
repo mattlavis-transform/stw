@@ -55,8 +55,6 @@ class commodity
                 }
             }
         }
-
-        //$this->rationalise_document_codes();
     }
 
     function rationalise_document_codes()

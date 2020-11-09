@@ -15,6 +15,9 @@ class measure
     public $measure_type_desc = "";
     public $measure_type_sub_text = "";
     public $order_number = null;
+    public $additional_code = null;
+    public $additional_code_code = null;
+    public $additional_code_description = null;
     public $measure_type_series_id;
     public $geographical_area_id;
     public $geographical_area_description;
@@ -39,6 +42,7 @@ class measure
         $this->get_measure_type();
         $this->get_geographical_area();
         $this->get_order_number();
+        $this->get_additional_code();
         $this->get_excluded_countries();
         $this->relevant = $this->applies_to_country($app->country);
 
@@ -69,6 +73,29 @@ class measure
         error_reporting(0);
         $this->order_number = $this->json["relationships"]["order_number"]["data"]["id"];
         error_reporting(E_ALL);
+    }
+
+    function get_additional_code()
+    {
+        error_reporting(0);
+        $this->additional_code = $this->json["relationships"]["additional_code"]["data"]["id"];
+        error_reporting(E_ALL);
+        if ($this->additional_code != null) {
+            $this->get_additional_code_detail();
+        }
+    }
+
+    function get_additional_code_detail()
+    {
+        foreach ($this->included as $included_item) {
+            if ($included_item["id"] == $this->additional_code) {
+                if ($included_item["type"] == "additional_code") {
+                    $this->additional_code_code = $included_item["attributes"]["code"];
+                    $this->additional_code_description = $included_item["attributes"]["formatted_description"];
+                    break;
+                }
+            }
+        }
     }
 
     function get_geographical_area_members()
@@ -222,11 +249,8 @@ class measure
 
     public function get_measure_phrase()
     {
-        // $a = "kilogram";
-        // $inflector = InflectorFactory::create()->build();
-        // $b = $inflector->pluralize($a);
-        // h1 ($a . " : " . $b);
         global $app;
+
         if (count($this->measure_conditions) == 0) {
             return;
         }
@@ -239,10 +263,24 @@ class measure
         # check to see if there is any copy to overlay the title of the measure type
         # if so, then use it, otherwise use the measure type description itslg
         $this->get_measure_type_overlay();
-        $output = str_replace("{{ measure_type }}", $this->measure_type_overlay, $output);
+        $output = str_replace("{{ measure_type }}", $this->measure_type_overlay . " " . $this->additional_code_description, $output);
         $output = str_replace("{{ measure_type_desc }}", $this->measure_type_desc, $output);
         $output = str_replace("{{ measure_type_id }}", $this->measure_type_id, $output);
         $output = str_replace("{{ order_number }}", $this->order_number_formatted(), $output);
+
+        // Get additional code
+        if ($this->additional_code_description == "") {
+            $pattern = "~{% block additional_code_text %}.+{% endblock additional_code_text %}~simu";
+            $output = preg_replace($pattern, "", $output);
+        } else {
+            $template = $app->template_additional_code;
+            $template = str_replace("{{ additional_code }}", $this->additional_code_code, $template);
+            $template = str_replace("{{ additional_code_description }}", $this->additional_code_description, $template);
+            $pattern = "~{% block additional_code_text %}.+{% endblock additional_code_text %}~simu";
+            $output = preg_replace($pattern, $template, $output);
+        }
+
+        // Get measure type
         if ($this->measure_type_sub_text == "") {
             $pattern = "~{% block measure_type_sub_text %}.+{% endblock %}~simu";
             $output = preg_replace($pattern, "", $output);
@@ -308,8 +346,7 @@ class measure
 
         //pre ($this->document_codes);
 
-        # Sort the mesaure condition groups into alphabetical order
-        # This does not seem to work at the moment, but the items do tend to be in the right order anyway
+        # Sort the measure condition groups into alphabetical order
         if ($this->condition_code_group_count > 1) {
             //h1 ("Sorting multi-block");
             usort($this->document_codes, 'document_code_sorter_multi_block');

@@ -1,7 +1,7 @@
 {
     "step_original": "Import certificate/licence/document: Import licence controlled substances (ozone), issued by the Commission",
-    "step_description": "Import certificate/licence/document: Import licence controlled substances (ozone), issued by the Commission",
+    "step_description": "Import licence controlled substances (ozone)",
     "step_howto_description": "",
-    "step_get_text": "",
-    "step_url": ""
+    "step_get_text": "Applying for a licence to import or export ozone-depleting substances",
+    "step_url": "https://www.gov.uk/guidance/applying-for-a-licence-to-import-or-export-ozone-depleting-substances"
 }

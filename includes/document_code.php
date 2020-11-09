@@ -53,7 +53,6 @@ class document_code
                 $step_howto_description = $app->get_fallback($json_obj, "step_howto_description");
                 $step_url = $app->get_fallback($json_obj, "step_url");
                 $step_get_text = $app->get_fallback($json_obj, "step_get_text");
-                $behave_as_exemption = $app->get_fallback($json_obj, "behave_as_exemption");
 
                 $s .= "<p class='govuk-body step_description'>";
 
