@@ -19,11 +19,12 @@
 }
 
 .greybox {
-    padding: 1em 1em 21px 1em !important;
+    /* padding: 1em 1em 21px 1em !important; */
+    padding: 1em 1em 1em 1em !important;
     background-color: #f8f8f8;
-    xbackground-image: url('/assets/images/measure_panel_bottom_border.png');
-    xbackground-repeat: repeat-x;
-    xbackground-position-y: bottom;
+    /* background-image: url('/assets/images/measure_panel_bottom_border.png');
+    background-repeat: repeat-x;
+    background-position-y: bottom; */
 }
 
 .greybox:last-child {
