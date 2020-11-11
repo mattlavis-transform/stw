@@ -63,7 +63,7 @@ class document_code
                 if ($step_howto_description != "") {
                     $s .= $step_howto_description . "<br>";
                 }
-                $s .= "Enter <strong>" . $this->code . "</strong> in Box 44 of your import declaration."; // . $this->classification;
+                $s .= "<span class='boilerplate'>Enter </span><strong>" . $this->code . "</strong> <span class='boilerplate'>in Box 44 of your import declaration.</span>"; // . $this->classification;
                 $s .= "<span class='info'>Hint text " . $this->code . "</span>";
                 if ($step_url != "") {
                     $s .= '<div class="step_url"><a target="_blank" href="' . $step_url . '">' . $step_get_text . '</a></div>';
@@ -80,13 +80,13 @@ class document_code
             // Threshold blocks
             if ($is_pair) {
                 if ($app->has_shown_unless) {
-                    $template = "or, if your goods {{verb}} {{qty}} {{unit}} or less<span class='info'>" . $this->code . "</span><br><br>";
+                    $template = "<span class='boilerplate'>or, if your goods </span>{{verb}} {{qty}} {{unit}} <span class='boilerplate'>or less</span><span class='info'>" . $this->code . "</span><br><br>";
                 } else {
-                    $template = "Unless your goods {{verb}} {{qty}} {{unit}} or less<span class='info'>" . $this->code . "</span><br><br>";
+                    $template = "<span class='boilerplate'>Unless your goods </span>{{verb}} {{qty}} {{unit}} <span class='boilerplate'>or less</span><span class='info'>" . $this->code . "</span><br><br>";
                     $app->has_shown_unless = true;
                 }
             } else {
-                $template = "If your goods {{verb}} {{qty}} {{unit}} or less<span class='info'>" . $this->code . "</span><br><br>";
+                $template = "<span class='boilerplate'>If your goods </span>{{verb}} {{qty}} {{unit}} <span class='boilerplate'>or less</span><span class='info'>" . $this->code . "</span><br><br>";
             }
             $find = array_search($this->threshold_unit, array_column($app->threshold_units, 'unit'));
             $verb = $app->threshold_units[$find]["verb"];
@@ -104,7 +104,7 @@ class document_code
             if ($is_pair) {
                 $app->conjunction = "";
             } else {
-                $s .= '<div class="govuk-inset-text">No action is required.</div>';
+                $s .= '<div class="govuk-inset-text"><span class="boilerplate">No action is required.</span></div>';
                 $app->conjunction = "Otherwise, ";
             }
         }

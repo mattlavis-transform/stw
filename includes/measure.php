@@ -383,9 +383,9 @@ class measure
                         case "01. Certificate":
                             if ($app->has_shown_you_need == False) {
                                 if ($app->has_shown_threshold) {
-                                    $app->conjunction = $app->get_phrase("otherwise_you_need") . " "; // "Otherwise, you need ";
+                                    $app->conjunction = "<span class='boilerplate'>" . $app->get_phrase("otherwise_you_need") . "</span> "; // "Otherwise, you need ";
                                 } else {
-                                    $app->conjunction = $app->get_phrase("you_need") . " "; // "You need ";
+                                    $app->conjunction = "<span class='boilerplate'>" . $app->get_phrase("you_need") . "</span> "; // "You need ";
                                 }
                             } else {
                                 $app->conjunction = "or ";
@@ -394,9 +394,9 @@ class measure
                             break;
                         case "02. Exception":
                             if ($app->has_shown_unless == False) {
-                                $app->conjunction = $app->get_phrase("unless") . " "; // "Unless ";
+                                $app->conjunction = "<span class='boilerplate'>" . $app->get_phrase("unless") . "</span> "; // "Unless ";
                             } else {
-                                $app->conjunction = $app->get_phrase("or") . " "; // "or ";
+                                $app->conjunction = "<span class='boilerplate'>" . $app->get_phrase("or") . "</span> "; // "or ";
                             }
                             $app->has_shown_unless = True;
                             break;
@@ -406,7 +406,7 @@ class measure
                     }
                 } else {
                     if ($dc->classification == "01. Certificate") {
-                        $app->conjunction = "You need ";
+                        $app->conjunction = "<span class='boilerplate'>You need </span>";
                     } else {
                         $app->conjunction = "";
                     }

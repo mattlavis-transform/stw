@@ -45,7 +45,7 @@ $app->page_title = $app->get_phrase("manage_trade") . " - " . $app->get_phrase("
                                 <?= $app->get_phrase("phrase_subtext1") ?> <strong><?= $app->commodity_code_formatted() ?></strong> <?= $app->get_phrase("phrase_subtext2") ?> <strong><?= $app->country_description ?></strong>.
                             </p>
                             <div class="govuk-inset-text">
-                                Hit the 's' key to toggle hint text.
+                                Hit the 's' key to toggle hint text and to show boilerplate text in red.
                             </div>
                             <br />
 
@@ -432,9 +432,11 @@ $app->page_title = $app->get_phrase("manage_trade") . " - " . $app->get_phrase("
                 if (info_hidden == true) {
                     info_hidden = false;
                     $(".info").show();
+                    $(".boilerplate").addClass("boilerplate_highlight");
                 } else {
                     info_hidden = true;
                     $(".info").hide();
+                    $(".boilerplate").removeClass("boilerplate_highlight");
                 }
             }
         });
