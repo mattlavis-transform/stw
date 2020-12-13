@@ -1,12 +1,4 @@
 <?php
-/*
-use Psr\Http\Message\RequestInterface;
-use \PFlorek\BasicAuth\BasicAuth;
-
-var_dump($credentials);
-*/
-
-
 require("includes/commodity.php");
 
 $app = new application();
@@ -70,7 +62,7 @@ class application
         // used to look for content in a JSON resource file
         // if it finds a language version, then use that
         // if not, then use the single, non-language specific version
-        error_reporting(0);
+        //error_reporting(0);
         $node = $json_obj[$node];
         if (is_array($node)) {
             $s = $node[$this->language];
@@ -114,6 +106,7 @@ class application
             $root = "https://www.trade-tariff.service.gov.uk/api/v2/commodities/";
             $url = $root . $this->commodity_code;
         }
+
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
@@ -229,6 +222,7 @@ class application
     public function get_folders()
     {
         $this->content_folder = $_SERVER['DOCUMENT_ROOT'] . "/content/";
+        $this->content_folder = str_replace("//", "/", $this->content_folder);
         $this->certificate_content_folder = $this->content_folder . "certificates/";
         $this->measure_type_content_folder = $this->content_folder . "measure_types/";
     }
@@ -246,17 +240,21 @@ class application
 
     public function get_file($folder, $file, $extension = "html", $language_specific = false)
     {
-        error_reporting(0);
+        //error_reporting(0);
         if ($language_specific) {
             $filename = $folder . $file . "_" . $this->language . "." . $extension;
         } else {
             $filename = $folder . $file . "." . $extension;
         }
-        try {
-            $myfile = fopen($filename, "r");
-            $content = fread($myfile, filesize($filename));
-            fclose($myfile);
-        } catch (exception $e) {
+        if (file_exists($filename)) {
+            try {
+                $myfile = fopen($filename, "r");
+                $content = fread($myfile, filesize($filename));
+                fclose($myfile);
+            } catch (exception $e) {
+                $content = "";
+            }
+        } else {
             $content = "";
         }
         error_reporting(E_ALL);
@@ -405,8 +403,6 @@ function document_code_sorter_multi_block($object1, $object2)
         $tmp = strcmp($object1->classification, $object2->classification);
     }
     return ($tmp);
-
-
 }
 
 function document_code_sorter_single_block($object1, $object2)

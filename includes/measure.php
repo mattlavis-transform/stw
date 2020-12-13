@@ -70,15 +70,15 @@ class measure
 
     function get_order_number()
     {
-        error_reporting(0);
-        $this->order_number = $this->json["relationships"]["order_number"]["data"]["id"];
+        //error_reporting(0);
+        $this->order_number = Null; // $this->json["relationships"]["order_number"]["data"]["id"];
         error_reporting(E_ALL);
     }
 
     function get_additional_code()
     {
-        error_reporting(0);
-        $this->additional_code = $this->json["relationships"]["additional_code"]["data"]["id"];
+        //error_reporting(0);
+        $this->additional_code = Null; // $this->json["relationships"]["additional_code"]["data"]["id"];
         error_reporting(E_ALL);
         if ($this->additional_code != null) {
             $this->get_additional_code_detail();
@@ -249,14 +249,13 @@ class measure
 
     public function get_measure_phrase()
     {
+        error_reporting(-1);
         global $app;
 
         if (count($this->measure_conditions) == 0) {
             return;
         }
         $this->count_exemptions_and_documents();
-
-        //pre($this->measure_sid . ", " . $this->measure_type_description . ", " . $this->measure_type_series_id);
 
         # Base the output on the measure template
         $output = $app->template_measure;

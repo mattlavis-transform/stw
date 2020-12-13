@@ -1,6 +1,7 @@
 <?php
 require("includes/application.php");
 global $app;
+$app->page_title = "Home";
 ?>
 <!DOCTYPE html>
 <html lang="en" class="govuk-template ">

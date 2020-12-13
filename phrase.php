@@ -44,9 +44,9 @@ $app->page_title = $app->get_phrase("manage_trade") . " - " . $app->get_phrase("
                             <p class="govuk-body-l">
                                 <?= $app->get_phrase("phrase_subtext1") ?> <strong><?= $app->commodity_code_formatted() ?></strong> <?= $app->get_phrase("phrase_subtext2") ?> <strong><?= $app->country_description ?></strong>.
                             </p>
-                            <div class="govuk-inset-text">
+                            <!-- <div class="govuk-inset-text">
                                 Hit the 's' key to toggle hint text and to show boilerplate text in red.
-                            </div>
+                            </div> -->
                             <br />
 
                             <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-with-summary-sections">
