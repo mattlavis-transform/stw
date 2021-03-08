@@ -1,0 +1,19 @@
+{
+    "description": "Animal Health Certificate",
+    "measure_type": {
+        "en": "Animal Health Certificate",
+        "cy": "tbc"
+    },
+    "sub_text": {
+        "en": "Some introductory text about Animal Health Certificates",
+        "cy": "tbc"
+    },
+    "caption": {
+        "en": "Animal Health Certificate",
+        "cy": "tbc"
+    },
+    "question": {
+        "en": "Which of the following applies to your goods?",
+        "cy": "Pa un o'r canlynol sy'n berthnasol i'ch nwyddau?"
+    }
+}

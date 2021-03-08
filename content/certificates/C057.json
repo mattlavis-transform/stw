@@ -3,5 +3,9 @@
     "step_description": "a copy of the declaration of conformity - Option A",
     "step_howto_description": "Dolore voluptate eiusmod quis ea nostrud ullamco commodo occaecat. Veniam nostrud in elit eu tempor veniam culpa Lorem. Veniam culpa ea incididunt incididunt. Ad dolore dolor est dolore proident Lorem elit consequat.",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

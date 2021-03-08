@@ -1,14 +1,17 @@
 [
 	{
 		"unit" : "KILOGRAM",
-		"verb" : "weigh"
+		"verb" : "weigh",
+		"unit_display" : "kilograms"
 	},
 	{
 		"unit" : "Kilogram",
-		"verb" : "weigh"
+		"verb" : "weigh",
+		"unit_display" : "kilograms"
 	},
 	{
 		"unit" : "Litre",
-		"verb" : "have a volume of"
+		"verb" : "have a volume of",
+		"unit_display" : "litres"
 	}
 ]

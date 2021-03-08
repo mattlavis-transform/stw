@@ -3,6 +3,8 @@
     "step_description": "Your goods are not organic",
     "step_howto_description": "If your goods are not organic, ensure that all reference to organic is removed from the packaging.",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "Your goods are not organic",
+    "question_option_hint_text": "If your goods are not organic, then you must make sure that all references to the term 'Organic' are removed from the item and its packaging"
 }
 

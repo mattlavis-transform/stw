@@ -1,7 +1,11 @@
 {
     "step_original": "None",
-    "step_description": "None",
+    "step_description": "You must have a statement of conformity to show that your scrap metal is no longer waste and can be turned into a new non-waste product or material.",
     "step_howto_description": "",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

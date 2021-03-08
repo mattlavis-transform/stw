@@ -15,7 +15,11 @@
     "step_url": {
         "en": "https://www.legislation.gov.uk/eur/2015/1850/article/4",
         "cy": "https://www.legislation.gov.uk/eur/2015/1850/article/4"
-    }
+    },
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }
 
 

@@ -3,5 +3,9 @@
     "step_description": "Import of the following goods is prohibited:",
     "step_howto_description": "Countermeasure Subsystems and Penetration Aids (e.g. jammers, chaff, decoys) designed to saturate, confuse, or evade missile defences<br><br>If you are importing goods other than those noted above:<br>",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

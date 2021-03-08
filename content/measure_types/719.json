@@ -7,5 +7,13 @@
     "sub_text": {
         "en": "Fishery products may only be imported into when accompanied by a catch certificate.",
         "cy": "TBC"
+    },
+    "caption": {
+        "en": "Control on illegal, unreported and unregulated fishing",
+        "cy": "TBC"
+    },
+    "question": {
+        "en": "Which of the following applies to your goods?",
+        "cy": "Pa un o'r canlynol sy'n berthnasol i'ch nwyddau?"
     }
 }

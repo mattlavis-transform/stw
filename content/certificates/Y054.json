@@ -3,5 +3,9 @@
     "step_description": "Particular provisions: Goods labelled according to the provisions of Article 12, paragraph 1 of Regulation (EU) No 517/2014",
     "step_howto_description": "",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

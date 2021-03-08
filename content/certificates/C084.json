@@ -3,6 +3,9 @@
     "step_description": "your goods are for scientific or research usage or for use as diagnostic samples.",
     "step_howto_description": "",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "Your goods are for scientific or research usage or for use as diagnostic samples",
+    "question_option_hint_text": "",
+    "document_code_type_override": "02. Exception"
 }
 

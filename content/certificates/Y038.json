@@ -3,5 +3,9 @@
     "step_description": "Particular provisions: Derogation from import prohibition by virtue of Article 14 of Council Regulation (EU) 2017/1509",
     "step_howto_description": "",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

@@ -3,5 +3,9 @@
     "step_description": "The trade is for exempted purposes",
     "step_howto_description": "If the trade is non-commercial in nature, concerns returned goods or is for humanitarian aid purposes in third countries where such consignments are occasional in nature, comprise varied products and do not exceed a total of 30,000 kg per means of transport",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

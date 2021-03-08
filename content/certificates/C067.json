@@ -3,7 +3,11 @@
     "step_description": "Your goods are considered as restricted goods and technologies",
     "step_howto_description": "You require an Import authorisation for restricted goods and technologies",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }
 
 

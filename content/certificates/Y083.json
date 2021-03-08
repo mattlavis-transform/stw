@@ -3,7 +3,11 @@
     "step_description": "Derogation from export prohibition by virtue of Article 16g of Council Regulation (EU) 2017/1509",
     "step_howto_description": "",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "Derogation from export prohibition by virtue of Article 16g of Council Regulation (EU) 2017/1509",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }
 
 

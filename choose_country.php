@@ -9,9 +9,9 @@ $app->get_trade_direction_message();
 <html lang="en" class="govuk-template ">
 
 <head>
-<?php
+    <?php
     require("includes/meta.php");
-?>
+    ?>
 </head>
 
 <body class="govuk-template__body ">
@@ -19,7 +19,7 @@ $app->get_trade_direction_message();
     require("includes/header.php");
     ?>
     <div class="govuk-width-container ">
-    <?php
+        <?php
         require("includes/banner.php");
         ?>
         <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
@@ -28,10 +28,9 @@ $app->get_trade_direction_message();
                 <main class="govuk-main-wrapper">
                     <div class="govuk-grid-row">
                         <div class="govuk-grid-column-two-thirds">
-                            <!--
-                            <form action="manage_trade.html" method="get">
-                            //-->
+
                             <form action="phrase.html" method="get">
+                                <!-- <form action="question.html" method="get"> -->
                                 <fieldset class="govuk-fieldset">
                                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
                                         <h1 class="govuk-fieldset__heading">

@@ -32,7 +32,6 @@ class application
         $this->get_threshold_units();
         $this->get_furniture_json();
         $this->phase = $this->get_phrase("phase");
-        $this->codes_that_are_really_exemptions = array("C084");
     }
 
     public function get_phrase($s)
@@ -62,7 +61,7 @@ class application
         // used to look for content in a JSON resource file
         // if it finds a language version, then use that
         // if not, then use the single, non-language specific version
-        //error_reporting(0);
+        error_reporting(0);
         $node = $json_obj[$node];
         if (is_array($node)) {
             $s = $node[$this->language];
@@ -142,6 +141,16 @@ class application
 
         $this->country = $var;
         unset($_SESSION["country"]);
+    }
+
+    public function set_question() {
+        $var = get_querystring("q");
+        if ($var != "") {
+            $this->question_index = intval(get_querystring("q"));
+        } else {
+            $this->question_index = 0;
+        }
+        $_SESSION["question_index"] = $this->question_index;
     }
 
     public function set_country()
@@ -236,6 +245,11 @@ class application
         $this->template_certificates_intro = $this->get_file($this->template_folder, "certificates_intro", "html", true);
         $this->template_prohibitions_intro = $this->get_file($this->template_folder, "prohibitions_intro", "html", true);
         $this->template_quotas_intro = $this->get_file($this->template_folder, "quotas_intro", "html", true);
+
+        $this->template_question = $this->get_file($this->template_folder, "question");
+        $this->template_question_option = $this->get_file($this->template_folder, "question_option");
+        $this->template_question_option_hint = $this->get_file($this->template_folder, "question_option_hint");
+
     }
 
     public function get_file($folder, $file, $extension = "html", $language_specific = false)
@@ -372,9 +386,9 @@ function p($s)
     echo ("<p class='govuk-body'>" . $s . "</p>");
 }
 
-function h1($s)
+function h1($s, $class = "")
 {
-    echo ("<h1>" . $s . "</h1>");
+    echo ("<h1 class='" . $class . "'>" . $s . "</h1>");
 }
 function conjunto($dados)
 {
@@ -411,7 +425,7 @@ function document_code_sorter_single_block($object1, $object2)
     // sort first by code, then by classification
     // used in usort
 
-    $tmp = strcmp($object1->classification, $object2->classification);
+    $tmp = strcmp($object2->classification, $object1->classification);
 
     if ($tmp == 0) {
         $tmp = strcmp($object1->code, $object2->code);

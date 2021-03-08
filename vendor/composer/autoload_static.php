@@ -8,9 +8,14 @@ class ComposerStaticInit3b60790adb77e7c848e4489062baede1
 {
     public static $files = array (
         'a8a49afccbd444323d4e56eac134e568' => __DIR__ . '/..' . '/pflorek/php-basic-auth/src/functions.php',
+        '2fc203335b48834452e6c9e79fb1ddb9' => __DIR__ . '/..' . '/me-io/php-lodash/src/__.php',
     );
 
     public static $prefixLengthsPsr4 = array (
+        '_' => 
+        array (
+            '__\\' => 3,
+        ),
         'P' => 
         array (
             'Psr\\Http\\Message\\' => 17,
@@ -23,6 +28,10 @@ class ComposerStaticInit3b60790adb77e7c848e4489062baede1
     );
 
     public static $prefixDirsPsr4 = array (
+        '__\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/me-io/php-lodash/src',
+        ),
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
@@ -37,11 +46,16 @@ class ComposerStaticInit3b60790adb77e7c848e4489062baede1
         ),
     );
 
+    public static $classMap = array (
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit3b60790adb77e7c848e4489062baede1::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit3b60790adb77e7c848e4489062baede1::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit3b60790adb77e7c848e4489062baede1::$classMap;
 
         }, null, ClassLoader::class);
     }

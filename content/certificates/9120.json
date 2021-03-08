@@ -3,7 +3,9 @@
     "step_description": "You will need a Licence under the Importation of Animal pathogens Order 1980 (IAPO)",
     "step_howto_description": "",
     "step_get_text": "Find out more about the Licence under the Importation of Animal pathogens Order",
-    "step_url": "https://www.gov.uk/government/publications/animal-pathogens-guidance-on-controls"
+    "step_url": "https://www.gov.uk/government/publications/animal-pathogens-guidance-on-controls",
+    "question_option_text": "Text for 9210",
+    "question_option_hint_text": "x"
 }
 
 

@@ -1,7 +1,11 @@
 {
     "step_original": "Other certificates: Declaration to be provided for every consignment of kitchenware falling under the provisions of (EU) Regulation 284/2011, originating in or consigned from the People’s Republic of China and Hong Kong Special Administrative Region, China",
-    "step_description": "Other certificates: Declaration to be provided for every consignment of kitchenware falling under the provisions of (EU) Regulation 284/2011, originating in or consigned from the People’s Republic of China and Hong Kong Special Administrative Region, China",
+    "step_description": "If your polyamide or melamine plastic kitchenware is from China or Hong Kong, you must:<br>- tell the [Border Control Post](https://www.gov.uk/government/publications/uk-border-control-posts-animal-and-animal-product-imports/live-animals-animal-products-and-food-and-feed-of-non-animal-origin-border-control-posts-bcp-in-the-uk#approved-categories-keybrb) when your consignment is due to arrive in the UK, at least 2 working days before the estimated arrival date<br>- show a declaration and laboratory report confirming the goods meet the requirements for the release of primary aromatic amines and formaldehyde",
     "step_howto_description": "",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

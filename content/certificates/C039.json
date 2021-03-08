@@ -1,7 +1,11 @@
 {
     "step_original": "Other certificates: ICCAT swordfish statistical document",
-    "step_description": "Other certificates: ICCAT swordfish statistical document",
+    "step_description": "You must include an ICCAT swordfish statistical document with your goods.",
     "step_howto_description": "",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

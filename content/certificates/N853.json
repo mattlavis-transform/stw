@@ -3,5 +3,9 @@
     "step_description": "a Common Health Entry Document for Products of animal origin, germinal products and animal by-products (CHED-P)",
     "step_howto_description": "A CHED-P is required unless specific exemptions apply.",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "You have a Common Health Entry Document for Products of animal origin, germinal products and animal by-products (CHED-P)",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

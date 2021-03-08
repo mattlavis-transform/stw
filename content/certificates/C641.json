@@ -1,7 +1,11 @@
 {
     "step_original": "Other certificates: Dissostichus - catch document import",
-    "step_description": "Other certificates: Dissostichus - catch document import",
+    "step_description": "You must have a Dissostichus catch document report from the state or country exporting your goods.",
     "step_howto_description": "",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

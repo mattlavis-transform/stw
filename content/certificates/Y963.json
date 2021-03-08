@@ -3,5 +3,9 @@
     "step_description": "Import of the following goods is prohibited:",
     "step_howto_description": "Reaction vessels, reactors, agitators, heat exchangers, condensers, pumps, valves, storage tanks, containers, receivers, and distillation or absorption columns that meet performance parameters described in S/2006/853 and S/2006/853/corr.1. Single-seal pumps with manufacturer's specified maximum flow-rate greater than 0,6 m3/h and casings (pump bodies), preformed casing liners, impellers, rotors or jet pump nozzles designed for such pumps, in which all surfaces that come into direct contact with the chemical(s) being processed are made from any of the following materials: (a) nickel or alloys with more than 40% nickel by weight; (b) alloys with more than 25% nickel and 20% chromium by weight; (c) fluoropolymers (polymeric or elastomeric materials with more than 35% fluorine by weight); (d) glass or glass-lined (including vitrified or enamelled coating); (e) graphite or carbon-graphite; (f) tantalum or tantalum alloys; (g) titanium or titanium alloys; (h) zirconium or zirconium alloys; (i) ceramics; (j) ferrosilicon (high silicon iron alloys) or (k) niobium (columbium) or niobium alloys.<br><br>If you are importing goods other than those noted above:<br>",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

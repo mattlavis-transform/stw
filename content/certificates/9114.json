@@ -3,5 +3,9 @@
     "step_description": "Controlled Drugs Open Individual Licence",
     "step_howto_description": "An Open Individual Licence (OIL) allows you to import an unlimited quantity of non-prohibited controlled drugs.",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

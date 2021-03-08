@@ -1,7 +1,11 @@
 {
     "step_original": "Other certificates: Laboratory analysis",
-    "step_description": "Other certificates: Laboratory analysis",
+    "step_description": "If you do not have a certificate issued by the FGIS, your goods must go for laboratory analysis in the UK.",
     "step_howto_description": "",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

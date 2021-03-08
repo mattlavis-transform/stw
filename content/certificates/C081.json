@@ -3,5 +3,9 @@
     "step_description": "a Self-certification Simplified VI 1 document",
     "step_howto_description": "Lorem ipsum dolor sit amet",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

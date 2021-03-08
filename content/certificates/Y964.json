@@ -1,7 +1,11 @@
 {
     "step_original": "Particular provisions: Goods other than those described in Annex XIa (Seafood) of Reg. (EU) 2017/1509",
-    "step_description": "Particular provisions: Goods other than those described in Annex XIa (Seafood) of Reg. (EU) 2017/1509",
+    "step_description": "You must not import, buy or transfer, directly or indirectly, any of the following from North Korea (DPRK):<br>- seafood or food containing seafood, including fish, crustaceans, molluscs and other aquatic invertebrates in all forms<br>- fishing rights<br>- fish and crustaceans, molluscs and other aquatic invertebrates (CN code 03)<br>- extracts and juices of fish or crustaceans, molluscs or other aquatic invertebrates (CN code 1603)<br>- prepared or preserved fish; caviar and caviar substitutes prepared from fish eggs (CN code 1604 )<br>- crustaceans, molluscs and other aquatic invertebrates, prepared or preserved (CN Code 1605 )<br>- stuffed pasta, whether or not cooked or otherwise prepared containing more than 20 % by weight of fish, crustaceans, molluscs or other aquatic invertebrate (CN code 1902 20 10)<br>- Soups and broths and preparations therefor; homogenised composite food preparations, containing fish, crustaceans, molluscs or other aquatic invertebrates (CN code 2104)<br>If your goods are not described above, you do not need to use this code. Contact the Foreign, Commonwealth and Development Office for further guidance.",
     "step_howto_description": "",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

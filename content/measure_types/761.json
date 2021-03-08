@@ -7,5 +7,13 @@
     "sub_text": {
         "en": "This Regulation should ensure a high level of protection of human health and the environment as well as the free movement of substances, on their own, in preparations and in articles, while enhancing competitiveness and innovation. This Regulation should also promote the development of alternative methods for the assessment of hazards of substances.",
         "cy": "TBC"
+    },
+    "caption": {
+        "en": "Import control concerning the Registration, Evaluation, Authorisation and Restriction of Chemicals (REACH)",
+        "cy": "TBC"
+    },
+    "question": {
+        "en": "Which of the following applies to your goods?",
+        "cy": "Pa un o'r canlynol sy'n berthnasol i'ch nwyddau?"
     }
 }

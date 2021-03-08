@@ -56,5 +56,9 @@
 }
 
 .boilerplate_highlight {
-    color:#c00 !important;
+    color: #c00 !important;
+}
+
+.red {
+    color: #f00;
 }

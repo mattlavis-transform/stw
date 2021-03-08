@@ -1,7 +1,11 @@
 {
     "step_original": "Other certificates: ICCAT bluefin tuna re-export certificate (Reg 640/2010, L 194)",
-    "step_description": "Other certificates: ICCAT bluefin tuna re-export certificate (Reg 640/2010, L 194)",
+    "step_description": "You must have an ICCAT bluefin tuna re-export certificate for your goods.",
     "step_howto_description": "",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

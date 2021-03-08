@@ -1,7 +1,8 @@
 {
     "require": {
         "pflorek/php-basic-auth": "^1.0",
-        "doctrine/inflector": "^2.0"
+        "doctrine/inflector": "^2.0",
+        "me-io/php-lodash": "^2.0"
     },
     "require-dev": {
         "pflorek/php-basic-auth": "^1.0",

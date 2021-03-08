@@ -15,5 +15,9 @@
     "step_url": {
         "en": "",
         "cy": ""
-    }
+    },
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

@@ -7,5 +7,13 @@
     "sub_text": {
         "en": "Import of restricted goods and technologies is not permitted",
         "cy": "TBC"
+    },
+    "caption": {
+        "en": "Import control on restricted goods and technologies",
+        "cy": "TBC"
+    },
+    "question": {
+        "en": "Which of the following applies to your goods?",
+        "cy": "Pa un o'r canlynol sy'n berthnasol i'ch nwyddau?"
     }
 }

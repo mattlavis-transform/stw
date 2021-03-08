@@ -3,5 +3,9 @@
     "step_description": "If the product is being imported for personal use",
     "step_howto_description": "The noted forms of documentation are not required.",
     "step_get_text": "See more about personal use of seal products",
-    "step_url": "https://www.legislation.gov.uk/eur/2015/1850/article/2"
+    "step_url": "https://www.legislation.gov.uk/eur/2015/1850/article/2",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

@@ -2,6 +2,7 @@
 require 'vendor/autoload.php';
 
 require("includes/measure_condition.php");
+require("includes/question_option.php");
 require("includes/document_code.php");
 
 use Doctrine\Inflector\InflectorFactory;
@@ -28,6 +29,9 @@ class measure
     public $measure_conditions = [];
     public $members = [];
     public $relevant;
+
+    public $caption_text = "";
+    public $question_text = "";
 
     public function __construct($json, $included)
     {
@@ -238,13 +242,206 @@ class measure
         $this->document_count = 0;
 
         foreach ($tmp as $dc) {
-            if ((substr($dc, 0, 1) == "Y") || (in_array($dc, $app->codes_that_are_really_exemptions))) {
+            // Any document code that has a "Y" at the start is an exemption
+            if (substr($dc, 0, 1) == "Y") {
+            // if ((substr($dc, 0, 1) == "Y") || (in_array($dc, $app->codes_that_are_really_exemptions))) {
                 $this->exemption_count += 1;
             } else {
                 $this->document_count += 1;
             }
         }
-        //h1 ("This measure has " . $this->exemption_count . " exemptions and " . $this->document_count . " actual documents");
+    }
+
+    public function check_multiple_positive_conditions()
+    {
+        $positive_count = 0;
+        foreach ($this->measure_conditions as $mc) {
+            if ($mc->positive == 1) {
+                $positive_count += 1;
+            }
+        }
+
+        h1("Found " . $positive_count . " positives on measure " . $this->measure_sid);
+        if ($positive_count > 1) {
+            return (true);
+        } else {
+            return (false);
+        }
+    }
+
+    public function get_question_overlay()
+    {
+        global $app;
+        $overlay = $app->get_file($app->measure_type_content_folder, $this->measure_type_id, "json");
+        $json_obj = json_decode($overlay, true);
+        $this->caption_text = $app->get_fallback($json_obj, "caption");
+        $this->caption_text = str_replace("{{ country }}", $app->country_description, $this->caption_text);
+        $this->question_text = $app->get_fallback($json_obj, "question");
+    }
+
+    public function display_measure_question()
+    {
+        global $app;
+        if (count($this->question_options) < 2) {
+            return;
+        }
+
+        # Get the question, question option and question option hint template
+        $output = $app->template_question;
+        $template_qo = $app->template_question_option;
+        $template_qoh = $app->template_question_option_hint;
+
+        $output = str_replace("{{ caption }}", $this->caption_text, $output);
+        $output = str_replace("{{ question }}", $this->question_text, $output);
+        $this->question_options_text = "";
+        foreach ($this->question_options as $question_option) {
+            $option = str_replace("{{ value }}", $question_option->value, $template_qo);
+            $option = str_replace("{{ text }}", $question_option->text, $option);
+            $option = str_replace("{{ classification }}", $question_option->classification, $option);
+            if ($question_option->hint_text != null) {
+                $option = str_replace("{{ hint }}", $template_qoh, $option);
+                $option = str_replace("{{ hint }}", $question_option->hint_text, $option);
+            } else {
+                $option = str_replace("{{ hint }}", "", $option);
+            }
+            $this->question_options_text .= $option;
+        }
+        $output = str_replace("{{ question_options }}", $this->question_options_text, $output);
+        $output = str_replace("{{ measure_type }}", $this->measure_type_id, $output);
+
+        echo ($output);
+    }
+
+    public function get_measure_question()
+    {
+        $this->get_question_overlay();
+        error_reporting(-1);
+        global $app;
+
+        if (count($this->measure_conditions) == 0) {
+            return;
+        }
+
+        $this->condition_code_groups = array();
+        $this->document_codes = array();
+
+        # Loop through each of this measure's measure conditions
+        $this->threshold_count = 0;
+        foreach ($this->measure_conditions as $mc) {
+            if ($mc->positive) {
+
+                # If the measure condition is "positive", then continue ...
+                array_push($this->condition_code_groups, $mc->condition_code);
+                $dc = new document_code();
+
+                # Where the condition is positive and there is no document code, this is a threshold condition
+                # These threshold data have already been retrieved from the measure condition look
+                if ($mc->document_code == "") {
+                    $this->threshold_count += 1;
+                    $dc->is_threshold = true;
+                    $dc->threshold_quantity = $mc->threshold_quantity;
+                    $dc->threshold_unit = $mc->threshold_unit;
+                    $dc->code = "<= " . $mc->threshold_quantity . " " . $mc->threshold_unit;
+                } else {
+                    $dc->code = $mc->document_code;
+                    $dc->certificate_code = $mc->certificate_code;
+                    $dc->certificate_type_code = $mc->certificate_type_code;
+                    $dc->requirement = $mc->requirement;
+                }
+                $dc->classify();
+
+                if ($dc->suppress == "") {
+                    # We need an atomic list of the individual condition codes
+                    # to see if this a complex measure with multiple measure condition groups
+                    # List of document_codes should list unique codes only, and for each of these, list the condition groups
+                    # to which they belong
+                    $found = false;
+                    foreach ($this->document_codes as $existing) {
+                        if ($existing->code == $dc->code) {
+                            $found = true;
+                            $existing->instance_count += 1;
+                            array_push($existing->condition_codes, $mc->condition_code);
+                            break;
+                        }
+                    }
+
+                    if ($found == false) {
+                        $dc->instance_count = 1;
+                        array_push($dc->condition_codes, $mc->condition_code);
+                        array_push($this->document_codes, $dc);
+                    }
+                }
+            }
+        }
+
+        $this->condition_code_groups = set($this->condition_code_groups);
+        $this->condition_code_group_count = count($this->condition_code_groups);
+
+        # Sort the measure condition groups into alphabetical order
+        if ($this->condition_code_group_count > 1) {
+            usort($this->document_codes, 'document_code_sorter_multi_block');
+        } else {
+            usort($this->document_codes, 'document_code_sorter_single_block');
+        }
+
+        $this->question_options = [];
+        if ($this->condition_code_group_count > 1) {
+
+            //pre($this);
+            // Get the paired items, which will be an exemption, paired with a threshold probably
+            $pairs = [];
+            foreach ($this->document_codes as $dc) {
+                if ($dc->instance_count == 1) {
+                    array_push($pairs, $dc);
+                }
+            }
+            if (count($pairs) > 0) {
+                $q = new question_option();
+                $q->text = "";
+                $q->value = "";
+                $q->hint_text = "";
+                $count = 0;
+                foreach ($pairs as $pair) {
+                    if ($count == 0) {
+                        $add_string = $pair->question_option_text . " and ";
+                    } else {
+                        $add_string = lcfirst($pair->question_option_text);
+                    }
+                    $q->text .= $add_string;
+                    $count += 1;
+                }
+                array_push($this->question_options, $q);
+            }
+            foreach ($this->document_codes as $dc) {
+                if ($dc->instance_count > 1) {
+                    $q = new question_option();
+                    if ($dc->classification == "00. Threshold") {
+                        $q->value = "threshold";
+                        $q->text = "Your goods " . $dc->verb . " " . $dc->threshold_quantity . " " . $dc->unit_display . " or less";
+                    } else {
+                        $q->value = $dc->code;
+                        $q->text = $dc->question_option_text;
+                        $q->hint_text = $dc->question_option_hint_text;
+                        $q->classification = $dc->classification;
+                    }
+                    array_push($this->question_options, $q);
+                }
+            }
+        } else {
+            foreach ($this->document_codes as $dc) {
+                $q = new question_option();
+                if ($dc->classification == "00. Threshold") {
+                    $q->value = "threshold";
+                    $q->text = "Your goods " . $dc->verb . " " . $dc->threshold_quantity . " " . $dc->unit_display . " or less";
+                } else {
+                    $q->value = $dc->code;
+                    $q->text = $dc->question_option_text;
+                    $q->hint_text = $dc->question_option_hint_text;
+                    $q->classification = $dc->classification;
+                }
+                array_push($this->question_options, $q);
+            }
+        }
     }
 
     public function get_measure_phrase()
@@ -296,20 +493,18 @@ class measure
         foreach ($this->measure_conditions as $mc) {
             if ($mc->positive) {
 
-                # If the measure condition is positive, then continue ...
+                # If the measure condition is "positive", then continue ...
                 array_push($this->condition_code_groups, $mc->condition_code);
                 $dc = new document_code();
 
                 # Where the condition is positive and there is no document code, this is a threshold condition
                 # These threshold data have already been retrieved from the measure condition look
                 if ($mc->document_code == "") {
-                    //h1 ("Threshold");
                     $dc->is_threshold = true;
                     $dc->threshold_quantity = $mc->threshold_quantity;
                     $dc->threshold_unit = $mc->threshold_unit;
                     $dc->code = "<= " . $mc->threshold_quantity . " " . $mc->threshold_unit;
                 } else {
-                    //h1 ("Standard");
                     $dc->code = $mc->document_code;
                     $dc->certificate_code = $mc->certificate_code;
                     $dc->certificate_type_code = $mc->certificate_type_code;
@@ -338,22 +533,16 @@ class measure
                 }
             }
         }
-        //pre ($this->document_codes);
 
         $this->condition_code_groups = set($this->condition_code_groups);
         $this->condition_code_group_count = count($this->condition_code_groups);
 
-        //pre ($this->document_codes);
-
         # Sort the measure condition groups into alphabetical order
         if ($this->condition_code_group_count > 1) {
-            //h1 ("Sorting multi-block");
             usort($this->document_codes, 'document_code_sorter_multi_block');
         } else {
-            //h1 ("Sorting single block");
             usort($this->document_codes, 'document_code_sorter_single_block');
         }
-        //pre ($this->document_codes);
 
         #############################################
         # Get conditions
@@ -366,7 +555,6 @@ class measure
 
 
         // Options are 00. Threshold; 01. Certificate; 02. Exception
-
 
         $app->has_shown_unless = False;
         $app->has_shown_you_need = False;
@@ -481,6 +669,20 @@ class measure
     }
 
     public function get_measure_type_overlay()
+    {
+        global $app;
+        $overlay = $app->get_file($app->measure_type_content_folder, $this->measure_type_id, "json");
+        if ($overlay == "") {
+            $this->measure_type_overlay = $this->measure_type_description;
+            $this->measure_type_sub_text = "";
+        } else {
+            $json_obj = json_decode($overlay, true);
+            $this->measure_type_overlay = $json_obj["measure_type"][$app->language];
+            $this->measure_type_sub_text = $json_obj["sub_text"][$app->language];
+        }
+    }
+
+    public function get_measure_type_question_overlay()
     {
         global $app;
         $overlay = $app->get_file($app->measure_type_content_folder, $this->measure_type_id, "json");

@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '2bdf73ff31538900525c10cec13d741f791815f1',
+    'reference' => 'e12ea6854c26643d7e1bb7d0d7d1a99a5c564abd',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '2bdf73ff31538900525c10cec13d741f791815f1',
+      'reference' => 'e12ea6854c26643d7e1bb7d0d7d1a99a5c564abd',
     ),
     'doctrine/inflector' => 
     array (
@@ -38,36 +38,14 @@
       ),
       'reference' => '78b5f5c03ace2fbc6e49a2a1a1b1188643d0ddb6',
     ),
-    'myclabs/deep-copy' => 
+    'me-io/php-lodash' => 
     array (
-      'pretty_version' => '1.10.1',
-      'version' => '1.10.1.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '969b211f9a51aa1f6c01d1d2aef56d3bd91598e5',
-      'replaced' => 
-      array (
-        0 => '1.10.1',
-      ),
-    ),
-    'nahid/jsonq' => 
-    array (
-      'pretty_version' => 'v6.0.0',
-      'version' => '6.0.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '05227383e3d7256b226964234f33fc7bfa36f6c8',
-    ),
-    'nahid/qarray' => 
-    array (
-      'pretty_version' => 'v2.0.0',
+      'pretty_version' => '2.0.0',
       'version' => '2.0.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '09f5e7d702b938301abe23d888e791d9be655456',
+      'reference' => '48d65bbd16c55db1a8565e2ace8de00e79455a47',
     ),
     'pflorek/php-basic-auth' => 
     array (

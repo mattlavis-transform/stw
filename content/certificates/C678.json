@@ -1,7 +1,12 @@
 {
     "step_original": "Common Health Entry Document for Feed and Food of Non-Animal Origin (CHED-D) (as set out in Part 2, Section D of Annex II to Commission Implementing Regulation (EU) 2019/1715 (OJ L 261)) ",
-    "step_description": "Common Health Entry Document for Feed and Food of Non-Animal Origin (CHED-D)",
-    "step_howto_description": "The release into free circulation of consignments of rice or products containing, consisting of or produced from rice shall be subject to the presentation of a CHED-D or a CVED-P duly completed by the competent authority once all official controls have been carried out. Exemptions apply to consignments which are destined to a private person for personal consumption and use only. ",
+    "step_description": "You must complete a Common Health Entry Document for food of non-animal origin. This is called a CHED-D  You must submit this at least 24 hours before your goods are due to arrive.",
+    "step_howto_description": "",
+    "xstep_howto_description": "The release into free circulation of consignments of rice or products containing, consisting of or produced from rice shall be subject to the presentation of a CHED-D or a CVED-P duly completed by the competent authority once all official controls have been carried out. Exemptions apply to consignments which are destined to a private person for personal consumption and use only. ",
     "step_get_text": "",
-    "step_url": "https://www.gov.uk/guidance/cites-imports-and-exports"
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

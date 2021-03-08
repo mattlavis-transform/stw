@@ -1,7 +1,12 @@
 {
     "step_original": "Certificate of authenticity: Certificate of authenticity B Basmati Rice for export to the European Community",
-    "step_description": "Provide a Certificate of authenticity for Basmati Rice",
-    "step_howto_description": "You may only declare this commodity code with presentation of a certificate of authenticity from India or Pakistan, issued by a competent body in the exporting country<br><br><ul class='govuk-bullet govuk-list--bullet'><li>From India - Export Inspection Council (Ministry of Commerce, Government of India)</li><li>From Pakistan - Trading Corporation of Pakistan (Pvt) Ltd</li></ul>",
+    "step_description": "You must have a basmati rice certificate of authenticity from India or Pakistan, issued by either:<br>- Export Inspection Council, Ministry of Commerce, India<br>- Trading Corporation of Pakistan (Pvt) Ltd",
+    "step_howto_description": "",
+    "xstep_howto_description": "You may only declare this commodity code with presentation of a certificate of authenticity from India or Pakistan, issued by a competent body in the exporting country<br><br><ul class='govuk-bullet govuk-list--bullet'><li>From India - Export Inspection Council (Ministry of Commerce, Government of India)</li><li>From Pakistan - Trading Corporation of Pakistan (Pvt) Ltd</li></ul>",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

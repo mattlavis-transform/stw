@@ -3,7 +3,11 @@
     "step_description": "It is prohibited to import goods from certain categories of the Missile Technology Control Regime list from Iran",
     "step_howto_description": "If the goods declared are included in the following categories of the Missile Technology Control Regime list <br><ul class='govuk-list govuk-list--bullet'><li>M4C2c</li><li>M4C2d</li><li>M4C2e</li><li>M4C4a</li><li>M4C4b</li><li>M4C2b</li><li>M4C2f</li><li>M4C2g</li><li>M4C5</li><li>M4C6c1</li><li>M4C6d1</li><li>M4C6e1</li><li>M4C6d2</li><li>M4C6d4</li><li>M4C6c2</li><li>M4C6d5</li></ul>it is prohibited to sell, supply, transfer or export, directly or indirectly, these goods that could contribute to the development of nuclear weapon delivery systems, to any Iranian person, entity or body or for use in Iran. It shall be prohibited to purchase, import or transport from Iran, directly or indirectly, the goods and technology listed, whether the item concerned originates in Iran or not.<br><br>If you are importing goods other than those noted above:<br>",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }
 
 

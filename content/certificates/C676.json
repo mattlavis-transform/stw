@@ -3,5 +3,9 @@
     "step_description": "Other certificates: Import/export authorisation issued by the competent authorities of the Member States",
     "step_howto_description": "",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

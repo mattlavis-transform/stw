@@ -3,5 +3,9 @@
     "step_description": "Particular provisions: Goods other than those described in Annex X (Statues) of Reg. (EU) 2017/1509",
     "step_howto_description": "",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

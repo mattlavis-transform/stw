@@ -19,18 +19,47 @@ class document_code
         $this->is_threshold = false;
         $this->condition_codes = array();
         $this->classification = ""; // Options are 00. Threshold; 01. Certificate; 02. Exception
+        $this->suppress = "";
+
+       
+    }
+
+    public function get_data() {
+        global $app;
+        $overlay = $app->get_file($app->certificate_content_folder, $this->code, "json");
+        $json_obj = json_decode($overlay, true);
+        $this->question_option_text = $app->get_fallback($json_obj, "question_option_text");
+        $this->question_option_hint_text = $app->get_fallback($json_obj, "question_option_hint_text");
+        $this->document_code_type_override = $app->get_fallback($json_obj, "document_code_type_override");
+        $this->suppress = $app->get_fallback($json_obj, "suppress");
     }
 
     public function classify()
     {
+        $this->get_data();
         global $app;
         if ($this->is_threshold) {
             $this->classification = "00. Threshold";
-        } elseif ((substr($this->code, 0, 1) == "Y") || (in_array($this->code, $app->codes_that_are_really_exemptions))) {
-            $this->classification = "02. Exception";
+            $this->get_threshold_verb();
         } else {
-            $this->classification = "01. Certificate";
+            if ($this->document_code_type_override != "") {
+                $this->classification = $this->document_code_type_override;
+            } else {
+                if (substr($this->code, 0, 1) == "Y") {
+                    $this->classification = "02. Exception";
+                } else {
+                    $this->classification = "01. Certificate";
+                }
+            }
         }
+    }
+
+    public function get_threshold_verb() {
+        global $app;
+        $find = array_search($this->threshold_unit, array_column($app->threshold_units, 'unit'));
+        $this->verb = $app->threshold_units[$find]["verb"];
+        $this->unit_display = $app->threshold_units[$find]["unit_display"];
+        $this->question_option_text = "Your goods " . $this->verb . " " . $this->threshold_quantity . " " . $this->unit_display . " or less";
     }
 
     public function get_certificate_json($is_pair = false)
@@ -94,7 +123,8 @@ class document_code
             $template = str_replace("{{qty}}", $this->threshold_quantity, $template);
 
             $inflector = InflectorFactory::create()->build();
-            $units = $inflector->pluralize($this->threshold_unit);
+            //$units = $inflector->pluralize($this->threshold_unit);
+            $units = $this->threshold_unit;
 
             $template = str_replace("{{unit}}", $units, $template);
 

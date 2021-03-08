@@ -1,7 +1,11 @@
 {
     "step_original": "None",
-    "step_description": "None",
+    "step_description": "You must meet all of the following conditions to bring rough diamonds into the UK:<br>- provide a Kimberley Process certificate<br>- make sure the certificate clearly identifies your goods<br>- import the rough diamonds in tamper-resistant containers with the seals applied at export intact",
     "step_howto_description": "",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

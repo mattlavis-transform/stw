@@ -7,5 +7,13 @@
     "sub_text": {
         "en": "Phytosanitary certificates are issued by the Forestry Commission to the equivalent national plant protection organisation (NPPO) in the importing country. They certify that the material has been inspected, is considered free from quarantine (and other) pests and that it conforms to the plant health regulations of the importing country.",
         "cy": "TBC"
+    },
+    "caption": {
+        "en": "Phytosanitary Certificate for import",
+        "cy": "TBC"
+    },
+    "question": {
+        "en": "Which of the following applies to your goods?",
+        "cy": "Pa un o'r canlynol sy'n berthnasol i'ch nwyddau?"
     }
 }

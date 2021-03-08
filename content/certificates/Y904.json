@@ -3,5 +3,9 @@
     "step_description": "you are importing goods other than those listed below",
     "step_howto_description": "<ul><li>Thumb-cuffs, finger-cuffs, thumbscrews and finger-screws. This item includes both serrated and non-serrated cuffs and screws</li><li>Bar fetters, weighted leg restraints and gang chains comprising bar fetters or weighted leg restraints.</li><li>Cuffs for restraining human beings, designed to be anchored to a wall, floor or ceiling</li><li>Shields with metal spikes</li></ul>",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

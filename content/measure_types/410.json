@@ -7,5 +7,13 @@
     "sub_text": {
         "en": "Some introductory text about veterinary control - Nisi veniam nisi ad laboris consequat fugiat sint. Eu eu reprehenderit sint et ullamco laborum. Deserunt pariatur exercitation excepteur eu quis qui velit velit qui pariatur cillum voluptate laboris laborum.",
         "cy": "tbc"
+    },
+    "caption": {
+        "en": "Veterinary control",
+        "cy": "tbc"
+    },
+    "question": {
+        "en": "Which of the following applies to your goods?",
+        "cy": "Pa un o'r canlynol sy'n berthnasol i'ch nwyddau?"
     }
 }

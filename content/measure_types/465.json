@@ -7,5 +7,13 @@
     "sub_text": {
         "en": "You will need to do the following for your goods to circulate freely:",
         "cy": "Bydd angen i chi wneud y canlynol er mwyn i'ch nwyddau gylchredeg yn rhydd:"
+    },
+    "caption": {
+        "en": "Restriction on entry from {{ country }}",
+        "cy": "Cyfyngiad ar fynediad i gylchrediad rhydd"
+    },
+    "question": {
+        "en": "Which of the following applies to your goods?",
+        "cy": "Pa un o'r canlynol sy'n berthnasol i'ch nwyddau?"
     }
 }

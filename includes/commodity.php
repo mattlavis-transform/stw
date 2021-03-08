@@ -122,4 +122,36 @@ class commodity
             }
         }
     }
+
+    function get_questions($template, $question_index, $include = "AB", $measure_types = "")
+    {
+        global $app;
+        $app->certificate_count = 0;
+
+        switch ($template) {
+            case "quotas":
+                $output = $app->template_quotas_intro;
+                break;
+            case "certificates":
+                $output = $app->template_certificates_intro;
+                break;
+            case "prohibitions":
+                $output = $app->template_prohibitions_intro;
+                break;
+        }
+        $output = str_replace("{{ commodity }}", $app->commodity_code_formatted(), $output);
+        $output = str_replace("{{ country_description }}", $app->country_description, $output);
+
+        echo ($output);
+
+        foreach ($this->measures as $measure) {
+            if ($measure->relevant) { // Does it apply to the current country
+                if ($measure->valid_measure_type($include, $measure_types)) {
+                    $app->certificate_count++;
+                    $measure->get_measure_question();
+                    $measure->display_measure_question();
+                }
+            }
+        }
+    }
 }

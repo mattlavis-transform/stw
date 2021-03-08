@@ -3,5 +3,9 @@
     "step_description": "An Open Individual Licence (OIL) or Specific Individual Licence (SIL) is required to import firearms or nuclear material",
     "step_howto_description": "",
     "step_get_text": "See more about OILs and SILs",
-    "step_url": "https://www.gov.uk/import-controls"
+    "step_url": "https://www.gov.uk/import-controls",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

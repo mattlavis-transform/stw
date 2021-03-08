@@ -1,7 +1,11 @@
 {
     "step_original": "Other certificates: Certificate concerning pelts of certain wild animal species and of goods incorporating such pelts subject to Council Regulation (EEC) No 3254/91",
-    "step_description": "Other certificates: Certificate concerning pelts of certain wild animal species and of goods incorporating such pelts subject to Council Regulation (EEC) No 3254/91",
+    "step_description": "You must have a certificate to show the goods originate from a country that either:<br>- has rules in force to forbidding the use of leghold traps<br>- meets international humane trapping standards for wild animals",
     "step_howto_description": "",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

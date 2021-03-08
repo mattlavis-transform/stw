@@ -1,8 +1,12 @@
 {
     "step_original": "Phytosanitary Certificate (import)",
     "step_description": "a Phytosanitary Certificate (import)",
-    "step_howto_description": "",
+    "step_howto_description": "Lorem ipsum dolor sit amet consectetuer",
     "step_get_text": "Get your certificates here",
-    "step_url": "https://www.gov.uk/phytosanitary-certificate-england-scotland-wales"
+    "step_url": "https://www.gov.uk/phytosanitary-certificate-england-scotland-wales",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }
 

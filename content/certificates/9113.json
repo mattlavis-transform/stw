@@ -3,5 +3,9 @@
     "step_description": "Controlled Drugs Individual Licence",
     "step_howto_description": "Can't find any information abour this",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

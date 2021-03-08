@@ -3,7 +3,9 @@
     "step_description": "A VI2 document, which is an extract of the V11 certificate and analysis report",
     "step_howto_description": "A VI2 is used for the movement of Third Country wines when a consignment is split before entry into free circulation. This is issued by HM Revenue and Customs (HMRC). HMRC also supplies details about import and excise duty on wine. Contact HMRC for more information",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "You have a VI-2 document",
+    "question_option_hint_text": "VI-2 documents are needed for importing wine from a third country"
 }
 
 

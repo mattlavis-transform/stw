@@ -91,7 +91,8 @@ class measure_condition
         $this->threshold_unit = null;
         $this->requirement = str_replace("\u003c", "<", $this->requirement);
         $this->requirement = str_replace("\u003e", ">", $this->requirement);
-        $pattern = "~span title='(.+) '>.+</span> <abbr title='(.+)'>.+</abbr>~";
+        //$pattern = "~span title='(.+) '>.+</span> <abbr title='(.+)'>.+</abbr>~";
+        $pattern = "~span>(.+)</span> <abbr title='(.+)'>.+</abbr>~";
         preg_match($pattern, $this->requirement, $matches);
         if (count($matches) > 1) {
             $this->threshold_quantity = $matches[1];

@@ -7,5 +7,13 @@
     "sub_text": {
         "en": "You may need to take extra steps if your goods are organic:",
         "cy": "Efallai y bydd angen i chi gymryd camau ychwanegol os yw'ch nwyddau'n organig:"
+    },
+    "caption": {
+        "en": "Import control of organic products",
+        "cy": "Rheolau ar gyfer nwyddau organig"
+    },
+    "question": {
+        "en": "Which of the following applies to your goods?",
+        "cy": "Pa un o'r canlynol sy'n berthnasol i'ch nwyddau?"
     }
 }

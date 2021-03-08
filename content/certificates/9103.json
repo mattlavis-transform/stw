@@ -3,5 +3,9 @@
     "step_description": "Detonation resistance test (DRT) or HSE certificate of exemption",
     "step_howto_description": "Before importing goods that could be used for explosives, you will need to either undertake a Detonation Resistance Test (DRT) for your import or provide an HSE Certificate of Exemption.",
     "step_get_text": "See the HSE website for more information on importing explosives and exemptions",
-    "step_url": "https://www.hse.gov.uk/explosives/exemptions/index.htm"
+    "step_url": "https://www.hse.gov.uk/explosives/exemptions/index.htm",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

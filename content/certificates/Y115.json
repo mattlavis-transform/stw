@@ -3,5 +3,9 @@
     "step_description": "Particular provisions: Exemption from Authorization (Title VII) Article 2 point 5 and 8 of Regulation (EC) No 1907/2006 (REACH)",
     "step_howto_description": "",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

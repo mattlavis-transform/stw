@@ -3,5 +3,9 @@
     "step_description": "Other certificates: Form for granting or denying written consent, pursuant to article 4(1) of Regulation (EU) 2017/852 of the European Parliament and of the Council on mercury, to the import of mercury or of the mixtures of mercury listed in Annex I to that Regulation",
     "step_howto_description": "",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

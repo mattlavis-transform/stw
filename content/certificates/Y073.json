@@ -3,7 +3,11 @@
     "step_description": "Your goods are of EU origin and returning from Switzerland",
     "step_howto_description": "",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "Your goods are of EU origin and returning from Switzerland",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": "Y"
 }
 
 

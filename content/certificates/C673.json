@@ -3,5 +3,9 @@
     "step_description": "a Catch certificate",
     "step_howto_description": "",
     "step_get_text": "Find out more about getting a catch certificate",
-    "step_url": "https://www.gov.uk/guidance/create-a-uk-catch-certificate"
+    "step_url": "https://www.gov.uk/guidance/create-a-uk-catch-certificate",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

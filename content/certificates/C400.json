@@ -1,9 +1,13 @@
 {
     "step_original": "Presentation of the required 'CITES' certificate",
-    "step_description": "a CITES certificate",
+    "step_description": "You must apply for a CITES (Convention on International Trade in Endangered Species of Wild Fauna and Flora) certificate to bring your goods into the UK.",
     "step_howto_description": "Present the required 'CITES' certificate",
     "step_get_text": "See more about CITES certificates",
-    "step_url": "https://www.gov.uk/guidance/cites-imports-and-exports"
+    "step_url": "https://www.gov.uk/guidance/cites-imports-and-exports",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }
 
 

@@ -3,5 +3,9 @@
     "step_description": "an Information document accompanying shipments of waste as mentioned in Regulation (EC) No 1013/2006 (OJ L 190) – Article 18 and Annex VII ",
     "step_howto_description": "The following data is to be captured on the information document and signed by the person who arranges the shipment:<br><ul class='govuk-list govuk-list--bullet'><li>The person who arranges the shipment</li><li>The importer or consignee</li><li>Quantity of goods being shipped</li><li>Date of shipment</li><li>Details of all carriers involved</li><li>Waste generator</li><li>Description of waste & waste identification</li><li>Recovery operation & facility</li><li>Countries concerned</li></ul>",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

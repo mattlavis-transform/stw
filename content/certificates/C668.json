@@ -1,7 +1,11 @@
 {
     "step_original": "Other certificates: Certificate issued by the USA wet milling industry in accordance with Regulation (EC) No 1375/2007 before 7.3.2017",
-    "step_description": "Other certificates: Certificate issued by the USA wet milling industry in accordance with Regulation (EC) No 1375/2007 before 7.3.2017",
+    "step_description": "You must include a certificate issued by the USA wet milling industry when you import these goods.",
     "step_howto_description": "",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

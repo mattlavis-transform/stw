@@ -7,5 +7,13 @@
     "sub_text": {
         "en": "The effective control of chemicals used in the illicit manufacture of narcotic drugs and psychotropic substances is an important tool in combating drug trafficking. These chemicals, known as ‘precursors’, also have legitimate commercial uses as they are legally used in a wide variety of industrial processes and consumer products, such as medicines, flavourings and fragrances.<br><br><a target='_blank' href='https://www.gov.uk/guidance/precursor-chemical-licensing'>Find out more about importing chemical precursors</a> and <a target='_blank' href='https://www.gov.uk/guidance/data-element-23-documents-and-other-reference-codes-national-of-the-customs-declaration-service-cds'>how to complete your import declartion</a>.<br><br>There are two types of licence that you may use to import chemical precursors. You will need to provide one of these to import this commodity.",
         "cy": "TBC"
+    },
+    "caption": {
+        "en": "Home Office pre-cursor chemical authorisation",
+        "cy": "TBC"
+    },
+    "question": {
+        "en": "Which of the following applies to your goods?",
+        "cy": "Pa un o'r canlynol sy'n berthnasol i'ch nwyddau?"
     }
 }

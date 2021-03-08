@@ -3,5 +3,9 @@
     "step_description": "a Common Health Entry Document for Animals (CHED-A)",
     "step_howto_description": "The use of Common Health Entry Documents (CHEDs) is mandatory for the entry into the UK of animals and goods. The CHED-A is the Common Health Entry Document for consignments of animals.",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

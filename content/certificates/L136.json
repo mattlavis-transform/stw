@@ -1,7 +1,11 @@
 {
     "step_original": "Import certificate/licence/document: Goods, containing, or relying on, ozone-depleting substances, to be used as feedstock or for laboratory and analytical uses",
-    "step_description": "Import certificate/licence/document: Goods, containing, or relying on, ozone-depleting substances, to be used as feedstock or for laboratory and analytical uses",
+    "step_description": "You must have a licence to import ozone-depleting substances for either feedstock or laboratory and analytical uses into the UK.",
     "step_howto_description": "",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

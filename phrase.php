@@ -100,14 +100,15 @@ $app->page_title = $app->get_phrase("manage_trade") . " - " . $app->get_phrase("
                                         </div>
                                         <div id="before-you-import-content" class="govuk-accordion__section-content" aria-labelledby="before-you-import-heading">
                                             <?php
-                                            require("includes/dummy.php");
+                                            #require("includes/dummy.php");
                                             ?>
                                             <ul class="govuk-list">
                                                 <li>
                                                     <p class="govuk-body-m">
                                                         Before you start importing, you need to:
                                                         <br /><br />
-                                                        <a href="https://www.gov.uk/eori?step-by-step-nav=849f71d1-f290-4a8e-9458-add936efefc5" target="_blank">Get an EORI number</a><br><br />
+                                                        <a href="https://www.gov.uk/eori?step-by-step-nav=849f71d1-f290-4a8e-9458-add936efefc5" target="_blank">Get an EORI number</a><br>
+                                                        Lorem ipsum dolor sit amet<br><br />
                                                         <a href="https://www.gov.uk/vat-registration/when-to-register?step-by-step-nav=849f71d1-f290-4a8e-9458-add936efefc5" target="_blank">Check if you need to register for VAT</a>
                                                         <br /><br />
                                                         You can apply for simplified declaration procedures and for Authorised Economic Operator status. These are most suitable for businesses that import goods regularly.

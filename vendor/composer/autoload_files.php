@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'a8a49afccbd444323d4e56eac134e568' => $vendorDir . '/pflorek/php-basic-auth/src/functions.php',
+    '2fc203335b48834452e6c9e79fb1ddb9' => $vendorDir . '/me-io/php-lodash/src/__.php',
 );

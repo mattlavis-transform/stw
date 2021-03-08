@@ -3,5 +3,9 @@
     "step_description": "a Movement document for transboundary movements / shipments of waste",
     "step_howto_description": "<span class='authors_note'>Could list the fields needed here ...</span>",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

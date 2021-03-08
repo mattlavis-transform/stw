@@ -3,5 +3,7 @@
     "step_description": "a Certificate of Inspection for Organic products",
     "step_howto_description": "",
     "step_get_text": "Apply for a certificate of inspection",
-    "step_url": "https://www.google.com"
+    "step_url": "https://www.google.com",
+    "question_option_text": "Your goods are organic",
+    "question_option_hint_text": "Some hint text about organic"
 }

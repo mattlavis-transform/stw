@@ -1,7 +1,11 @@
 {
     "step_original": "Other certificates: Declaration of compliance (Annex IV of Regulation (EU) No 10/2011)",
-    "step_description": "Other certificates: Declaration of compliance (Annex IV of Regulation (EU) No 10/2011)",
+    "step_description": "You must have a 'declaration of compliance' certificate to show that the baby feeding bottles are made from a safe plastic.",
     "step_howto_description": "",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

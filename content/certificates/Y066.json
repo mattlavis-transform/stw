@@ -1,7 +1,11 @@
 {
     "step_original": "Particular provisions: Products which are not containing or consisting of betel leaves (‘Piper betle’)",
-    "step_description": "Particular provisions: Products which are not containing or consisting of betel leaves (‘Piper betle’)",
+    "step_description": "You must not import any food containing betel leaves (Piper Betle) from Bangladesh.<br>Betel leaves (also known as 'paan leaf' or ' or 'betel liquid') from Bangladesh can carry salmonella strains.<br>You must declare that your products do not contain betel leaves.",
     "step_howto_description": "",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

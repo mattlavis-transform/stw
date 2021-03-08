@@ -1,7 +1,11 @@
 {
     "step_original": "Other certificates: ICCAT bigeye tuna re-export certificate or IOTC bigeye tuna re-export certificate",
-    "step_description": "Other certificates: ICCAT bigeye tuna re-export certificate or IOTC bigeye tuna re-export certificate",
+    "step_description": "You must include an ICCAT bigeye tuna re-export certificate or IOTC bigeye tuna re-export certificate with your goods.",
     "step_howto_description": "",
     "step_get_text": "",
-    "step_url": ""
+    "step_url": "",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }

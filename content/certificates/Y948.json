@@ -3,7 +3,11 @@
     "step_description": "goods are not included in the scoope of the regulation",
     "step_howto_description": "",
     "step_get_text": "Will link once the UK version is here",
-    "step_url": "https://www.gov.uk"
+    "step_url": "https://www.gov.uk",
+    "question_option_text": "",
+    "question_option_hint_text": "",
+    "document_code_type_override": "",
+    "suppress": ""
 }
 
 
